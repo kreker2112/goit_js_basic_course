@@ -1,43 +1,60 @@
-'use strict';
+"use strict";
 
 let cost;
 
-let countryOfOrder=prompt('Введите страну доставки');
+let countryOfOrder = prompt("Введите страну доставки");
 
-const flsMsg=('В вашей стране доставка недоступна');
+const flsMsg = "В вашей стране доставка недоступна";
 
-const cnclMsg=('Заказ на доставку отменен!')
+const cnclMsg = "Заказ на доставку отменен!";
 
-console.log('Введено: ',countryOfOrder);
+console.log("Введено: ", countryOfOrder);
 
-if (countryOfOrder===null){
- alert(cnclMsg);
-}else{
-    switch (countryOfOrder.toLowerCase()){
-        case 'китай':
-            cost = 100;
-            break;
-    
-        case 'чили':
-            cost = 250;
-            break; 
-        case 'австралия':
-            cost = 170;
-            break;
-        
-        case 'ямайка':
-            cost = 120;
-            break;  
-    
-        default:
-            alert(flsMsg);
-    }
+if (countryOfOrder === null) {
+  alert(cnclMsg);
+} else {
+  switch (countryOfOrder.toLowerCase()) {
+    case "китай":
+      cost = 100;
+      break;
+
+    case "чили":
+      cost = 250;
+      break;
+    case "австралия":
+      cost = 170;
+      break;
+
+    case "ямайка":
+      cost = 120;
+      break;
+
+    default:
+      alert(flsMsg);
+  }
 }
 
 console.log(cost);
 
-if(cost!==undefined){
-    const apprvMsg=(`Доставка в ${countryOfOrder.toUpperCase()} будет стоить ${cost} кредитов`);
+if (cost !== undefined) {
+  const apprvMsg = `Доставка в ${countryOfOrder.toUpperCase()} будет стоить ${cost} кредитов`;
 
-    confirm(apprvMsg);
+  confirm(apprvMsg);
 }
+
+
+// Пользователь может оформить доставку товара к себе в страну, указав ее при посещении страницы в prompt. 
+// Учти, пользователь может ввести имя страны не только буквами нижнего регистра, а к примеру 'кИтАЙ'.
+
+// Напиши скрипт который выводит сообщение о стоимости доставки в указанную страну. 
+// Обязательно используй switch. Формат сообщения: 'Доставка в [страна] будет стоить [цена] кредитов'.
+
+// Но доставка есть не везде, если указанной страны нет в списке, то выводи в alert сообщение 'В вашей стране доставка не доступна'.
+
+// Ниже приведен список стран и стоимость доставки.
+
+//           - Китай - 100 кредитов
+//           - Чили - 250 кредитов
+//           - Австралия - 170 кредитов
+//           - Индия - 80 кредитов
+//           - Ямайка - 120 кредитов

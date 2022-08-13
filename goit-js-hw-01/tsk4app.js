@@ -1,46 +1,69 @@
-'use strict';
+"use strict";
 
-const credits = 23580;
+const clientCredits = 23580;
 
 const pricePerDroid = 3000;
 
-let ordrDrdQntty = prompt('Введите количество дроидов');
+let orderDroidQuantity = prompt("Введите количество дроидов");
 
-ordrDrdQntty = Number(ordrDrdQntty);
+orderDroidQuantity = Number(orderDroidQuantity);
 
-const isOrdrQnttyANmbr=ordrDrdQntty>=0;
+const isOrderQuantityACorrectNumber = orderDroidQuantity >= 0;
 
-console.log('Введено в промпт: ', isOrdrQnttyANmbr);
+const cancelMessage = "Cancelled by user!";
 
-if(isOrdrQnttyANmbr===false){
-    ordrDrdQntty = prompt('Введено неверные данные, введите, пожалуйста, количество дроидов');
-    ordrDrdQntty = Number(ordrDrdQntty);
+const totalPrice = pricePerDroid * orderDroidQuantity;
+
+const isOrderedInRange = totalPrice < clientCredits;
+
+const insufficientFunds = "Недостаточно средств на счету!";
+
+const cashBalance = clientCredits - totalPrice;
+
+const approveMessage = `Вы купили ${orderDroidQuantity} дроидов, на счету осталось ${cashBalance} кредитов. `;
+
+console.log("Заказано дроидов:", orderDroidQuantity);
+
+console.log("Сумма заказа:", totalPrice);
+
+console.log("Хватает ли денег на счету:", isOrderedInRange);
+
+console.log("Введено в промпт корректное значение: ", isOrderQuantityACorrectNumber);
+
+if (isOrderQuantityACorrectNumber === false) {
+    orderDroidQuantity = prompt(
+    "Введено неверные данные, введите, пожалуйста, количество дроидов"
+  );
+  orderDroidQuantity = Number(orderDroidQuantity);
 }
 
-const cnclMsg = ('Cancelled by user!');
 
-const ttlPrice = pricePerDroid*ordrDrdQntty;;
 
-const isOrderedInRange = ttlPrice < credits;
-
-const insffcntFnds = ('Недостаточно средств на счету!');
-
-const cashBlnc = credits - ttlPrice;
-
-const apprvMsg = `Вы купили ${ordrDrdQntty} дроидов, на счету осталось ${cashBlnc} кредитов. `;
-
-console.log('Заказано дроидов:', ordrDrdQntty);
-
-console.log('Сумма заказа:', ttlPrice);
-
-console.log('Хватает ли денег на счету:', isOrderedInRange);
-
-if (ordrDrdQntty===0){
-    alert (cnclMsg);
-}else if (isOrderedInRange===false) {
-    alert (insffcntFnds);
-}else if (isOrderedInRange===true) {
-    confirm (apprvMsg);
+if (orderDroidQuantity === 0) {
+  alert(cancelMessage);
+} else if (isOrderedInRange === false) {
+  alert(insufficientFunds);
+} else if (isOrderedInRange === true) {
+  confirm(approveMessage);
 }
 
-console.log('Остаток денег на счету:', cashBlnc);
+console.log("Остаток денег на счету:", cashBalance);
+
+
+
+
+// На счету пользователя есть 23580 кредитов, значение хранится в переменной credits (создай и присвой). 
+// Пользователь решает купить ремонтных дроидов, которые стоят по 3000 кредитов за штуку. 
+// Цена одного дроида хранится в переменной pricePerDroid (создай и присвой).
+
+//  При посещении страницы, используя prompt, необходимо спросить количество дроидов которые пользователь хочет купить и 
+// сохранить в переменную.
+
+// Напиши скрипт который:
+
+//  - Если в prompt была нажата кнопка Cancel, выводит в консоль сообщение 'Отменено пользователем!'.
+//  - В противном случае, рассчитывает общую цену заказа и сохраняет в переменной totalPrice.
+//  - Проверяет сможет ли пользователь оплатить заказ:
+//      - если сумма к оплате превышает количество кредитов на счету, выводи в консоль сообщение 'Недостаточно средств на счету!'.
+//      - в противном случае необходимо посчитать остаток кредитов на счету и 
+//        вывести сообщение 'Вы купили [число] дроидов, на счету осталось [число] кредитов.'.
