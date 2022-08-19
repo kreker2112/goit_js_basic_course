@@ -1,29 +1,65 @@
-'use strict';
+"use strict";
 
-const logItems = function(array){
-    console.log(array);
-    for (let i = 0; i < array.length; i += 1) {
-        const position = [i+1];
-        const element = array[i];
-        console.log(`${position} - ${element}`);
-        }
-}
+// =======================================================================
+// Вариант 1
 
-// Напиши функцию logItems(array), которая получает массив и использует цикл for, 
-// который для каждого элемента массива будет выводить в консоль сообщение в формате [номер элемента] - [значение элемента].
+// const calculateEngravingPrice = function (message, pricePerWord) {
+//     let totalPrice = 0;
+//     // console.log(message);
+//     // console.log(pricePerWord);
+//     const messageArray = message.split(" ");
+//     // console.log(messageArray);
+//     // console.log(messageArray.length);
+//     for (let words of messageArray){
+//             totalPrice += pricePerWord;
+//     }
+//     return totalPrice;
+//   }
 
-// Нумерация должна начинаться с 1. К примеру для первого элемента массива ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено 
-// '1 - Mango', а для индекса 2 выведет '3 - Ajax'.
+// ========================================================================
+// Вариант 2
 
-// const logItems = function(array) {
-//   // твой код
-// };
+// const calculateEngravingPrice = function (message, pricePerWord) {
+//   let totalPrice;
+//   console.log(message);
+//   console.log(pricePerWord);
+//   const messageArray = message.split(" ");
+//   console.log(messageArray);
+//   console.log(messageArray.length);
+//   totalPrice = messageArray.length * pricePerWord;
+//   return totalPrice;
+// }
+// =========================================================================
 
-// /*
-//  * Вызовы функции для проверки работоспособности твоей реализации.
-//  */
-// logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
+// Напиши скрипт подсчета стоимости гравировки украшений. Для этого создай функцию calculateEngravingPrice(message, pricePerWord)
+// принимающую строку (в строке будут только слова и пробелы) и цену гравировки одного слова, и возвращающую цену гравировки
+// всех слов в строке.
 
-// logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+// const calculateEngravingPrice = function(message, pricePerWord) {
+//     // твой код
+//   };
 
-//  Well Done 
+//   /*
+//    * Вызовы функции для проверки работоспособности твоей реализации.
+//    */
+// console.log(
+//   calculateEngravingPrice(
+//     "Proin sociis natoque et magnis parturient montes mus",
+//     10
+//   )
+// ); // 80
+
+//   console.log(
+//     calculateEngravingPrice(
+//       'Proin sociis natoque et magnis parturient montes mus',
+//       20,
+//     ),
+//   ); // 160
+
+//   console.log(
+//     calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+//   ); // 240
+
+//   console.log(
+//     calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+//   ); // 120
