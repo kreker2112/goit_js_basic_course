@@ -26,4 +26,4 @@ const logItems = function(array){
 
 // logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
 
-//  Well Done 
+//  Well Done!
