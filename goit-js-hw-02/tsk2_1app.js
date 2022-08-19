@@ -1,19 +1,19 @@
 'use strict';
 
 const logItems = function(array){
-    console.log(arguments);
-    for (let i = 0; i < arguments.length; i += 1) {
-        console.log(arguments[i]);
-       
-    }
+    console.log(array);
+    for (let i = 0; i < array.length; i += 1) {
+        const position = [i+1];
+        const element = array[i];
+        console.log(`${position} - ${element}`);
+        }
 }
 
-logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
+// Напиши функцию logItems(array), которая получает массив и использует цикл for, 
+// который для каждого элемента массива будет выводить в консоль сообщение в формате [номер элемента] - [значение элемента].
 
-
-// Напиши функцию logItems(array), которая получает массив и использует цикл for, который для каждого элемента массива будет выводить в консоль сообщение в формате [номер элемента] - [значение элемента].
-
-// Нумерация должна начинаться с 1. К примеру для первого элемента массива ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено '1 - Mango', а для индекса 2 выведет '3 - Ajax'.
+// Нумерация должна начинаться с 1. К примеру для первого элемента массива ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено 
+// '1 - Mango', а для индекса 2 выведет '3 - Ajax'.
 
 // const logItems = function(array) {
 //   // твой код
@@ -25,3 +25,5 @@ logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
 // logItems(['Mango', 'Poly', 'Ajax', 'Lux', 'Jay', 'Kong']);
 
 // logItems([5, 10, 15, 20, 25, 30, 35, 40, 45, 50]);
+
+//  Well Done 
