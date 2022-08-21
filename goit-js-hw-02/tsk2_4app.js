@@ -16,9 +16,8 @@ const formatString = function (string) {
     message = string.slice(0, 40) + rest;
   }
   console.log(message.length);
-  return console.log(message);
+  return message;
 };
-
 
 // /*
 //  * Вызовы функции для проверки работоспособности твоей реализации.
