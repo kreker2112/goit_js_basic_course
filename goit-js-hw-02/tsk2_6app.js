@@ -52,7 +52,7 @@ console.log("numbers array after cycle: ", numbers);
 
 for (let number of numbers) {
   number = Number(number);
-  total = total + number;
+  total += number;
 }
 
 if (total != 0) {
