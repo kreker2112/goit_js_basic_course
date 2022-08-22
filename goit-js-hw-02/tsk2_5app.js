@@ -6,13 +6,9 @@
 // Слова в строке могут быть в произвольном регистре.
 
 const checkForSpam = function (message) {
-    const spamArray = ['SPAM'];
-    const saleArray = ['SPAM'];
     console.log(message);
-    console.log(typeof message);
     const messageInLowerCase = message.toLowerCase();
     console.log(messageInLowerCase);
-    console.log(typeof message);
     const includesSpam = messageInLowerCase.includes('spam' && 'sale' && ['SPAM'] && ['SALE']);
     return includesSpam;
 };
