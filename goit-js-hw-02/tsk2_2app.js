@@ -1,20 +1,20 @@
 "use strict";
 
 // =======================================================================
-Вариант 1
+// Вариант 1
 
-// const calculateEngravingPrice = function (message, pricePerWord) {
-//     let totalPrice = 0;
-//     // console.log(message);
-//     // console.log(pricePerWord);
-//     const messageArray = message.split(" ");
-//     // console.log(messageArray);
-//     // console.log(messageArray.length);
-//     for (let words of messageArray){
-//             totalPrice += pricePerWord;
-//     }
-//     return totalPrice;
-//   }
+const calculateEngravingPrice = function (message, pricePerWord) {
+    let totalPrice = 0;
+    // console.log(message);
+    // console.log(pricePerWord);
+    const messageArray = message.split(" ");
+    // console.log(messageArray);
+    // console.log(messageArray.length);
+    for (let words of messageArray){
+            totalPrice += pricePerWord;
+    }
+    return totalPrice;
+  }
 
 // ========================================================================
 // Вариант 2
@@ -42,24 +42,24 @@
 //   /*
 //    * Вызовы функции для проверки работоспособности твоей реализации.
 //    */
-// console.log(
-//   calculateEngravingPrice(
-//     "Proin sociis natoque et magnis parturient montes mus",
-//     10
-//   )
-// ); // 80
+console.log(
+  calculateEngravingPrice(
+    "Proin sociis natoque et magnis parturient montes mus",
+    10
+  )
+); // 80
 
-//   console.log(
-//     calculateEngravingPrice(
-//       'Proin sociis natoque et magnis parturient montes mus',
-//       20,
-//     ),
-//   ); // 160
+  console.log(
+    calculateEngravingPrice(
+      'Proin sociis natoque et magnis parturient montes mus',
+      20,
+    ),
+  ); // 160
 
-//   console.log(
-//     calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
-//   ); // 240
+  console.log(
+    calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+  ); // 240
 
-//   console.log(
-//     calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
-//   ); // 120
+  console.log(
+    calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+  ); // 120
