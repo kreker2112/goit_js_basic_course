@@ -1,7 +1,7 @@
 "use strict";
 
 // =======================================================================
-// Вариант 1
+Вариант 1
 
 // const calculateEngravingPrice = function (message, pricePerWord) {
 //     let totalPrice = 0;

@@ -17,7 +17,7 @@
 // };
 
 // =============================================================================
-// Вариант 2
+Вариант 2
 
 // const findLongestWord = function (string) {
 //   const wordsArray = string.split(" ");

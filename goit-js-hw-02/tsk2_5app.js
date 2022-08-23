@@ -9,7 +9,7 @@ const checkForSpam = function (message) {
     console.log(message);
     const messageInLowerCase = message.toLowerCase();
     console.log(messageInLowerCase);
-    const includesSpam = messageInLowerCase.includes('spam' && 'sale' && ['SPAM'] && ['SALE']);
+    const includesSpam = messageInLowerCase.includes('spam' || 'sale');
     return includesSpam;
 };
 
