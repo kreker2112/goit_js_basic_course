@@ -16,11 +16,11 @@ const user = {
 
 console.table(user);
 
-const key = "mood";
+// const key = "mood";
 
-const value = "happy";
+// const value = "happy";
 
-user[key] = value;
+user["mood"] = "happy";
 
 console.table(user);
 
