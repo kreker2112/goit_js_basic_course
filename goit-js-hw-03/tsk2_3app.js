@@ -3,8 +3,7 @@
 // Напиши функцию countProps(obj), считающую кол-во свойств в объекте. Функция возвращает число - количество свойств.
 
 const countProps = function (obj) {
-  const keys = Object.keys(obj);
-  return keys.length;
+    return Object.keys(obj).length;
 };
 
 // /*
