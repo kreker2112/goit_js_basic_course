@@ -16,10 +16,6 @@ const user = {
 
 console.table(user);
 
-// const key = "mood";
-
-// const value = "happy";
-
 user["mood"] = "happy";
 
 console.table(user);

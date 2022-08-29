@@ -9,8 +9,7 @@ const findBestEmployee = function (employees) {
   const bestStat = Math.max(...Object.values(employees));
   let bestEmployee;
   for (const key of statsArray) {
-    const employeeStat = employees[key];
-    if (employeeStat === bestStat) {
+    if (employees[key] === bestStat) {
       bestEmployee = key;
     }
   }
