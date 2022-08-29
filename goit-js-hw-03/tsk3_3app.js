@@ -1,11 +1,20 @@
 "use strict";
 
-// Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и возвращает имя самого продуктивного 
-// (который выполнил больше всех задач). Сотрудники и кол-во выполненых задач содержатся как свойства объекта в формате 
+// Напиши функцию findBestEmployee(employees), которая принимает объект сотрудников и возвращает имя самого продуктивного
+// (который выполнил больше всех задач). Сотрудники и кол-во выполненых задач содержатся как свойства объекта в формате
 // "имя":"кол-во задач".
 
-const findBestEmployee = function(employees) {
-  // твой код
+const findBestEmployee = function (employees) {
+  const statsArray = Object.keys(employees);
+  const bestStat = Math.max(...Object.values(employees));
+  let bestEmployee;
+  for (const key of statsArray) {
+    const employeeStat = employees[key];
+    if (employeeStat === bestStat) {
+      bestEmployee = key;
+    }
+  }
+  return `Best employee is ${bestEmployee} with ${bestStat} successful tasks`;
 };
 
 /*
@@ -17,7 +26,7 @@ console.log(
     david: 35,
     helen: 1,
     lorence: 99,
-  }),
+  })
 ); // lorence
 
 console.log(
@@ -25,7 +34,7 @@ console.log(
     poly: 12,
     mango: 17,
     ajax: 4,
-  }),
+  })
 ); // mango
 
 console.log(
@@ -34,5 +43,5 @@ console.log(
     david: 21,
     kiwi: 19,
     chelsy: 38,
-  }),
+  })
 ); // lux
