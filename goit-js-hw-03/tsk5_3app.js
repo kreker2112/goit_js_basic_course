@@ -10,18 +10,30 @@ const products = [
   { name: "Захват", price: 1200, quantity: 2 },
 ];
 
+// Вариант 1
+
+// const getAllPropValues = function (arr, prop) {
+//   let propValues = [];
+//   for (const product of products) {
+//     const productPropertiesArray = Object.keys(product);
+//     for (const propertie of productPropertiesArray) {
+//       if (propertie === prop) {
+//         propValues.push(product[propertie]);
+//       }
+//     }
+//   }
+//   return propValues;
+// };
+
+// Вариант 2
+
 const getAllPropValues = function (arr, prop) {
-  let propValues = [];
-  for (const product of products) {
-    const productPropertiesArray = Object.keys(product);
-    for (const propertie of productPropertiesArray) {
-      if (propertie === prop) {
-        propValues.push(product[propertie]);
-      }
+    let propValues = [];
+    for (const product of products) {
+      propValues.push(product[prop])
     }
-  }
-  return propValues;
-};
+    return propValues;
+  };
 
 /*
  * Вызовы функции для проверки работоспособности твоей реализации.
