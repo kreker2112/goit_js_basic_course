@@ -25,7 +25,7 @@ const products = [
 //   return propValues;
 // };
 
-// Вариант 2
+// Вариант 2 (Правильный)
 
 const getAllPropValues = function (arr, prop) {
     let propValues = [];
