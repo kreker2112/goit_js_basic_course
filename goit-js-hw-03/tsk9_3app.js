@@ -17,41 +17,42 @@ const names = [
 
 const prices = [1000, 2000, 1500, 2700, 1600, 8000];
 
-const combine = function (names, prices) {
-  const productsArr = [];
-  for (let i = 0; i < names.length; i += 1) {
-    const productObj = {
-      name: names[i],
-      price: prices[i],
-    };
-    productsArr.push(productObj);
-  }
-  return productsArr;
-};
-
-const products = combine(names, prices);
-
-console.table(products);
-
-// Вернуть объект всех продуктов со свойствами name: price
-
 // const combine = function (names, prices) {
-//   let propName;
-//   let price;
-//   let productObj;
+//   const productsArr = [];
 //   for (let i = 0; i < names.length; i += 1) {
-//     propName = names[i];
-//     price = prices[i];
-//     console.log(propName, price);
-//     productObj = {
-//       [propName]: price,
+//     const productObj = {
+//       name: names[i],
+//       price: prices[i],
 //     };
-//     console.log(productObj);
+//     productsArr.push(productObj);
 //   }
-
-//   return productObj;
+//   return productsArr;
 // };
 
 // const products = combine(names, prices);
 
 // console.table(products);
+
+// Вернуть объект всех продуктов со свойствами name: price
+
+const combine = function (names, prices) {
+  let propName;
+  let price;
+  let allproductObj = {
+    [propName]: price,
+  };
+  for (let i = 0; i < names.length; i += 1) {
+    propName = names[i];
+    price = prices[i];
+    console.log(propName, price);
+    allproductObj = {
+      [propName]: price,
+    };
+  }
+
+  return allproductObj;
+};
+
+const products = combine(names, prices);
+
+console.table(products);
