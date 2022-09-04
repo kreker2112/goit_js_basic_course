@@ -45,4 +45,4 @@ const combine = function (names, prices) {
 
 const products = combine(names, prices);
 
-console.log(products);
+console.table(products);
