@@ -36,23 +36,13 @@ const prices = [1000, 2000, 1500, 2700, 1600, 8000];
 // Вернуть объект всех продуктов со свойствами name: price
 
 const combine = function (names, prices) {
-  let propName;
-  let price;
-  let allproductObj = {
-    [propName]: price,
-  };
+    let allproductObj = {};
   for (let i = 0; i < names.length; i += 1) {
-    propName = names[i];
-    price = prices[i];
-    console.log(propName, price);
-    allproductObj = {
-      [propName]: price,
-    };
+    allproductObj[names[i]] = prices[i] 
   }
-
   return allproductObj;
 };
 
 const products = combine(names, prices);
 
-console.table(products);
+console.log(products);
