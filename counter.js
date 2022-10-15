@@ -15,6 +15,8 @@ Counter.prototype.decrement = function () {
 
 const counter = new Counter({ initialValue: 10, step: 5 });
 
+console.log(counter);
+
 const counterValueField = document.querySelector(".js-counter-value");
 const incrementBtn = document.querySelector('button[data-action="increment"]');
 const decrementBtn = document.querySelector('button[data-action="decrement"]');
