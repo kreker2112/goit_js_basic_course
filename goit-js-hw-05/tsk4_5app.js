@@ -27,8 +27,6 @@ StringBuilder.prototype.pad = function (padder) {
 
 const builder = new StringBuilder(".");
 
-console.log(builder);
-
 builder.append("^");
 console.log(builder.value); // '.^'
 
