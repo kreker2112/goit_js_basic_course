@@ -9,22 +9,6 @@
 // addItem(item) - получает новый товар и добавляет его к текущим
 // removeItem(item) - получет товар и, если он есть, удаляет его из текущих
 
-// const Storage = function (items) {
-//   this.items = items;
-// };
-
-// Storage.prototype.getItems = function () {
-//   return this.items;
-// };
-
-// Storage.prototype.addItem = function (item) {
-//  return this.items.push(item);
-// };
-
-// Storage.prototype.removeItem = function (itemName) {
-//   this.items = this.items.filter((item) => item !== itemName);
-//  };
-
 class Storage {
   constructor(items) {
     this.items = items
