@@ -9,21 +9,36 @@
 // addItem(item) - получает новый товар и добавляет его к текущим
 // removeItem(item) - получет товар и, если он есть, удаляет его из текущих
 
-const Storage = function (items) {
-  this.items = items;
-};
+// const Storage = function (items) {
+//   this.items = items;
+// };
 
-Storage.prototype.getItems = function () {
-  return this.items;
-};
+// Storage.prototype.getItems = function () {
+//   return this.items;
+// };
 
-Storage.prototype.addItem = function (item) {
- return this.items.push(item);
-};
+// Storage.prototype.addItem = function (item) {
+//  return this.items.push(item);
+// };
 
-Storage.prototype.removeItem = function (itemName) {
-  this.items = this.items.filter((item) => item !== itemName);
- };
+// Storage.prototype.removeItem = function (itemName) {
+//   this.items = this.items.filter((item) => item !== itemName);
+//  };
+
+class Storage {
+  constructor(items) {
+    this.items = items
+  }
+  getItems() {
+    return this.items;;
+  }
+  addItem(item){
+    return this.items.push(item);
+  }
+  removeItem(itemName){
+    this.items = this.items.filter((item) => item !== itemName);
+  }
+}
 
 const storage = new Storage([
   "Нанитоиды",
@@ -32,7 +47,7 @@ const storage = new Storage([
   "Антигравитатор",
 ]);
 
-console.log(storage);
+console.table(storage);
 
 const items = storage.getItems();
 console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]

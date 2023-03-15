@@ -9,21 +9,23 @@
 //  - Метод prepend(str) - получает парметр str (строку) и добавляет ее в начало value
 //  - Метод pad(str) - получает парметр str (строку) и добавляет ее в начало и в конец _value
 
-const StringBuilder = function (string) {
-  this.value = string;
-};
-
-StringBuilder.prototype.append = function (appender) {
-  this.value = this.value + appender;
-};
-
-StringBuilder.prototype.prepend = function (prepender) {
-  this.value = prepender + this.value;
-};
-
-StringBuilder.prototype.pad = function (padder) {
-  this.value = padder + this.value + padder;
-};
+class StringBuilder {
+  constructor(value) {
+    this._value = value;
+  }
+  get value() {
+    return this._value;
+  }
+  append(str) {
+    this._value = this._value + str;
+  }
+  prepend(str) {
+    this._value = str + this._value;
+  }
+  pad(str) {
+    this._value = str + this.value + str;
+  }
+}
 
 const builder = new StringBuilder(".");
 

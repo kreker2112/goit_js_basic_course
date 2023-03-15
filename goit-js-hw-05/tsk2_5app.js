@@ -7,14 +7,15 @@
 // followers - число
 // Добавь метод getInfo(), который, выводит строку: User ${имя} is ${возраст} years old and has ${кол-во фоловеров} followers
 
-const User = function ({name, age, followers}) {
-  this.name = name;
-  this.age = age;
-  this.followers = followers;
-}
-
-User.prototype.getInfo = function () {
-  alert(`User ${this.name} is ${this.age} years old and has ${this.followers} followers`);
+class User {
+  constructor({name, age, followers}) {
+    this.name = name;
+    this.age = age;
+    this.followers = followers;
+  }
+  getInfo() {
+    alert(`User ${this.name} is ${this.age} years old and has ${this.followers} followers`);
+  }
 }
 
 const mango = new User({
