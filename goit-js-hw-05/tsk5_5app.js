@@ -8,7 +8,15 @@ class Car {
    * который принимает объект-машину как параметр и выводит
    * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
    */
-static getSpecs(car){};
+  static getSpecs(car) {
+    // let maxSpeed = car.maxSpeed;
+    // let speed = car.speed;
+    // let isOn = car.isOn;
+    // let distance = car.distance;
+    // let price = car.price;
+    // let specs = `maxSpeed:${maxSpeed}, speed:${speed}, isOn:${isOn}, distance:${distance}, price:${price}`;
+    // return console.log(specs);
+  }
 
   /*
    * Конструктор получает объект настроек.
