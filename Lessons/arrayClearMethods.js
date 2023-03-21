@@ -8,10 +8,10 @@ const products = [
   { id: "id-3", label: "Lemons", price: 70, quantity: 30 },
 ];
 const users = [
-  { id: "id-1", name: "Mango", isActive: true },
-  { id: "id-2", name: "Poly", isActive: false },
-  { id: "id-3", name: "Ajax", isActive: true },
-  { id: "id-4", name: "Chelsey", isActive: false },
+  { id: "id-1", name: "Mango", isActive: true, rank: 800 },
+  { id: "id-2", name: "Poly", isActive: false, rank: 600 },
+  { id: "id-3", name: "Ajax", isActive: true, rank: 100 },
+  { id: "id-4", name: "Chelsey", isActive: false, rank: 400 },
 ];
 
 const log = (array) => console.table(array);
@@ -258,33 +258,22 @@ const log = (array) => console.table(array);
   // Reduce
   //   *
   //   */
-
   // const total = numbers.reduce((accumulator, number) => {
   //   return accumulator + number;
   // }, 0);
-
   // log(total);
-
   // ==============================
-
   // const salary = {
   //   mango: 100,
   //   poly: 50,
   //   ajax: 150,
   // };
-
   // const total = Object.values(salary).reduce((acc, value) => acc+ value, 0);
-
   // log(total)
-
   // ==============================
-
   // const totalQuantity = products.reduce((total, product) => total + product.quantity, 0);
-
   // log(totalQuantity);
-
   // ==============================
-
   // const tweets = [
   //   { id: '000', likes: 5, tags: ['js', 'nodejs']},
   //   { id: '001', likes: 2, tags: ['html', 'css']},
@@ -292,13 +281,153 @@ const log = (array) => console.table(array);
   //   { id: '003', likes: 8, tags: ['css', 'react']},
   //   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react']},
   // ];
-
   // const tags = tweets.reduce((acc, tweet) => {
   //   acc.push(...tweet.tags);
-
   //   return acc;
   // }, []);
-
   // log(tags);
+}
 
+// forEach
+
+{
+  // forEach
+  //   *
+  //   */
+  // Замена метода перебора массива "for" только в декларативной форме
+  // for (let i = 0; i < users.length; i +=1) {
+  //   log(users[i]);
+  // };
+  // users.forEach(user => {
+  //   log(users);
+  // });
+}
+
+// Sort
+
+{
+  // Sort
+  //   *
+  //   */
+  // Для сортировки массива (мутирует оригинал). Чтобы не изменять массив, стоит сначала сделать его копию с распылением,
+  // и потом применять метод.
+  // --------------------------------
+  // С простым массивом:
+  // const unsortedNumbers = [2,5,1,3,4];
+  // const copy = [...unsortedNumbers];
+  // copy.sort();
+  // log(unsortedNumbers);
+  // log(copy);
+  // ----------------------------------
+  // С массивом объектов
+  // const sortedUsers = [...users].sort((prev, next) => {
+  //   // По возрастанию
+  //   // return prev.rank - next.rank;
+  //   // По убыванию
+  //   // return next.rank - prev.rank;
+  // });
+  // log(sortedUsers);
+}
+
+// Как работает Filter под капотом:
+
+{
+  // const filter = (array, callback) => {
+  //   const filteredArray = [];
+  //   for (let i = 0; i < array.length; i += 1) {
+  //     const passed = callback(array[i]);
+  //     if(passed) {
+  //     filteredArray.push(array[i]);
+  //     }
+  //   }
+  //   return filteredArray;
+  // }
+  // log(filter(numbers, number => number > 2));
+  // log(filter(numbers, number => number < 3));
+  // }
+}
+// Как работает Find под капотом:
+
+{
+  // const find = (array, callback) => {
+  //   for (let i = 0; i < array.length; i += 1) {
+  //     const passed = callback(array[i], i, array);
+  //     if (passed) {
+  //       return array[i];
+  //     }
+  //   }
+  // };
+  // log(find(numbers, (number) => number > 2));
+  // log(find(numbers, (number) => number < 3));
+  // log(find(users, (user) => user.id === 'id-2'));
+}
+
+// Как работает Reduce под капотом:
+
+{
+  // const reduce = (array, callback, initialValue = array[0]) => {
+  //   let accumulator = initialValue;
+  //   for (let i = 0; i < array.length; i += 1) {
+  //     accumulator = callback(accumulator, array[i]);
+  //   }
+  //   return accumulator;
+  // };
+  // const total = reduce(numbers, (acc, num) => acc + num, 0);
+  // log(total);
+  // const totalQuantity = reduce(
+  //   products,
+  //   (acc, product) => acc + product.quantity,
+  //   0
+  // );
+  // log(totalQuantity);
+}
+
+// Как добавить метод или свойство в прототип (ТАК ДЕЛАТЬ НЕ НАДО!!!!) (Только для примера на собесе о
+// понимании как работает прототипное наследование)
+
+{
+  // Array.prototype.customReduce = function (callback, initialValue = array[0]) {
+  //   let accumulator = initialValue;
+  //   for (let i = 0; i < this.length; i += 1) {
+  //     accumulator = callback(accumulator, this[i]);
+  //   }
+  //   return accumulator;
+  // };
+  // console.log([]);
+  // log([1, 2, 3, 4, 5].customReduce((acc, num) => acc + num, 0));
+}
+
+// Как работают цепочки вызовов методов массива
+
+{
+  // const newNumbers = [1, 5, 2, 4, 3];
+
+  // const greaterThenTwo = newNumbers.filter((num) => num > 2);
+
+  // log(greaterThenTwo);
+
+  // const multByTwo = greaterThenTwo.map((num) => num * 2);
+
+  // log(multByTwo);
+
+  // const sorted = multByTwo.sort((a, b) => a - b);
+
+  // log(sorted);
+
+  // Вместо этого можно записать цепочку вызовов методов
+
+  // const result = newNumbers
+  //   .filter((num) => num > 2)
+  //   .map((num) => num * 2)
+  //   .sort((a, b) => a - b);
+
+  // log(result);
+
+  // // К примеру сортировка юзеров по рангу
+
+  // const onlineAndSorted = users
+  //   .filter((user) => user.isActive)
+  //   .sort((prevUser, nextUser) => prevUser.rank - nextUser.rank);
+
+  // log(onlineAndSorted);
 }
