@@ -285,20 +285,20 @@ const log = (array) => console.table(array);
 
   // ==============================
 
-  const tweets = [
-    { id: '000', likes: 5, tags: ['js', 'nodejs']},
-    { id: '001', likes: 2, tags: ['html', 'css']},
-    { id: '002', likes: 17, tags: ['html', 'js', 'nodejs']},
-    { id: '003', likes: 8, tags: ['css', 'react']},
-    { id: '004', likes: 0, tags: ['js', 'nodejs', 'react']},
-  ];
+  // const tweets = [
+  //   { id: '000', likes: 5, tags: ['js', 'nodejs']},
+  //   { id: '001', likes: 2, tags: ['html', 'css']},
+  //   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs']},
+  //   { id: '003', likes: 8, tags: ['css', 'react']},
+  //   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react']},
+  // ];
 
-  const tags = tweets.reduce((acc, tweet) => {
-    acc.push(...tweet.tags);
+  // const tags = tweets.reduce((acc, tweet) => {
+  //   acc.push(...tweet.tags);
 
-    return acc;
-  }, []);
+  //   return acc;
+  // }, []);
 
-  log(tags);
+  // log(tags);
 
 }
