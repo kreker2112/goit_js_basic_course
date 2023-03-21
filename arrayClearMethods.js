@@ -16,7 +16,10 @@ const users = [
 
 const log = (array) => console.table(array);
 
-{ // map
+// Map
+
+{
+  // map
   //   *map
   //   */
   // ===========================================================
@@ -25,18 +28,14 @@ const log = (array) => console.table(array);
   // const doubled = numbers.map((number) => {
   //   return number * 2;
   // });
-
   // log(numbers);
-
   // log(doubled);
-
   // ===========================================================
   // // Создание нового массива со значением одинакового свойства из предыдущего массива
   // ===========================================================
   // const labels = products.map((product) => {
   //   return product.label;
   // });
-
   // log(labels);
   // -----------------------------------------------------------
   // То же самое, но через функцию:
@@ -50,9 +49,7 @@ const log = (array) => console.table(array);
   // Но всегда пишется так:
   // -----------------------------------------------------------
   // const getLabels = products => products.map(product => product.label);
-
   // const labels = getLabels(products);
-
   // log(labels);
   // ===========================================================
   // // Создание нового массива на базе оригинального с изменением свойства
@@ -63,7 +60,6 @@ const log = (array) => console.table(array);
   //     price: product.price * 1.1,
   //   };
   // });
-
   // log(updatedProducts);
   // -----------------------------------------------------------
   // То же самое, но через функцию:
@@ -76,9 +72,7 @@ const log = (array) => console.table(array);
   //       };
   //     });
   // }
-  
   // const updateProducts = updateAllProductPrice(products, 1.3);
-
   // log(updateProducts);
   // -----------------------------------------------------------
   // Но всегда пишется так:
@@ -88,9 +82,7 @@ const log = (array) => console.table(array);
   //     ...product,
   //     price: product.price * value,
   // }));
-
   // const updateProducts = updateAllProductPrice(products, 1.3);
-
   // log(updateProducts);
   // ===========================================================
   // map по условию
@@ -102,28 +94,29 @@ const log = (array) => console.table(array);
   //       : product;
   //   });
   // };
-
   // const updated = updateProductQuantity(products, "id-3", 50);
-
   // log(products);
-
   // log(updated);
 }
-{ // filter
+
+// Filter
+
+{
+  // filter
   //   *filter
   //   */
   // Создает новый массив фильтруя базовый по соответствию условию true/false (добавляет/не добавляет)
-  // 
+  //
   // const filtered = numbers.filter(number => {
   //   return number < 3;
   // });
-  // 
+  //
   // log(filtered);
-  // 
+  //
   // const cheapProduct = products.filter(product => {
   //   return product.price < 100;
   // });
-  // 
+  //
   // log(cheapProduct);
   // ------------------------------------------------
   //  То же но через функцию
@@ -133,31 +126,25 @@ const log = (array) => console.table(array);
   //       return product.price < price;
   //     });
   // };
-
   // const cheapProduct = getProductWithPrice(products, 120);
-
   // log(cheapProduct);
-
   // =================================================
-
   // const getProductsWithQuantity = (products, quantity) => {
   //   return products.filter(product => {
   //     return product.quantity > quantity;
   //   });
   // };
-
   // const availableProducts = getProductsWithQuantity(products, 40);
-
   // log(availableProducts);
-  // 
+  //
   // =================================================
-  // 
+  //
   // const activeUsers = users.filter(user => {
   //   return user.isActive;
   // });
-  // 
+  //
   // log(activeUsers);
-  // 
+  //
   // ------------------------------------------------
   //  То же но через функцию
   // ------------------------------------------------
@@ -166,16 +153,14 @@ const log = (array) => console.table(array);
   //       return user.isActive;
   //     });
   // }
-
   // const activeUsers = getActiveUsers(users);
-
   // log(activeUsers);
   // =================================================
-  // 
+  //
   // const inactiveUsers = users.filter(user => {
   //   return !user.isActive;
   // });
-  // 
+  //
   // log(inactiveUsers);
   // ------------------------------------------------
   //  То же но через функцию
@@ -185,15 +170,14 @@ const log = (array) => console.table(array);
   //       return !user.isActive;
   //     });
   // }
-
   // const InactiveUsers = getInActiveUsers(users);
-
   // log(InactiveUsers);
-  
-  
-
 }
-{ //  find
+
+// Find
+
+{
+  //  find
   //  * find
   //  */
   // Поиск позиции в массиве по id (зачастую) и создание объекта с его свойствами
@@ -204,17 +188,25 @@ const log = (array) => console.table(array);
   // -------------------------------------------------
   //  То же но через функцию
   // -------------------------------------------------
-
   // const findUsersById = (users, id) => {
   //   return users.find (user => {
   //       return user.id === id;
   //     });
   // };
   // const user = findUsersById(users, 'id-1');
-
+  // log(user);
+  // -------------------------------------------------
+  //  То же но в одну строку
+  // -------------------------------------------------
+  // const findUsersById = (users, id) => users.find (user => user.id === id);
+  // const user = findUsersById(users, 'id-1');
   // log(user);
 }
-{ // every и some
+
+// every и some
+
+{
+  // every и some
   //   *every и some
   //   */
   // const isAllUsersActive = users.every(user => {
@@ -225,4 +217,88 @@ const log = (array) => console.table(array);
   //   return user.isActive;
   // });
   // log(isSomeUsersActive);
+}
+
+// В методах объекта
+
+{
+  // В методах объекта
+  //   *
+  //   */
+  // const storage = {
+  //   currentId: 1,
+  //   _items: [
+  //     { id: 0, label: "item-1" },
+  //     { id: 1, label: "item-2" },
+  //   ],
+  //   get items() {
+  //     return this._items;
+  //   },
+  //   add(item) {
+  //     this._items = [...this._items, { id: ++this.currentId, ...item }];
+  //   },
+  //   updateLabel(id, label) {
+  //     this._items = this._items.map((item) =>
+  //       item.id === id ? { ...item, label } : item
+  //     );
+  //   },
+  //   delete(id) {
+  //     this._items = this._items.filter(item => item.id !== id);
+  //   },
+  // };
+  // storage.add({ label: "item-3" });
+  // storage.updateLabel(1, "updated label");
+  // storage.delete(0);
+  // log(storage.items);
+}
+
+// Reduce
+
+{
+  // Reduce
+  //   *
+  //   */
+
+  // const total = numbers.reduce((accumulator, number) => {
+  //   return accumulator + number;
+  // }, 0);
+
+  // log(total);
+
+  // ==============================
+
+  // const salary = {
+  //   mango: 100,
+  //   poly: 50,
+  //   ajax: 150,
+  // };
+
+  // const total = Object.values(salary).reduce((acc, value) => acc+ value, 0);
+
+  // log(total)
+
+  // ==============================
+
+  // const totalQuantity = products.reduce((total, product) => total + product.quantity, 0);
+
+  // log(totalQuantity);
+
+  // ==============================
+
+  const tweets = [
+    { id: '000', likes: 5, tags: ['js', 'nodejs']},
+    { id: '001', likes: 2, tags: ['html', 'css']},
+    { id: '002', likes: 17, tags: ['html', 'js', 'nodejs']},
+    { id: '003', likes: 8, tags: ['css', 'react']},
+    { id: '004', likes: 0, tags: ['js', 'nodejs', 'react']},
+  ];
+
+  const tags = tweets.reduce((acc, tweet) => {
+    acc.push(...tweet.tags);
+
+    return acc;
+  }, []);
+
+  log(tags);
+
 }
