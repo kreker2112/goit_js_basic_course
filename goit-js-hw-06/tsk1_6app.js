@@ -185,13 +185,7 @@ console.log(getUsersWithFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sher
 // Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
 
 const getNamesSortedByFriendsCount = (users) => {
-  // return users.filter(user => {
-  //   const userValues = Object.values(user.friends);
-  //   console.log(userValues);
-  // })
-  users.forEach(user => {
-    console.log(user.friends);
-  });
+
 };
 
 console.log(getNamesSortedByFriendsCount(users));
