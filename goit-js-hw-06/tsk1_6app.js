@@ -164,6 +164,16 @@ console.log(calculateTotalBalance(users)); // 20916
 
 // Массив имен всех пользователей у которых есть друг с указанным именем.
 
+// const getUsersWithFriend = (users, friendName) => {
+//   return users.filter(user => {
+//     // const userValues = Object.values(user.friends);
+//     // console.log(userValues);
+//     // const includesFriendName = Object.values(user.friends).includes(friendName);
+//     // console.log(includesFriendName);
+//     return Object.values(user.friends).includes(friendName);
+// });
+// };
+
 const getUsersWithFriend = (users, friendName) =>
   users
     .filter((user) => Object.values(user.friends).includes(friendName))
@@ -174,4 +184,15 @@ console.log(getUsersWithFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sher
 
 // Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
 
+const getNamesSortedByFriendsCount = (users) => {
+  // return users.filter(user => {
+  //   const userValues = Object.values(user.friends);
+  //   console.log(userValues);
+  // })
+  users.forEach(user => {
+    console.log(user.friends);
+  });
+};
 
+console.log(getNamesSortedByFriendsCount(users));
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
