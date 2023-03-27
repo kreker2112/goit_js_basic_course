@@ -54,7 +54,7 @@ const allCategoriesLength = allCategories.length;
 
 console.log(`В списке ${allCategoriesLength} категории`);
 
-const categoriesTextContent = allCategories.forEach((element) => {
+allCategories.forEach((element) => {
   const title = element.querySelector("h2").innerHTML;
 
   const categoryLength = element.querySelectorAll("li").length;
@@ -63,3 +63,5 @@ const categoriesTextContent = allCategories.forEach((element) => {
 
   console.log(` - Количество элементов: ${categoryLength}`);
 });
+
+
