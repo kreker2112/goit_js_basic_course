@@ -59,7 +59,7 @@ allCategories.forEach((element) => {
 
   const categoryLength = element.querySelectorAll("li").length;
 
-  console.log(` - Категория:  ${title}`);
+  console.log(`Категория:  ${title}\n` + `Количество элементов: ${categoryLength}`);
 
-  console.log(` - Количество элементов: ${categoryLength}`);
+  // console.log(` -- Количество элементов: ${categoryLength}`);
 });
