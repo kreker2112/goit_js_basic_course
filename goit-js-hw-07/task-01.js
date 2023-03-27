@@ -63,5 +63,3 @@ allCategories.forEach((element) => {
 
   console.log(` - Количество элементов: ${categoryLength}`);
 });
-
-

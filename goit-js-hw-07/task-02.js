@@ -21,14 +21,10 @@ const categoriesContainer = document.querySelector("ul");
 
 console.log(categoriesContainer);
 
-// categoriesContainer.appendChild(newElements);
-
 ingredients.forEach((ingredient) => {
   const container = document.createElement("li");
-//   container.classList.add([ingredient]);
-//   console.log(container);
+  container.classList.add([ingredient]);
   container.textContent = [ingredient];
 
   return categoriesContainer.appendChild(container);
 });
-
