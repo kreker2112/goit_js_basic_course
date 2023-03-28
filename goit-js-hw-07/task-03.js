@@ -28,11 +28,16 @@ const images = [
 createImagesCollection(images);
 
 function createImagesCollection() {
+  const container = document.querySelector("ul");
+  const newElement = document.createElement("li");
+  container.appendChild(newElement);
   images.forEach((image) => {
-    console.log(image);
-    console.log(image.url);
-    console.log(image.alt);
-    //   const elementArr = element.Object.values(element);
-    //   console.log(elementArr);
+    const newImgElement = document.createElement("img");
+    newImgElement.src = image.url;
+    newImgElement.alt = image.alt;
+    newImgElement.classList.add("image");
+    return newElement.appendChild(newImgElement);
   });
 }
+
+console.log(document);
