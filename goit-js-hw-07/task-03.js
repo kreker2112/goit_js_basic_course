@@ -38,6 +38,6 @@ function createImagesCollection() {
     newImgElement.classList.add("image");
     return newElement.appendChild(newImgElement);
   });
-}
+};
 
 console.log(document);
