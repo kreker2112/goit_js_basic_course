@@ -164,16 +164,6 @@ console.log(calculateTotalBalance(users)); // 20916
 
 // Массив имен всех пользователей у которых есть друг с указанным именем.
 
-// const getUsersWithFriend = (users, friendName) => {
-//   return users.filter(user => {
-//     // const userValues = Object.values(user.friends);
-//     // console.log(userValues);
-//     // const includesFriendName = Object.values(user.friends).includes(friendName);
-//     // console.log(includesFriendName);
-//     return Object.values(user.friends).includes(friendName);
-// });
-// };
-
 const getUsersWithFriend = (users, friendName) =>
   users
     .filter((user) => Object.values(user.friends).includes(friendName))
@@ -199,10 +189,12 @@ console.log(getNamesSortedByFriendsCount(users));
 // Получить массив всех умений всех пользователей (поле skills), при этом не должно быть повторяющихся умений и они должны быть отсортированы в алфавитном порядке.
 
 const getSortedUniqueSkills = (users) => {
-  return new Set (users.reduce((allSkills, user) => {
-    allSkills.push(...user.skills);
-    return allSkills.sort();
-  }, []));
+  return new Set(
+    users.reduce((allSkills, user) => {
+      allSkills.push(...user.skills);
+      return allSkills.sort();
+    }, [])
+  );
 };
 
 console.log(getSortedUniqueSkills(users));

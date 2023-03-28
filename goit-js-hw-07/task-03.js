@@ -25,18 +25,34 @@ const images = [
   },
 ];
 
-createImagesCollection(images);
+// createImagesCollection(images);
 
-function createImagesCollection() {
+// function createImagesCollection() {
+//   const container = document.querySelector("ul");
+//   const newElement = document.createElement("li");
+//   container.appendChild(newElement);
+//   images.forEach((image) => {
+//     const newImgElement = document.createElement("img");
+//     newImgElement.src = image.url;
+//     newImgElement.alt = image.alt;
+//     newImgElement.classList.add("image");
+//     return newElement.appendChild(newImgElement);
+//   });
+// };
+
+// console.log(document);
+
+createImagesCollectionWithPatternString(images);
+
+function createImagesCollectionWithPatternString() {
   const container = document.querySelector("ul");
-  const newElement = document.createElement("li");
-  container.appendChild(newElement);
+  const newElement = `<li </li>`;
+  console.log(newElement);
+  container.insertAdjacentHTML("afterbegin", newElement);
+  console.log(container);
   images.forEach((image) => {
-    const newImgElement = document.createElement("img");
-    newImgElement.src = image.url;
-    newImgElement.alt = image.alt;
-    newImgElement.classList.add("image");
-    return newElement.appendChild(newImgElement);
+   const newImgElement = `<img class="img-element"</img>`;
+   console.log(newImgElement);
   });
 };
 
