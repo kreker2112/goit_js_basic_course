@@ -47,12 +47,11 @@ createImagesCollectionWithPatternString(images);
 function createImagesCollectionWithPatternString() {
   const container = document.querySelector("ul");
   const newElement = `<li </li>`;
-  console.log(newElement);
   container.insertAdjacentHTML("afterbegin", newElement);
-  console.log(container);
+  const containerLi = document.querySelector("li");
   images.forEach((image) => {
-   const newImgElement = `<img class="img-element"</img>`;
-   console.log(newImgElement);
+   const newImgElement = `<img width='800' height='600' src='${image.url}' alt='${image.alt}'</img>`;
+   return containerLi.insertAdjacentHTML("beforeend", newImgElement);
   });
 };
 
