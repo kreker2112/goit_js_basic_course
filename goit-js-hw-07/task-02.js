@@ -17,11 +17,11 @@ const ingredients = [
   "Приправы",
 ];
 
-const categoriesContainer = document.querySelector("ul");
-
-console.log(categoriesContainer);
-
 function createListElements() {
+  const categoriesContainer = document.querySelector("ul");
+
+  console.log(categoriesContainer);
+
   ingredients.forEach((ingredient) => {
     const container = document.createElement("li");
     container.classList.add([ingredient]);
