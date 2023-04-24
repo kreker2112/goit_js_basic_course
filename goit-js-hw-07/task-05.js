@@ -12,15 +12,23 @@ const nameInput = document.querySelector("input");
 const nameOutput = document.querySelector("span");
 
 function spanUpdate() {
-  nameOutput.textContent = nameInput.value;
+  if (nameInput.value !== "") {
+    return (nameOutput.textContent = nameInput.value);
+  }
+  nameOutput.textContent = "незнакомец";
 }
 
-console.log(nameInput);
-
-console.log(nameOutput);
-
-console.log(nameInput.placeholder);
-
-console.log(nameOutput.textContent);
-
 nameInput.addEventListener("input", spanUpdate);
+
+// class OutputUpdater {
+//   constructor (defaultText = nameOutput.textContent){
+//   this.value = defaultText;
+//   }
+//   spanUpdate() {
+//     nameOutput.textContent = nameInput.value;
+//   }
+// };
+
+// const outputUpdater = new OutputUpdater();
+
+// nameInput.addEventListener("input", outputUpdater.spanUpdate);
