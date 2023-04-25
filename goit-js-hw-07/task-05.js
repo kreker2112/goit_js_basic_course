@@ -19,16 +19,3 @@ function spanUpdate() {
 }
 
 nameInput.addEventListener("input", spanUpdate);
-
-// class OutputUpdater {
-//   constructor (defaultText = nameOutput.textContent){
-//   this.value = defaultText;
-//   }
-//   spanUpdate() {
-//     nameOutput.textContent = nameInput.value;
-//   }
-// };
-
-// const outputUpdater = new OutputUpdater();
-
-// nameInput.addEventListener("input", outputUpdater.spanUpdate);
