@@ -59,3 +59,5 @@ renderButton.addEventListener("click", inputAmount);
 
 destroyButton.addEventListener("click", destroyBoxes);
 
+console.log(document);
+
