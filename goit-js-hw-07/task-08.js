@@ -27,10 +27,35 @@ const destroyButton = document.querySelector('button[data-action="destroy"]');
 
 const input = document.querySelector("input");
 
-console.log(renderButton);
+const divContainer = document.getElementById("boxes");
 
-console.log(destroyButton);
+function createBoxes(amount) {
+  const container = document.createDocumentFragment();
+  const basicSize = 30;
+  for (let i = 0; i < amount; i += 1) {
+    const size = basicSize + i * 10;
+    const div = document.createElement("div");
+    div.style.cssText = `width: ${size}px; height: ${size}px; background-color: rgba( ${random()} , ${random()} , ${random()} )`;
+    container.appendChild(div);
+  }
+  divContainer.appendChild(container);
+}
 
-console.log(input);
+function destroyBoxes() {
+  divContainer.textContent = "";
+}
 
+function random() {
+  return Math.floor(Math.random() * 230);
+}
+
+function inputAmount (){
+  destroyBoxes()
+  const amount = input.value;
+  createBoxes(amount)
+}
+
+renderButton.addEventListener("click", inputAmount);
+
+destroyButton.addEventListener("click", destroyBoxes);
 
