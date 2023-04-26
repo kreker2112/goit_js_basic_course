@@ -46,7 +46,7 @@ function destroyBoxes() {
 }
 
 function random() {
-  return Math.floor(Math.random() * 230);
+  return Math.floor(Math.random() * 256);
 }
 
 function inputAmount (){
