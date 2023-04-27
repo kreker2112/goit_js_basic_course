@@ -7,7 +7,7 @@ const user = {
   phone: "453-758-3456",
   email: "Deonte.Feil@hotmail.com",
   avatar:
-    "https://lh3.googleusercontent.com/a/AGNmyxZ9qIGKgiA6uPWeS5JLhyfGQ2XMvXAgOFKm9bRArg=s432",
+    "https://avatars.mds.yandex.net/get-kinopoisk-image/4303601/1a697a67-d844-42ba-b367-071c4a581462/280x420",
   address: {
     country: "USA",
     city: "South Maximoville",
@@ -31,9 +31,54 @@ const user = {
     </div> */
 }
 
-createUserProfile(user);
+const bodyElem = document.querySelector("body");
 
-function createUserProfile() {
+const profile = createUserProfile(user);
+
+const nextSibling = document.querySelector('.unsplash-image')
+
+bodyElem.insertBefore(profile, nextSibling);
+
+function createUserProfile({ name, phone, email, avatar, address }) {
+  const profileContainer = document.createElement("div");
+  profileContainer.classList.add("profile-container");
+
   const container = document.createElement("div");
   container.classList.add("user-profile");
+
+  const image = document.createElement("img");
+  image.src = avatar;
+  image.alt = "user avatar";
+  image.classList.add("avatar");
+
+  const infoList = document.createElement("ul");
+  infoList.classList.add("info");
+
+  const nameField = cteateInfoItem('Name', name);
+  const phoneField = cteateInfoItem('Phone', phone);
+  const emailField = cteateInfoItem('Email', email);
+  const addressField = cteateInfoItem('Address', `${address.country}, ${address.city}`);
+  
+  infoList.append(nameField, phoneField, emailField, addressField);
+
+  container.append(image, infoList);
+
+ 
+
+  profileContainer.appendChild(container);
+
+  return profileContainer;
 }
+
+function cteateInfoItem(label, text) {
+  const item = document.createElement("li");
+  const itemLabel = document.createElement("b");
+  itemLabel.textContent = `${label}: `;
+  const itemText = document.createTextNode(text);
+
+  item.append(itemLabel, itemText);
+
+  return item;
+}
+
+

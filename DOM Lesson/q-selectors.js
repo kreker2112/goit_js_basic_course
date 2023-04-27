@@ -28,7 +28,7 @@ magicButton.addEventListener("click", () => {
 
 // =======================
 
-magicButton.style.backgroundColor = "#34f541";
+// magicButton.style.backgroundColor = "#34f541";
 
 // ================================================================================
 
