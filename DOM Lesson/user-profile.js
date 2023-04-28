@@ -35,7 +35,7 @@ const bodyElem = document.querySelector("body");
 
 const profile = createUserProfile(user);
 
-const nextSibling = document.querySelector('.unsplash-image')
+const nextSibling = document.querySelector(".unsplash-image");
 
 bodyElem.insertBefore(profile, nextSibling);
 
@@ -54,16 +54,17 @@ function createUserProfile({ name, phone, email, avatar, address }) {
   const infoList = document.createElement("ul");
   infoList.classList.add("info");
 
-  const nameField = cteateInfoItem('Name', name);
-  const phoneField = cteateInfoItem('Phone', phone);
-  const emailField = cteateInfoItem('Email', email);
-  const addressField = cteateInfoItem('Address', `${address.country}, ${address.city}`);
-  
+  const nameField = cteateInfoItem("Name", name);
+  const phoneField = cteateInfoItem("Phone", phone);
+  const emailField = cteateInfoItem("Email", email);
+  const addressField = cteateInfoItem(
+    "Address",
+    `${address.country}, ${address.city}`
+  );
+
   infoList.append(nameField, phoneField, emailField, addressField);
 
   container.append(image, infoList);
-
- 
 
   profileContainer.appendChild(container);
 
@@ -81,4 +82,10 @@ function cteateInfoItem(label, text) {
   return item;
 }
 
+// Добавление элемента с помощью шаблонной строки
 
+const menu = document.querySelector(".menu");
+
+const newItem = `<li class="menu-item"><a href = "/news">news</a></li>`;
+
+menu.insertAdjacentHTML("afterbegin", newItem);
