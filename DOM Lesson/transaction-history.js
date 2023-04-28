@@ -1,50 +1,92 @@
-'use strict';
-
-export default[
-    {
-        id: '6357547835fdgf-534gfd-23467484673-gfdzngnxfg5463',
-        amount: '456.67',
-        date: '2012-02-01T22:00:00:00Z',
-        business: '4A Games LTD',
-        name: 'Auto Loan Account 7212',
-        type: 'deposit',
-        account: '42562464363547'
-    },
-    {
-        id: '264562vbgb5244n5435-362bv463-325vvb54326473bnb',
-        amount: '123.67',
-        date: '2012-02-01T22:00:00:00Z',
-        business: 'Frogwares',
-        name: 'Auto Loan Account 05674',
-        type: 'invoice',
-        account: '23415413611'
-    },
-    {
-        id: '1345nbnkb3q562l4256446nb-326lbl625blj4-5642bhkjkj',
-        amount: '46758.89',
-        date: '2012-02-01T22:00:00:00Z',
-        business: 'GlobalLogic',
-        name: 'Savings Account 45678',
-        type: 'withdraw',
-        account: '2665467'
-    },
-    {
-        id: '673546324y4bh5247hj465-6543hbjk-7635665kbkb',
-        amount: '345.55',
-        date: '2012-02-01T22:00:00:00Z',
-        business: 'UtilityGroup Kyiv',
-        name: '',
-        type: '',
-        account: ''
-    },
-    {
-        id: '',
-        amount: '',
-        date: '',
-        business: '',
-        name: '',
-        type: '',
-        account: ''
-    },
-
-]
+export default [
+  {
+    id: "6357547835fdgf-534gfd-23467484673-gfdzngnxfg54",
+    amount: "456.67",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "4A Games LTD",
+    name: "Auto Loan Account 7212",
+    type: "deposit",
+    account: "42562464363547",
+  },
+  {
+    id: "264562vbgb5244n5435-362bv463-325vvb54326473bnb",
+    amount: "123.67",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "Frogwares",
+    name: "Auto Loan Account 5674",
+    type: "invoice",
+    account: "23415413611",
+  },
+  {
+    id: "1345nbnkb3q562l4256446nb-326lbl625blj4-5642bhk",
+    amount: "46758.89",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "GlobalLogic",
+    name: "Savings Account 4567",
+    type: "withdraw",
+    account: "2665467",
+  },
+  {
+    id: "673546324y4bh5247hj465-6543hbjk-7635665kbkbdfg",
+    amount: "345.55",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "UtilityGroup Kyiv",
+    name: "Personal Loan Account 4573",
+    type: "withdrawal",
+    account: "346737636",
+  },
+  {
+    id: "13544652546bkb4v325-346236nbmb-mv543dfgdfgsdrf",
+    amount: "2346.65",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "KLM Aero",
+    name: "Savings account 0209",
+    type: "payment",
+    account: "274563567543",
+  },
+  {
+    id: "5462462345vvjn-262bk324563-5345jfghahtx-654gfs",
+    amount: "26625.78",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "Svaroffski Hotel LTD",
+    name: "Checking Account 0573",
+    type: "invoice",
+    account: "426242532",
+  },
+  {
+    id: "5643jhgdhgxcjvhf23-2565464jc-564v-452526nbj52e",
+    amount: "345.56",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "Silpo cash`n`carry",
+    name: "Personal Loan Account 6572",
+    type: "invoice",
+    account: "563453645",
+  },
+  {
+    id: "256453vjb-2564245jvvjb52-462hj-36235vnvj654gfh",
+    amount: "123.78",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "Florenta Print",
+    name: "Savings account 5678",
+    type: "withdrawal",
+    account: "45634563546",
+  },
+  {
+    id: "624256mgvjbn-256537654vvv-36jgvj5v64kjhbj-3454",
+    amount: "25462542.67",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "Fly UIA",
+    name: "Auto Loan Account 5672",
+    type: "invoice",
+    account: "3436543736573",
+  },
+  {
+    id: "2452345jchh3245-kjhb2534254hf2345j-435jhgfsdf3",
+    amount: "346747.76",
+    date: "2012-02-01T22:00:00:00Z",
+    business: "Detrex Technologies",
+    name: "Personal Loan Account 6453",
+    type: "invoice",
+    account: "0364340345",
+  },
+];
