@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <!-- BUTTON -->
+    <button type="button" class="button" data-action="login">
+      <i class="material-icons button__icon">verified_user</i>
+      Login
+    </button>
+
+    <!-- INPUT -->
+    <section class="input-events-example">
+      <input type="text" class="input" />
+      <p class="output"></p>
+    </section>
+
+    <!-- FORM -->
+    <form class="register-form">
+      <label class="label register-form__label">
+        Name
+        <input class="input" name="name" type="text" autocomplete="off" />
+      </label>
+
+      <label class="label register-form__label">
+        Email
+        <input class="input" type="email" name="email" autocomplete="off" />
+      </label>
+
+      <label class="label register-form__label">
+        Password
+        <input name="password" type="password" class="input" />
+      </label>
+
+      <section class="section">
+        <h2 class="section__title">Choose subscription type:</h2>
+        <label class="label section__label">
+          Free
+          <input class="radio" type="radio" name="subscription" value="free" />
+        </label>
+        <label class="label section__label">
+          Basic
+          <input class="radio" type="radio" name="subscription" value="basic" />
+        </label>
+        <label class="label section__label">
+          Pro
+          <input class="radio" type="radio" name="subscription" value="pro" />
+        </label>
+      </section>
+
+      <button class="button" type="submit">Register</button>
+    </form>
+
+    <!-- MODAL -->
+    <button class="button" data-action="open-modal">Open Modal</button>
+
+    <div class="backdrop">
+      <div class="modal">
+        <h2>Modal window</h2>
+        <p>
+          Hi all. I have a product card, and I need to make it so that when the
+          button is pressed, information from product description is transmitted
+          - to the modal window. Tried to do it through innerHTML/outerHTML, but
+          the description from one card - is passed to all modal windows. The
+          title in the card can be unique, respectively - in each modal window
+          should be a unique title. For each card to create its own window - not
+          rational, therefore, please help
+        </p>
+        <button type="button" class="button" data-action="close-modal">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- <script src="./basics.js" type="module"></script> -->
+    <script src="./form.js" type="module"></script>
+    <script src="./input-events.js" type="module"></script>
+    <script src="./modal.js" type="module"></script>
+  </body>
+</html>
