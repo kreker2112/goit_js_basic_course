@@ -24,7 +24,7 @@
     </section>
 
     <!-- FORM -->
-    <form class="register-form">
+    <form class="register-form js-register-form">
       <label class="label register-form__label">
         Name
         <input class="input" name="name" type="text" autocomplete="off" />
@@ -55,6 +55,12 @@
           <input class="radio" type="radio" name="subscription" value="pro" />
         </label>
       </section>
+      <!-- <label class="checkbox gender-checkbox__label">
+        Male
+      <input class='gender-checkbox' type='checkbox' name="gender" value="male" />
+      <label class="checkbox gender-checkbox__label">
+        Female
+      <input class='gender-checkbox' type='checkbox' name="gender" value="female" /> -->
 
       <button class="button" type="submit">Register</button>
     </form>
@@ -62,7 +68,7 @@
     <!-- MODAL -->
     <button class="button" data-action="open-modal">Open Modal</button>
 
-    <div class="backdrop">
+    <div class="backdrop js-backdrop">
       <div class="modal">
         <h2>Modal window</h2>
         <p>
