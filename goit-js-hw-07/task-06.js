@@ -29,14 +29,20 @@ const input = document.getElementById("validation-input");
 
 const textLength = input.getAttribute("data-length");
 
+function addValidClassList() {
+  input.classList.remove("invalid");
+  input.classList.add("valid");
+}
+
+function addInalidClassList() {
+  input.classList.remove("valid");
+  input.classList.add("invalid");
+}
+
 function validationInput() {
-  if (textLength <= input.value.length) {
-    input.classList.remove("invalid");
-    input.classList.add("valid");
-  } else {
-    input.classList.remove("valid");
-    input.classList.add("invalid");
-  }
+  textLength <= input.value.length ? addValidClassList() : addInalidClassList();
 }
 
 input.addEventListener("blur", validationInput);
+
+console.log(input);

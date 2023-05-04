@@ -19,3 +19,5 @@ function spanUpdate() {
 }
 
 nameInput.addEventListener("input", spanUpdate);
+
+// Можно ли решить этот пример через тернарный оператор?

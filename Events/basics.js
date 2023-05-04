@@ -34,3 +34,6 @@ const obj2 = {
 };
 
 loginButton.addEventListener("click", obj2.showX.bind(obj2));
+
+// Остановка всплытия событий event.stopPropagation(), но его лучше не применять,
+// поскольку тогда не будут работать многие гугл аналитики, которые висят над всем DOM объектом
