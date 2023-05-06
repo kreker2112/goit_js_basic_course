@@ -9,7 +9,6 @@
   background-color: #fff;
   color: #212121;
 }
-
 /* Nav */
 .nav {
   list-style: none;
@@ -67,6 +66,15 @@ white-space: nowrap;
 text-decoration: none;
 
 background-color: #fff;
+cursor: pointer;
+
+box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3);
+transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s, color 0.3s;
+}
+
+.tags__item--active {
+  color: #fff;
+  background-color: #2196f3;
 }
 
 .input {
