@@ -9,5 +9,5 @@ function handleClick(e) {
     return;
   }
   const element = e.target;
-  element.classList.toggle(".tags__item--active");
+  element.classList.toggle("tags__item--active");
 }
