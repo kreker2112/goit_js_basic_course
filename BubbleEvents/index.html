@@ -8,12 +8,52 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <header class="masthead">
-    <ul class="nav">
-      <li class="nav__item"><a href="" class="nav__link">home</a></li>
-      <li class="nav__item"><a href="" class="nav__link">Blog</a></li>
-      <li class="nav__item"><a href="" class="nav__link">Contact</a></li>
-      <li class="nav__item"><a href="" class="nav__link">About</a></li>
+  <body>
+    <header class="masthead">
+      <ul class="nav js-nav">
+        <li class="nav__item"><a href="" class="nav__link">home</a></li>
+        <li class="nav__item"><a href="" class="nav__link">Blog</a></li>
+        <li class="nav__item"><a href="" class="nav__link">Contact</a></li>
+        <li class="nav__item"><a href="" class="nav__link">About</a></li>
+      </ul>
+    </header>
+  
+    <hr />
+    <div class="tags js-tags">
+      <button class="tags__item" data-tag="html">HTML</button>
+      <button class="tags__item" data-tag="css">CSS</button>
+      <button class="tags__item" data-tag="javascript">JavaScript</button>
+      <button class="tags__item" data-tag="npm">NPM</button>
+      <button class="tags__item" data-tag="babel">Babel</button>
+      <button class="tags__item" data-tag="webpack">Webpack</button>
+      <button class="tags__item" data-tag="react">React</button>
+      <button class="tags__item" data-tag="redux">Redux</button>
+      <button class="tags__item" data-tag="node">Node</button>
+    </div>
+  
+    <hr />
+  
+    <form action="" class="editor">
+      <input type="text" class="editor__input" type="text" />
+      <button class="button" type="submit">Сохранить</button>
+    </form>
+  
+    <ul class="todo-list">
+      <li class="todo-list__item">
+        <div class="todo">
+          <p class="todo__text">
+            Morbi ac felis. Praesent egestas tristique nibh. Aenean ut eros et
+            nisl sagittis vestibulum. Etiam imperdiet orci.
+          </p>
+          <div class="todo__actions">
+            <button class="button" type="button">Удалить</button>
+          </div>
+        </div>
+      </li>
     </ul>
-  </header>
-</html>
+
+    <script src="nav.js" type="module"></script>
+    <script src="tags.js" type="module"></script>
+  </body>
+
+ </html>
