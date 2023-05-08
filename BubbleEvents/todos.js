@@ -1,41 +1,73 @@
 "use strict";
 
-{/* <li class="todo-list__item">
+const todos = {
+  items: [],
+  add(text) {
+    const todo = {
+      id: Date.now(),
+      text,
+    };
+    this.items.push(todo);
+    return todo;
+  },
+  delete(id) {
+    this.items = this.items.filter((item) => item.id !== id);
+  },
+};
+// Если много ссылок, то для удобства можно сделать объект ссылок,
+// где каждая ссылка представлена свойствами
+const refs = {
+  editor: document.querySelector(".js-editor"),
+  todoList: document.querySelector(".js-todo-list"),
+};
+
+refs.editor.addEventListener("submit", handleEditorSubmit);
+refs.todoList.addEventListener("click", handleTodoListClick);
+
+function handleEditorSubmit(e) {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+
+  const inputValue = form.elements.text.value;
+
+  const todo = todos.add(inputValue);
+  const todoMarkup = buildTodoItem(todo);
+  appendTodoItem(refs.todoList, todoMarkup);
+
+  // Для сброса всех параметров формы после ее вставки в документ:
+  form.reset();
+}
+
+function buildTodoItem(item) {
+  return `
+  <li class="todo-list__item" data-id="${item.id}">
   <div class="todo">
-    <p class="todo__text">
-      Morbi ac felis. Praesent egestas tristique nibh. Aenean ut eros et nisl
-      sagittis vestibulum. Etiam imperdiet orci.
-    </p>
+    <p class="todo__text">${item.text}</p>
     <div class="todo__actions">
       <button class="button" type="button">
         Удалить
       </button>
     </div>
   </div>
-</li>; */}
+</li>
+`;
+}
 
+function appendTodoItem(parentRef, todoEl) {
+  parentRef.insertAdjacentHTML("beforeend", todoEl);
+}
 
-const todos = {
-  items: [],
-  add(text){
-    const todo = {
-      id:Date.now(),
-      text
-    }
-    this.items.push(todo);
-  },
-  delete(id) {
-    this.items = this.items.filter(item => item.id !== id);
+function handleTodoListClick(e) {
+  if (e.target.nodeName !== "BUTTON") {
+    return;
   }
-};
 
-const refs = {
-editor: document.querySelector('.js-editor'),
-todoList: document.querySelector('.js-todo-list')
-};
+  const button = e.target;
+  const parentLi = button.closest("li.todo-list__item");
+  const todoId = Number(parentLi.dataset.id);
 
-refs.editor.addEventListener('submit', )
+  todos.delete(todoId);
 
-function handleEditorSubmit(e) {
-
+  parentLi.remove();
 }
