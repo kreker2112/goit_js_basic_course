@@ -102,13 +102,11 @@ function createImagesGalleryWithPatternString() {
 
 function addLightboxIsOpen(e) {
   e.preventDefault();
-  console.log(e.target);
   openModal(e);
 }
 
 function openModal(e) {
   lighboxClassChangeToOpen();
-  console.log(refs.lightbox);
   addLightBoxImage(e);
   window.addEventListener("keydown", handleKeyPress);
 }
@@ -125,7 +123,6 @@ refs.lightboxImage.alt = e.target.getAttribute('alt');
 
 function closeModal() {
   lightboxClassChangeToDefault();
-  console.log(refs.lightbox);
   window.removeEventListener("keydown", handleKeyPress);
 }
 
