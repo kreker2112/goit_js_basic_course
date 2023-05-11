@@ -1,15 +1,15 @@
 "use strict";
 
-import galleryItems from './gallery-items.js';
+import galleryItems from "./gallery-items.js";
 
 //* Refs:
 
 const refs = {
-  gallery: document.querySelector('.js-gallery'),
+  gallery: document.querySelector(".js-gallery"),
   lightbox: document.querySelector(".js-lightbox"),
   closeButton: document.querySelector('button[data-action="close-lightbox"]'),
-  lightboxOverlay: document.querySelector('.js-lightbox__overlay'),
-  lightboxImage: document.querySelector('.js-lightbox__image')
+  lightboxOverlay: document.querySelector(".js-lightbox__overlay"),
+  lightboxImage: document.querySelector(".js-lightbox__image"),
 };
 
 //* Functions:
@@ -36,25 +36,24 @@ function createImagesGalleryWithPatternString() {
   });
 }
 
-function addLightboxIsOpen(e) {
-  e.preventDefault();
-  openModal(e);
-}
-
 function openModal(e) {
-  lighboxClassChangeToOpen();
+  e.preventDefault();
+  if (e.target === e.currentTarget) {
+    return;
+  }
   addLightBoxImage(e);
+  lighboxClassChangeToOpen();
   window.addEventListener("keydown", handleKeyPress);
 }
 
-function lighboxClassChangeToOpen (){
+function lighboxClassChangeToOpen() {
   refs.lightbox.classList.remove("lightbox");
   refs.lightbox.classList.add("lightbox.is-open");
 }
 
-function addLightBoxImage(e){
-refs.lightboxImage.src = e.target.getAttribute('data-source');
-refs.lightboxImage.alt = e.target.getAttribute('alt');
+function addLightBoxImage(e) {
+  refs.lightboxImage.src = e.target.getAttribute("data-source");
+  refs.lightboxImage.alt = e.target.getAttribute("alt");
 }
 
 function closeModal() {
@@ -62,7 +61,7 @@ function closeModal() {
   window.removeEventListener("keydown", handleKeyPress);
 }
 
-function lightboxClassChangeToDefault(){
+function lightboxClassChangeToDefault() {
   refs.lightbox.classList.remove("lightbox.is-open");
   refs.lightbox.classList.add("lightbox");
 }
@@ -87,10 +86,8 @@ createImagesGalleryWithPatternString(galleryItems);
 
 //* Event Listeners
 
-refs.gallery.addEventListener("click", addLightboxIsOpen);
+refs.gallery.addEventListener("click", openModal);
 
-refs.closeButton.addEventListener('click', closeModal);
+refs.closeButton.addEventListener("click", closeModal);
 
 refs.lightboxOverlay.addEventListener("click", handleLightboxClick);
-
-
