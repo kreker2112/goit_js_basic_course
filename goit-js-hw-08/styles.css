@@ -3,7 +3,7 @@
   --animation-duration: 250ms;
 }
 
-.html {
+html {
   box-sizing: border-box;
 }
 
@@ -13,7 +13,7 @@
   box-sizing: inherit;
 }
 
-.body {
+body {
   display: flex;
   align-items: center;
   justify-content: center;

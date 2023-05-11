@@ -47,8 +47,7 @@ function openModal(e) {
 }
 
 function lighboxClassChangeToOpen() {
-  refs.lightbox.classList.remove("lightbox");
-  refs.lightbox.classList.add("lightbox.is-open");
+  refs.lightbox.classList.add("is-open");
 }
 
 function addLightBoxImage(e) {
@@ -62,8 +61,7 @@ function closeModal() {
 }
 
 function lightboxClassChangeToDefault() {
-  refs.lightbox.classList.remove("lightbox.is-open");
-  refs.lightbox.classList.add("lightbox");
+  refs.lightbox.classList.remove("is-open");
 }
 
 function handleKeyPress(e) {
