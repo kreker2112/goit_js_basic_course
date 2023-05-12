@@ -2,7 +2,7 @@
 
 let index = 0;
 
-import galleryItems from "./gallery-items.js";
+import {galleryItems} from "./gallery-items.js";
 
 //* Refs:
 
@@ -55,8 +55,8 @@ function addLightBoxImage(e) {
 }
 
 function addLightBoxImageByIndex(index) {
-  refs.lightboxImage.src = counter.getImageByIndex(index).source;
-  refs.lightboxImage.alt = counter.getImageByIndex(index).alt;
+  refs.lightboxImage.src = imageGenerator.getImageByIndex(index).source;
+  refs.lightboxImage.alt = imageGenerator.getImageByIndex(index).alt;
 }
 
 function closeModal() {
@@ -68,9 +68,9 @@ function closeModal() {
     if (e.key !== "ArrowRight") {
       return;
     }
-    counter.increment();
-    counter.getCounterValue();
-    counter.getImageByIndex(index);
+    imageGenerator.indexIncrement();
+    imageGenerator.getIndexValue();
+    imageGenerator.getImageByIndex(index);
     addLightBoxImageByIndex(index);
   });
 
@@ -78,9 +78,9 @@ function closeModal() {
     if (e.key !== "ArrowLeft") {
       return;
     }
-    counter.decrement();
-    counter.getCounterValue();
-    counter.getImageByIndex(index);
+    imageGenerator.indexDecrement();
+    imageGenerator.getIndexValue();
+    imageGenerator.getImageByIndex(index);
     addLightBoxImageByIndex(index);
   });
 }
@@ -101,18 +101,18 @@ function handleLightboxClick(event) {
 
 // Counter for Index
 
-class Counter {
+class ImageGeneratorByIndex {
   constructor(initialValue = 0, step = 1) {
     this.value = initialValue;
     this.step = step;
   }
-  increment() {
+  indexIncrement() {
     this.value += this.step;
   }
-  decrement() {
+  indexDecrement() {
     this.value -= this.step;
   }
-  getCounterValue() {
+  getIndexValue() {
     index = this.value;
   }
   getImageByIndex(index) {
@@ -134,7 +134,7 @@ class Counter {
   }
 }
 
-const counter = new Counter();
+const imageGenerator = new ImageGeneratorByIndex();
 
 //* Callbacks
 
@@ -152,9 +152,9 @@ window.addEventListener("keydown", (e) => {
   if (e.key !== "ArrowRight") {
     return;
   }
-  counter.increment();
-  counter.getCounterValue();
-  counter.getImageByIndex(index);
+  imageGenerator.indexIncrement();
+  imageGenerator.getIndexValue();
+  imageGenerator.getImageByIndex(index);
   addLightBoxImageByIndex(index);
 });
 
@@ -162,8 +162,8 @@ window.addEventListener("keydown", (e) => {
   if (e.key !== "ArrowLeft") {
     return;
   }
-  counter.decrement();
-  counter.getCounterValue();
-  counter.getImageByIndex(index);
+  imageGenerator.indexDecrement();
+  imageGenerator.getIndexValue();
+  imageGenerator.getImageByIndex(index);
   addLightBoxImageByIndex(index);
 });
