@@ -43,3 +43,49 @@ decrementButton.addEventListener("click", () => {
   counter.decrement();
   counter.getCounterValue();
 });
+
+// ==================================================================================================
+
+// let index = 0
+// class Counter {
+//   constructor(initialValue = 0, step = 1) {
+//     this.value = initialValue;
+//     this.step = step;
+//   }
+//   increment() {
+//     this.value += this.step;
+//   }
+//   decrement() {
+//     this.value -= this.step;
+//   }
+//   getCounterValue() {
+//     index = this.value;
+//   }
+// }
+
+// function returnConsoleLog(index){
+// return index;
+// };
+
+// const counter = new Counter();
+
+// window.addEventListener("keydown", (e) => {
+//   if (e.key !== "ArrowRight") {
+//     return;
+//   }
+//   counter.increment();
+//   counter.getCounterValue();
+//   returnConsoleLog(index);
+// });
+
+// window.addEventListener("keydown", (e) => {
+//   if (e.key !== "ArrowLeft") {
+//     return;
+//   }
+//   counter.decrement();
+//   counter.getCounterValue();
+//   returnConsoleLog(index);
+// });
+
+
+
