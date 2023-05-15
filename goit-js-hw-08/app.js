@@ -46,7 +46,7 @@ function openModal(e) {
   refs.lightbox.classList.add("is-open");
   addLightBoxImage(e);
   console.log();
-  window.addEventListener("keydown", handleKeyPress);
+  window.addEventListener("keydown", closeModalByEscape);
 }
 
 function addLightBoxImage(e) {
@@ -54,15 +54,10 @@ function addLightBoxImage(e) {
   refs.lightboxImage.alt = e.target.getAttribute("alt");
 }
 
-function addLightBoxImageByIndex(index) {
-  refs.lightboxImage.src = imageGenerator.getImageByIndex(index).source;
-  refs.lightboxImage.alt = imageGenerator.getImageByIndex(index).alt;
-}
-
 function closeModal() {
   refs.lightbox.classList.remove("is-open");
 
-  window.removeEventListener("keydown", handleKeyPress);
+  window.removeEventListener("keydown", closeModalByEscape);
 
   window.removeEventListener("keydown", (e) => {
     if (e.key !== "ArrowRight") {
@@ -71,7 +66,7 @@ function closeModal() {
     imageGenerator.indexIncrement();
     imageGenerator.getIndexValue();
     imageGenerator.getImageByIndex(index);
-    addLightBoxImageByIndex(index);
+    imageGenerator.addImageByIndex(index);
   });
 
   window.removeEventListener("keydown", (e) => {
@@ -81,18 +76,18 @@ function closeModal() {
     imageGenerator.indexDecrement();
     imageGenerator.getIndexValue();
     imageGenerator.getImageByIndex(index);
-    addLightBoxImageByIndex(index);
+    imageGenerator.addImageByIndex(index);
   });
 }
 
-function handleKeyPress(e) {
+function closeModalByEscape(e) {
   if (e.code !== "Escape") {
     return;
   }
   closeModal();
 }
 
-function handleLightboxClick(event) {
+function closeModalByBackdropClick(event) {
   if (event.target !== event.currentTarget) {
     return;
   }
@@ -127,18 +122,22 @@ class ImageGeneratorByIndex {
       };
       imageObjectArray.push(imageObject);
     }
-    if (index > imageObjectArray.length) {
+    if (index > imageObjectArray.length && index < imageObjectArray.length) {
       return;
-    }
+    };
     return imageObjectArray[index];
+  };
+  addImageByIndex(index) {
+    refs.lightboxImage.src = this.getImageByIndex(index).source;
+    refs.lightboxImage.alt = this.getImageByIndex(index).alt;
   }
-}
-
-const imageGenerator = new ImageGeneratorByIndex();
+};
 
 //* Callbacks
 
 createImagesGalleryWithPatternString(galleryItems);
+
+const imageGenerator = new ImageGeneratorByIndex();
 
 //* Event Listeners
 
@@ -146,7 +145,7 @@ refs.gallery.addEventListener("click", openModal);
 
 refs.closeButton.addEventListener("click", closeModal);
 
-refs.lightboxOverlay.addEventListener("click", handleLightboxClick);
+refs.lightboxOverlay.addEventListener("click", closeModalByBackdropClick);
 
 window.addEventListener("keydown", (e) => {
   if (e.key !== "ArrowRight") {
@@ -155,7 +154,7 @@ window.addEventListener("keydown", (e) => {
   imageGenerator.indexIncrement();
   imageGenerator.getIndexValue();
   imageGenerator.getImageByIndex(index);
-  addLightBoxImageByIndex(index);
+  imageGenerator.addImageByIndex(index);
 });
 
 window.addEventListener("keydown", (e) => {
@@ -165,5 +164,5 @@ window.addEventListener("keydown", (e) => {
   imageGenerator.indexDecrement();
   imageGenerator.getIndexValue();
   imageGenerator.getImageByIndex(index);
-  addLightBoxImageByIndex(index);
+  imageGenerator.addImageByIndex(index);
 });
