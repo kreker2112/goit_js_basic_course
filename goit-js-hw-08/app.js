@@ -1,8 +1,48 @@
 "use strict";
 
+import {galleryItems} from "./gallery-items.js";
+
 let index = 0;
 
-import {galleryItems} from "./gallery-items.js";
+// * ImageGenerator
+class ImageGeneratorByIndex {
+  constructor(initialValue = 0, step = 1) {
+    this.value = initialValue;
+    this.step = step;
+  }
+  indexIncrement() {
+    this.value += this.step;
+  }
+  indexDecrement() {
+    this.value -= this.step;
+  }
+  getIndexValue() {
+    index = this.value;
+  }
+  getImageByIndex(index) {
+    const imageObjectArray = [];
+    const imagesArray = [
+      ...refs.gallery.querySelectorAll("img.gallery__image"),
+    ];
+    for (let i = 0; i < imagesArray.length; i += 1) {
+      const imageObject = {
+        source: imagesArray[i].getAttribute("data-source"),
+        alt: imagesArray[i].getAttribute("alt"),
+      };
+      imageObjectArray.push(imageObject);
+    }
+    if (index > imageObjectArray.length && index < imageObjectArray.length) {
+      return;
+    };
+    return imageObjectArray[index];
+  };
+  addImageByIndex(index) {
+    refs.lightboxImage.src = this.getImageByIndex(index).source;
+    refs.lightboxImage.alt = this.getImageByIndex(index).alt;
+  }
+};
+
+const imageGenerator = new ImageGeneratorByIndex();
 
 //* Refs:
 
@@ -94,50 +134,9 @@ function closeModalByBackdropClick(event) {
   closeModal();
 }
 
-// Counter for Index
-
-class ImageGeneratorByIndex {
-  constructor(initialValue = 0, step = 1) {
-    this.value = initialValue;
-    this.step = step;
-  }
-  indexIncrement() {
-    this.value += this.step;
-  }
-  indexDecrement() {
-    this.value -= this.step;
-  }
-  getIndexValue() {
-    index = this.value;
-  }
-  getImageByIndex(index) {
-    const imageObjectArray = [];
-    const imagesArray = [
-      ...refs.gallery.querySelectorAll("img.gallery__image"),
-    ];
-    for (let i = 0; i < imagesArray.length; i += 1) {
-      const imageObject = {
-        source: imagesArray[i].getAttribute("data-source"),
-        alt: imagesArray[i].getAttribute("alt"),
-      };
-      imageObjectArray.push(imageObject);
-    }
-    if (index > imageObjectArray.length && index < imageObjectArray.length) {
-      return;
-    };
-    return imageObjectArray[index];
-  };
-  addImageByIndex(index) {
-    refs.lightboxImage.src = this.getImageByIndex(index).source;
-    refs.lightboxImage.alt = this.getImageByIndex(index).alt;
-  }
-};
-
 //* Callbacks
 
 createImagesGalleryWithPatternString(galleryItems);
-
-const imageGenerator = new ImageGeneratorByIndex();
 
 //* Event Listeners
 
