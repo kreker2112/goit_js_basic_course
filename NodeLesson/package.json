@@ -11,6 +11,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kreker2112/goit_js_basic_course/tree/main/NodeLesson.git"
-  }
+    "url": "git+https://github.com/kreker2112/goit_js_basic_course.git#main"
+  },
+  "bugs": {
+    "url": "https://github.com/kreker2112/goit_js_basic_course/issues"
+  },
+  "homepage": "https://github.com/kreker2112/goit_js_basic_course/tree/main#readme"
 }
