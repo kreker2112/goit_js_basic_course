@@ -1,24 +1,11 @@
 "use strict";
 
-import {galleryItems} from "./gallery-items.js";
+import { galleryItems } from "./gallery-items.js";
 
-let index = 0;
+let index;
 
 // * ImageGenerator
 class ImageGeneratorByIndex {
-  constructor(initialValue = 0, step = 1) {
-    this.value = initialValue;
-    this.step = step;
-  }
-  indexIncrement() {
-    this.value += this.step;
-  }
-  indexDecrement() {
-    this.value -= this.step;
-  }
-  getIndexValue() {
-    index = this.value;
-  }
   getImageByIndex(index) {
     const imageObjectArray = [];
     const imagesArray = [
@@ -31,16 +18,14 @@ class ImageGeneratorByIndex {
       };
       imageObjectArray.push(imageObject);
     }
-    if (index > imageObjectArray.length && index < imageObjectArray.length) {
-      return;
-    };
+
     return imageObjectArray[index];
-  };
+  }
   addImageByIndex(index) {
     refs.lightboxImage.src = this.getImageByIndex(index).source;
     refs.lightboxImage.alt = this.getImageByIndex(index).alt;
   }
-};
+}
 
 const imageGenerator = new ImageGeneratorByIndex();
 
@@ -79,13 +64,24 @@ function createImagesGalleryWithPatternString() {
 }
 
 function openModal(e) {
+  const targetImgSrc = e.target.src;
+  for (let i = 0; i < galleryItems.length; i += 1) {
+    if (galleryItems[i].preview === targetImgSrc) {
+      index = i;
+      break;
+    }
+  }
+  console.log(index);
+
   e.preventDefault();
   if (e.target === e.currentTarget) {
     return;
   }
+
   refs.lightbox.classList.add("is-open");
+
   addLightBoxImage(e);
-  console.log();
+
   window.addEventListener("keydown", closeModalByEscape);
 }
 
@@ -98,26 +94,6 @@ function closeModal() {
   refs.lightbox.classList.remove("is-open");
 
   window.removeEventListener("keydown", closeModalByEscape);
-
-  window.removeEventListener("keydown", (e) => {
-    if (e.key !== "ArrowRight") {
-      return;
-    }
-    imageGenerator.indexIncrement();
-    imageGenerator.getIndexValue();
-    imageGenerator.getImageByIndex(index);
-    imageGenerator.addImageByIndex(index);
-  });
-
-  window.removeEventListener("keydown", (e) => {
-    if (e.key !== "ArrowLeft") {
-      return;
-    }
-    imageGenerator.indexDecrement();
-    imageGenerator.getIndexValue();
-    imageGenerator.getImageByIndex(index);
-    imageGenerator.addImageByIndex(index);
-  });
 }
 
 function closeModalByEscape(e) {
@@ -147,21 +123,26 @@ refs.closeButton.addEventListener("click", closeModal);
 refs.lightboxOverlay.addEventListener("click", closeModalByBackdropClick);
 
 window.addEventListener("keydown", (e) => {
-  if (e.key !== "ArrowRight") {
-    return;
-  }
-  imageGenerator.indexIncrement();
-  imageGenerator.getIndexValue();
-  imageGenerator.getImageByIndex(index);
-  imageGenerator.addImageByIndex(index);
-});
+  const newImage = new ImageGeneratorByIndex(index);
+  console.log(e.key, " :Key");
+  console.log("Index: ", index);
+  switch (e.key) {
+    case "ArrowRight":
+      if (index === galleryItems.length - 1) {
+        return;
+      }
+      index += 1;
+      newImage.addImageByIndex(index);
+      break;
 
-window.addEventListener("keydown", (e) => {
-  if (e.key !== "ArrowLeft") {
-    return;
+    case "ArrowLeft":
+      if (index === 0) {
+        return;
+      }
+      index -= 1;
+      newImage.addImageByIndex(index);
+      break;
+    default:
+      console.log("Not correct key");
   }
-  imageGenerator.indexDecrement();
-  imageGenerator.getIndexValue();
-  imageGenerator.getImageByIndex(index);
-  imageGenerator.addImageByIndex(index);
 });
