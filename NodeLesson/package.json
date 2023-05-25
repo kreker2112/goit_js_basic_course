@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kreker2112/goit_js_basic_course/issues"
   },
-  "homepage": "https://github.com/kreker2112/goit_js_basic_course/tree/main#readme"
+  "homepage": "https://github.com/kreker2112/goit_js_basic_course/tree/main#readme",
+  "dependencies": {
+    "shortid": "^2.2.16"
+  }
 }
