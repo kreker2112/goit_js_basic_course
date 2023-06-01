@@ -4,7 +4,8 @@
   "description": "NodeLessonJs",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/app-m.js",
+    "build": "babel src -d dist"
   },
   "keywords": [],
   "author": "Oleksandr Tkachov <kreker2112@gmail.com>",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.22.1"
+    "@babel/core": "^7.22.1",
+    "@babel/preset-env": "^7.22.4"
   }
 }
