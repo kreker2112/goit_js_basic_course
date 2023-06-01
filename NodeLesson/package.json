@@ -4,7 +4,7 @@
   "description": "NodeLessonJs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Oleksandr Tkachov <kreker2112@gmail.com>",
@@ -19,5 +19,9 @@
   "homepage": "https://github.com/kreker2112/goit_js_basic_course/tree/main#readme",
   "dependencies": {
     "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.22.1"
   }
 }
