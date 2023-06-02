@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // Node module
 
@@ -10,6 +10,22 @@
 
 // ECMAScript module
 
-import getMessage from './message';
+// Дефолтный экспорт
+
+import getMessage from './message.js';
+
+// Именованый экспорт
+
+import { fetchArticles, authUser }  from './api.js';
 
 console.log(getMessage());
+
+fetchArticles();
+
+authUser();
+
+// Экспорт объекта
+
+import * as API from './api.js';
+
+console.log(API);
