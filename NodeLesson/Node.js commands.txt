@@ -1,0 +1,78 @@
+// Node.js commands==============================================================
+
+node --version/node -v (проверка версии Node.js)
+
+node (запуск REPL среды выполнения кода, можно писать код прямо в ноде)
+
+"ctrl + c" 2 раза для выхода из РЕПЛа
+
+node + "filename" (выполнение файла)
+
+// NPM commands
+
+npm version (проверка версии NPM)
+
+npm config set init-author-name "YOUR_NAME" - установка имени пользователя
+
+npm config set init-author-email "YOUR_EMAIL" - установка имейла пользователя
+
+npm init (--yes) - инициализация npm и создание файла package.json
+
+npm install - установка зависимостей, перечисленных в package.json
+
+npm install [package-name] - установка пакета локально в папку node_modules
+
+	для установки заисимостей продакшена используется флаг --save (используется по умолчанию)
+	для установки зависимости разработки используется флаг --save-dev
+	для установки глобальной зависимости используется флаг --global
+
+npm uninstall [package-name] - удаление пакета, установленного локально и обновить package.json
+
+npm start/npm test - запуск скрипта start или test , расположенного в package.json
+
+npm run [custom-script] - запустить собственный скрипт, расположенный в package.json
+
+npm outdated - для поиска обновлений, обнаружит совместимые версии программно и выведет список доступных обновлений
+
+npm update - обновит все пакеты до максимально разрешенной версии
+
+// NPM Scripts====================================================================
+
+Запись скрипта для запуска:
+
+"start/test/[custom_script]": "node [your_app].js"
+
+Если в скрипт надо записать несколько файлов для исполнения:
+
+"start/test/[custom_script]": "node [your_app].js && node [your_app_2] ..."
+
+это bash скрипты
+
+// Babel===========================================================================
+
+npm install --save-dev @babel/core @babel/cli
+
+Скрипт запуска babel: 
+
+"build": "babel [src] -d (destination) [lib]"
+
+Передача настроек babel:
+
+В корневом каталоге создается файл с названием ".babelrc" с настройкой:
+
+{
+  "presets": ["@babel/preset-env"]
+}
+
+Далее установка зависимости:
+
+npm install  @babel/preset-env --save-dev
+
+ 
+
+
+
+
+
+
+ 

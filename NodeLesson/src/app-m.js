@@ -8,6 +8,10 @@
 
 // console.log(messageModule.getMessage());
 
+// const { getMessage } = require('./message');
+
+// console.log(getMessage());
+
 // ECMAScript module
 
 // Дефолтный экспорт
