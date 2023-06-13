@@ -1,0 +1,13 @@
+webpack install: npm install --save-dev webpack
+
+Install webpack command line: nom install --save-dev webpack-cli
+
+Либо утсановка всего одной строкой: npm install --save-dev webpack webpack-cli
+
+Изначально Вебпак ожидает что в папке с проектом будет лежать папка src с файлом index.js
+
+npm "scripts" в файле JSON:
+
+"scripts":{
+    "build": "webpack --config webpack.config.js"
+} 
