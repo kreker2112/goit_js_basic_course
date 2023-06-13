@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kreker2112/goit_js_basic_course/tree/main/WebPack-Lesson"
-},
+  },
   "keywords": [],
   "author": "Oleksandr Tkachov <kreker2112@gmail.com>",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.86.0",
+    "webpack-cli": "^5.1.4"
+  }
 }

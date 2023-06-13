@@ -1,6 +1,6 @@
 webpack install: npm install --save-dev webpack
 
-Install webpack command line: nom install --save-dev webpack-cli
+Install webpack command line: npm install --save-dev webpack-cli
 
 Либо утсановка всего одной строкой: npm install --save-dev webpack webpack-cli
 
