@@ -1,3 +1,3 @@
-'use strict';
+"use strict";
 
-export default 'Webpack is amazing!';
+export default "Webpack is amazing!";
