@@ -1,19 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
-
   entry: "./src/index.js",
-
   output: {
-    path: path.resolve(__dirname, "dist"),
     filename: "my-first-webpack.bundle.js",
-    clean: true,
+    path: path.resolve(__dirname, "dist"),
   },
-
   module: {
     rules: [
       {
@@ -28,16 +22,10 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          // MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-        ],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
   },
-
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -45,11 +33,7 @@ module.exports = {
       template: "./src/index.html",
       inject: true,
     }),
-    new MiniCssExtractPlugin({
-      filename: "styles.css",
-    }),
   ],
-
   devServer: {
     static: "./dist",
     port: 9000,

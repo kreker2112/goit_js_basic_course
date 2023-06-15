@@ -4,9 +4,7 @@ import message from "./message";
 
 import arrow from "./arrow";
 
-import "./a.css";
-
-import "./b.css";
+import "./styles.css";
 
 console.log(message);
 

@@ -1,3 +1,13 @@
+Для начала работы необходимо инициализировать проект
+
+npm init -y
+
+==========================================================================================
+
+Далее установка модуля webpack:
+
+==========================================================================================
+
 webpack install: npm install --save-dev webpack
 
 Install webpack command line: npm install --save-dev webpack-cli
@@ -6,8 +16,760 @@ Install webpack command line: npm install --save-dev webpack-cli
 
 Изначально Вебпак ожидает что в папке с проектом будет лежать папка src с файлом index.js
 
-npm "scripts" в файле JSON:
+npm "scripts" в файле JSON для примера:
+
+"scripts":{
+    "start": "webpack"
+}
 
 "scripts":{
     "build": "webpack --config webpack.config.js"
 } 
+
+https://webpack.js.org/guides/installation/
+
+В результате выполнения модуля, создается папка dist в которой формируются файлы продакшена c минификацией кода для парсера, 
+если отутствует опция настройки mode. Для того, чтобы формировались файлы девелопмента(разработки), в поле скрипта можно кустарно 
+проставить флаги --mode=development ("webpack--mode=development"), но обычно мод прописывается в файле 
+webpack.config.js в объекте настроек module exports в самом начале строкой {mode: "development"},
+
+==========================================================================================
+
+Настройка webpack.config.js
+
+==========================================================================================
+
+Для адекватной работы webpack кустарных методов мало, поэтому создается файл конфигурации вебпака webpack.config.js, 
+из которого экспортируется объект настроек module.exports = {}; который заполняется согласно https://webpack.js.org/concepts/#entry
+
+https://webpack.js.org/guides/getting-started/#using-a-configuration
+
+Для начала определить, это девелопмент (черновик, или промежуточная версия) или продакшн (чистовик или версия на релиз) и в зависимости от этого есть два варианта:
+
+1. Проставить 
+module.exports = {
+  mode: 'development', 
+};
+
+Либо
+
+module.exports = {
+  mode: 'production',
+};
+
+2. В скриптах файла JSON добавить флаги к запуску скрипта собирания билда
+
+"build": "webpack --mode=development" (черновик)
+
+"build": "webpack --mode=production" (чистовик)
+
+-- Точка входа (entry) где указывается путь к первому файлу для построения зависимостей
+
+-- Точка выхода (output), куда положить результирующий bundle (это всегда объект) и по умолчанию это папка dist и результирующий файл main.js, но лучше указывать
+ path (путь куда создавать результирующие файлы) и filename (название результирующего файла) (как на примере внизу)
+
+-- Лоадеры, (modules)  (Применяются к каждому типу файлов отдельно)
+
+-- Плагины (Применяются к результирующему бандлу)
+
+============================================================================================
+
+Главное (вход и выход): 
+
+в файле webpack.config.js прописываем
+
+const path = require('path'); обязательный модуль для пути аутпута, чтобы не хардкодить абсолютный путь выхода
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'), (из модуля path, метод resolve, прямой путь к папке через первый параметр --dirname, название папки через второй параметр метода)
+  },
+};
+
+=========================================================================================
+
+Лоадеры (Применяются к каждому типу файлов отдельно)
+
+=========================================================================================
+
+По умолчанию Вебпак обрабатывает только .JS и .JSON файлы. Для остальных типов есть Лоадеры:
+
+Лоадеры - помощники вебпака, которые помогают обрабатывать дополнительные типы файлов (HTML и CSS ...) 
+
+Реализация лоадеров происходит через module в объекте настроек вебпака module exports после определения входов и выходов: 
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [{ 
+      test: /\.js$/ (значок $ - найди все файлы, которые заканчиваются на .js, а знак \ необходим, чтобы экранировать точку), 
+      use: 'raw-loader' (может содержать несколько типов загрузчиков) 
+      }], 
+    (выглядит как массив объектов загрузчиков, где каждый объект выглядит как набор минимум двух свойств, 
+    где первое это test, которое представлено регулярным выражением (рег.выражение это возможность в строке найти подстроку), )
+  },
+};
+
+==========================================================================================
+
+Настройка транспиляции (babel) через автоматические вебпаки (берет все .JS файлы и проганяет через Babel)
+
+==========================================================================================
+
+https://babeljs.io/setup#installation
+
+Установка лоадера бабеля вместе с пресетом env, который будет красиво собирать все для последних браузеров: 
+
+npm install --save-dev babel-loader @babel/core
+
+npm install @babel/preset-env --save-dev
+
+Сразу создание в корне .babelrc ( или babel.config.json ) с настройками:
+
+{
+  "presets": ["@babel/preset-env"]
+}
+
+Далее прописываем конфиг в файле настройки вебпака 
+
+{
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+}
+
+В итоге будет выглядеть так: 
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+};
+
+=============================================================================================
+
+Настройка обработки стилей (вебпак обрабатывает только js и json файлы) и они должны импортироваться прямо в js:
+
+Лоадер style-loader
+
+При использовании style-loader стили из css файла инлайнятся в результирующий html файл в теге style (это "быстрее", чем выгружать все css файлы в отдельный файл)
+
+Гайд https://webpack.js.org/loaders/style-loader/
+
+установка:
+
+npm install --save-dev style-loader
+
+прописывается в главном js файле "import "./[name].css";"
+
+Так же для правильной работы нужен css loader, который обрабатывает и читает файл css стилей, который импортируется вебпаком в js файл разработки.
+
+Лоадер css loader
+
+Установка:
+
+npm install --save-dev css-loader
+
+Настройки вебпака для данного лоадера:
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ],
+  },
+};
+
+-----------------------------------------------------------------------------------------------------
+Результирующий файл конфига с инлайновой записью стилей в результирующий HTML будет выглядеть так:
+-----------------------------------------------------------------------------------------------------
+
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+};
+
+================================================================================================
+
+Плагины (Применяются к результирующему бандлу)
+
+================================================================================================
+
+html-webpack-plugin
+
+Гайд https://webpack.js.org/plugins/html-webpack-plugin/
+
+установка
+
+npm install --save-dev html-webpack-plugin
+
+Для использования плагина, в файле конфигурации вебпака прописываетс команда 
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+А в разделе module.exports добавляется свойство plugins:[] с массивом экземпляров конструкторов
+
+plugins: [new HtmlWebpackPlugin()], (с дефолтными условиями автоматически создает html файл со ссылкой на bundle.js, но это неудобно, 
+поскольку всегда будет использоватьсясвоя разметка HTML)
+
+Для использования своего шаблона HTML, в папке src создается своя разметка HTML, и в результате в параметры плагина предается в виде объекта настроек наш шаблон 
+(настройка template) с относительным путем к файлу, и по желанию название файла, который будет в результате сформирован (настройка filename)
+
+Это будет выглядет так:
+
+plugins: [
+  new HtmlWebpackPlugin({
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ]
+
+------------------------------------------------------------------------------------------------------------------
+Результирующий файл настроек с учетом данного плагина
+------------------------------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+  plugins: [
+  new HtmlWebpackPlugin({                    (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ]
+};
+
+-------------------------------------------------------------------------------------------------
+
+Для очистки папки dist при каждой сборке можно использовать настройку в output "clean: true,"
+
+Пример: 
+
+output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+    clean: true,
+  },
+
+  Либо используем плагин clean-webpack-plugin
+
+  Гайд: https://github.com/johnagan/clean-webpack-plugin
+
+  установка плагина: npm install --save-dev clean-webpack-plugin
+
+  Для использования плагина, в файле конфигурации вебпака прописываетс команда 
+
+  const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+  В массив экземпляров плагинов добавляется метод 
+
+  new CleanWebpackPlugin(),
+
+  ----------------------------------------------------------------------------------------------
+  Результирующий файл настроек с учетом данного плагина
+  ----------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+  plugins: [
+  new CleanWebpackPlugin(), (очистка папки dist при каждой сборке)
+  new HtmlWebpackPlugin({             (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ]
+};
+
+ ----------------------------------------------------------------------------------------------
+  Результирующий файл настроек без плагина, а с настройкой clean: true, в output
+  ----------------------------------------------------------------------------------------------
+
+  const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true, (очистка папки dist при каждой сборке)
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+  plugins: [
+  new HtmlWebpackPlugin({            (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ]
+};
+
+-----------------------------------------------------------------------------------------------------
+
+Плагин postcss-loader для обработки css автопрефиксом на случай, если не все браузеры поддерживают отдельные стили из разработки
+
+Гайд https://webpack.js.org/loaders/postcss-loader/
+
+Установка:
+
+npm install --save-dev postcss-loader postcss
+
+Прописываем в исходном .js "import css from "file.css";"
+
+В вебпак конфиге добавляем 
+
+{
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "postcss-preset-env",
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
+
+Альтернатива (Удобнее и читаемее):
+
+Добавляем файл в корневой каталог 
+
+postcss.config.js
+
+Где прописываем 
+
+module.exports = {
+  plugins: [
+    [
+      "postcss-preset-env",
+      {
+        // Options
+      },
+    ],
+  ],
+};
+
+После чего в конфигурации вебпака добавляем данный метод в конец массива лоадеров
+
+use: ["style-loader", "css-loader", "postcss-loader"],
+
+----------------------------------------------------------------------------------------------------------------
+  Результирующий файл настроек с добавлением файла postcss.config.js в корневой каталог и плагином очистки dist
+----------------------------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+  plugins: [
+  new CleanWebpackPlugin(), (очистка папки dist при каждой сборке)
+  new HtmlWebpackPlugin({             (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ]
+};
+
+-------------------------------------------------------------------------------------------------------------------
+  Результирующий файл настроек с добавлением файла postcss.config.js в корневой каталог и очисткой dist через output
+-------------------------------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true, (очистка папки dist при каждой сборке)
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+  plugins: [
+  new HtmlWebpackPlugin({            (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ]
+};
+
+=============================================================================================================
+
+Плагин webpack-dev-server
+
+Это пакет, который реализует создание веб сервера и автоматически пересобирает bundle при любых изменениях html, css, js файлов и выводит результат в браузер
+
+=============================================================================================================
+
+Гайд https://webpack.js.org/guides/development/#using-webpack-dev-server
+
+Установка npm install --save-dev webpack-dev-server
+
+Прописать в конфиге вебпака свойство
+
+devServer: {
+    static: './dist',
+  },
+
+В скрипты файла JSON для запуска сервера добавить скрипт
+
+"start": "webpack serve --open"
+
+----------------------------------------------------------------------------------------------------------------
+  Результирующий файл настроек с инлайновой записью стилей в результирующий HTML с добавлением файла 
+  postcss.config.js в корневой каталог и плагином очистки dist
+----------------------------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+  plugins: [
+  new CleanWebpackPlugin(), (очистка папки dist при каждой сборке)
+  new HtmlWebpackPlugin({             (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ],
+    devServer: {
+    static: './dist',
+    port: 9000,
+  },
+};
+
+-------------------------------------------------------------------------------------------------------------------
+  Результирующий файл настроек с инлайновой записью стилей в результирующий HTML с добавлением файла postcss.config.js 
+  в корневой каталог и очисткой dist через output
+-------------------------------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+
+  entry: './src/index.js',
+
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true, (очистка папки dist при каждой сборке)
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+
+  plugins: [
+  new HtmlWebpackPlugin({            (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    })
+    ],
+
+   devServer: {
+   static: './dist',
+   port: 9000,
+  },
+
+};
+
+=============================================================================================================================
+
+Плагин для экстракции css файлов из src папки при сборке в один результирующий файл в dist : mini-css-extract-plugin
+
+=============================================================================================================================
+
+Гайд https://webpack.js.org/plugins/mini-css-extract-plugin/
+
+Установка:
+
+npm install --save-dev mini-css-extract-plugin
+
+В главном файле .js прописывеатся строка import "./style.css";
+
+Добавить в конфиге вебпака в список плагинов 
+new MiniCssExtractPlugin({
+  тут объект настроек.
+  К примеру 
+  filename: "styles.css",
+})
+
+Доавить в список лоадеров "MiniCssExtractPlugin.loader", слева (перед) от "css-loader",
+
+В Этом случае инлайновая запись стилей в результирующий HTML не работает, а создается отдельный результирующий CSS файл из всех CSS файлов, которые присутствуют 
+в папке SRC
+
+----------------------------------------------------------------------------------------------------------------
+  Результирующий файл настроек с использованием mini-css-extract-plugin с добавлением файла 
+  postcss.config.js в корневой каталог и плагином очистки dist
+----------------------------------------------------------------------------------------------------------------
+
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+
+  entry: './src/index.js',
+
+  output: {
+    filename: 'my-first-webpack.bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/, 
+        exclude: /node_modules/, (Исключение из транспиляции папки node_modules)
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+      {
+        test: /\.css$/i,
+        use: ["MiniCssExtractPlugin.loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+      },
+    ]
+  }
+
+  plugins: [
+  new CleanWebpackPlugin(), (очистка папки dist при каждой сборке)
+  new HtmlWebpackPlugin({             (Для использования своего шаблона HTML)
+    filename: 'index.html', 
+    template: './src/index.html',
+    inject: true
+    }),
+  new MiniCssExtractPlugin({
+    filename: "styles.css",
+ })
+    ],
+
+    devServer: {
+    static: './dist',
+    port: 9000,
+  },
+
+};
