@@ -1,5 +1,3 @@
-"use strict";
-
 import message from "./message";
 
 import arrow from "./arrow";
@@ -10,4 +8,4 @@ import "./b.css";
 
 console.log(message);
 
-console.log(arrow(5, 20));
+console.log(arrow(5, 25));

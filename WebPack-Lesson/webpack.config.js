@@ -1,17 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
+  // mode: "development",
 
   entry: "./src/index.js",
 
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "my-first-webpack.bundle.js",
-    clean: true,
+    // clean: true,
   },
 
   module: {
@@ -28,18 +27,12 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
     ],
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
