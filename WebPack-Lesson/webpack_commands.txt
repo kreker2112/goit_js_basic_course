@@ -708,6 +708,10 @@ npm install --save-dev mini-css-extract-plugin
 
 В главном файле .js прописывеатся строка import "./style.css";
 
+В конфиге вебпака в начале прописывается 
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 Добавить в конфиге вебпака в список плагинов 
 new MiniCssExtractPlugin({
   тут объект настроек.
@@ -728,6 +732,7 @@ new MiniCssExtractPlugin({
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 
@@ -752,7 +757,7 @@ module.exports = {
       }
       {
         test: /\.css$/i,
-        use: ["MiniCssExtractPlugin.loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
       },
     ]
   }
@@ -784,6 +789,7 @@ module.exports = {
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 
@@ -808,7 +814,7 @@ module.exports = {
       }
       {
         test: /\.css$/i,
-        use: ["MiniCssExtractPlugin.loader", "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"], (Все лоадеры из массива лоадеров указываются слева направо, но выполняются справа налево)
       },
     ]
   }

@@ -4,14 +4,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
-
   entry: "./src/index.js",
 
   output: {
+    filename: "my-first-webpack-with-mini-css-extract-plugin.bundle.js",
     path: path.resolve(__dirname, "dist"),
-    filename: "my-first-webpack.bundle.js",
-    clean: true,
   },
 
   module: {
@@ -28,12 +25,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-        ],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
     ],
   },
@@ -52,6 +44,6 @@ module.exports = {
 
   devServer: {
     static: "./dist",
-    port: 9000,
+    port: 8090,
   },
 };
