@@ -36,6 +36,11 @@ module.exports = {
   ],
   devServer: {
     static: "./dist",
-    port: 4040,
+    historyApiFallback: true,
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8080,
+    watchContentBase: true,
   },
 };
