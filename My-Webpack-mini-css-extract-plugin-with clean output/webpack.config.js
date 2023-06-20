@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
-
+  mode: "production",
   entry: "./src/index.js",
 
   output: {
@@ -44,12 +43,12 @@ module.exports = {
   ],
 
   devServer: {
-    static: "./dist",
+    static: path.resolve(__dirname, "src"),
     historyApiFallback: true,
     open: true,
     compress: true,
     hot: true,
     port: 8080,
-    watchContentBase: true,
   },
+  devtool: "source-map",
 };

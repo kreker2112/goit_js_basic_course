@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "depelopment",
   entry: "./src/index.js",
   output: {
     filename:
@@ -35,12 +36,12 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: "./dist",
+    static: path.resolve(__dirname, "src"),
     historyApiFallback: true,
     open: true,
     compress: true,
     hot: true,
     port: 8080,
-    watchContentBase: true,
   },
+  devtool: "eval-cheap-source-map",
 };

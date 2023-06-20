@@ -1,14 +1,14 @@
 {
-  "name": "my-webpack-mini-css-extract-plugin2",
+  "name": "MyWebpackResultFile",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open",
-    "build": "webpack --mode=production"
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kreker2112/goit_js_basic_course/tree/main/My-Webpack-mini-css-extract-plugin2.git"
+    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/main/MyWebpackResultFile"
   },
   "keywords": [],
   "author": "Oleksandr Tkachov <kreker2112@gmail.com>",
