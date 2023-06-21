@@ -22,6 +22,8 @@ module.exports = {
       },
     ],
   },
-
+  stats: {
+    children: true,
+  },
   devtool: "eval-cheap-source-map",
 };
