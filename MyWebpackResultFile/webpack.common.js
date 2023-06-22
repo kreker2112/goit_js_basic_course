@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -40,4 +41,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.ProgressPlugin((percentage, message) => {
+      console.log(`${(percentage * 100).toFixed()}% ${message}`);
+    }),
+  ],
 };
