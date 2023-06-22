@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
-import message from "./message";
+import message from './message';
 
-import arrow from "./arrow";
+import arrow from './arrow';
 
-import "./a.css";
+import './a.css';
 
-import "./b.css";
+import './b.css';
 
-import listItemTpl from "./list-items.hbs";
+import listItemTpl from './list-items.hbs';
 
-import image from "./images/japan.jpg";
+import image from './images/japan.jpg';
 
 // import html from "./japan-image.html";
 

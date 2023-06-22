@@ -1,17 +1,17 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const { merge } = require('webpack-merge');
+const common = require('./webpack.common.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
   },
@@ -21,7 +21,7 @@ module.exports = merge(common, {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./index.html",
+      template: './index.html',
       // minify: true,
       // minify: {
       //   collapseWhitespace: true,
@@ -43,7 +43,7 @@ module.exports = merge(common, {
       // },
     }),
     new MiniCssExtractPlugin({
-      filename: "styles.css",
+      filename: 'styles.css',
     }),
   ],
   stats: {

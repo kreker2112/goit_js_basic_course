@@ -1,11 +1,11 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  context: path.resolve(__dirname, "src"),
-  entry: "./index.js",
+  context: path.resolve(__dirname, 'src'),
+  entry: './index.js',
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     // assetModuleFilename: "images/[hash][ext][query]",
     clean: true,
   },
@@ -15,28 +15,28 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: 'asset/resource',
         generator: {
-          filename: "images/[hash][ext][query]",
+          filename: 'images/[hash][ext][query]',
         },
       },
       {
         test: /\.hbs$/i,
         use: {
-          loader: "handlebars-loader",
+          loader: 'handlebars-loader',
         },
       },
       {
         test: /\.html$/i,
-        use: { loader: "html-loader" },
+        use: { loader: 'html-loader' },
       },
     ],
   },

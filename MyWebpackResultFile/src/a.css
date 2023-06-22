@@ -3,9 +3,7 @@
 }
 
 body {
-  display: grid;
-  display: flex;
-  transform: translate(50%);
-  background-color: #fff;
+  background-color: rgb(221, 229, 149);
   color: #211221;
+  text-align: center;
 }
