@@ -4,9 +4,9 @@ import message from './message';
 
 import arrow from './arrow';
 
-import './a.css';
+import './css/styles.css';
 
-import './b.css';
+import './css/timer.css';
 
 import listItemTpl from './list-items.hbs';
 

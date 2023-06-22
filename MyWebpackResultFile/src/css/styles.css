@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(221, 229, 149);
+  color: #211221;
+  text-align: center;
+}
