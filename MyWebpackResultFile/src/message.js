@@ -1,1 +1,1 @@
-export default "You fuckin done that shit!";
+export default 'You fuckin done that shit!';
