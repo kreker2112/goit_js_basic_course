@@ -6,6 +6,7 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    // assetModuleFilename: "images/[hash][ext][query]",
     clean: true,
   },
   module: {
@@ -20,10 +21,23 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[hash][ext][query]",
+        },
+      },
+      {
+        test: /\.hbs$/i,
+        use: {
+          loader: "handlebars-loader",
+        },
+      },
+      {
+        test: /\.html$/i,
+        use: { loader: "html-loader" },
+      },
     ],
   },
-  stats: {
-    children: true,
-  },
-  devtool: "eval-cheap-source-map",
 };

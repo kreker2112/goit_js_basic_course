@@ -1,8 +1,8 @@
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -22,15 +22,25 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-        removeAttributeQuotes: true,
-      },
+      // minify: true,
+      // minify: {
+      //   collapseWhitespace: true,
+      //   removeComments: true,
+      //   removeRedundantAttributes: true,
+      //   removeScriptTypeAttributes: true,
+      //   removeStyleLinkTypeAttributes: true,
+      //   useShortDoctype: true,
+      //   removeAttributeQuotes: true,
+      // },
+      // minify: {
+      //   collapseWhitespace: true,
+      //   keepClosingSlash: true,
+      //   removeComments: true,
+      //   removeRedundantAttributes: true,
+      //   removeScriptTypeAttributes: true,
+      //   removeStyleLinkTypeAttributes: true,
+      //   useShortDoctype: true,
+      // },
     }),
     new MiniCssExtractPlugin({
       filename: "styles.css",
