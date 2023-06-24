@@ -35,10 +35,10 @@ module.exports = {
           loader: 'handlebars-loader',
         },
       },
-      {
-        test: /\.html$/i,
-        use: { loader: 'html-loader' },
-      },
+      // {
+      //   test: /\.html$/i,
+      //   use: { loader: 'html-loader' },
+      // },
     ],
   },
   plugins: [

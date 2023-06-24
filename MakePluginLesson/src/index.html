@@ -4,10 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack Demo</title>
+    <title>Making Timer Plugin Demo</title>
   </head>
   <body>
-    <h1>Perfect volcano Fuji</h1>
-    <img src="./images/japan.jpg" alt="" width="640" />
+    <h1>My first timer Plugin</h1>
+    <!-- My Timer Plugin -->
+    <div class="container" id="timer-1">
+      <button type="button" class="button" data-action="decrement">
+        &#8722;
+      </button>
+      <div class="value">0</div>
+      <button type="button" class="button" data-action="increment">
+        &#43;
+      </button>
+    </div>
+    <div class="container" id="timer-2">
+      <button type="button" class="button" data-action="decrement">
+        &#8722;
+      </button>
+      <div class="value">0</div>
+      <button type="button" class="button" data-action="increment">
+        &#43;
+      </button>
+    </div>
+    <!-- My Timer Plugin -->
+    <!-- Import Image with build/dev -->
+    <div class="image" id="fuji-image">
+      <h1>Perfect volcano Fuji</h1>
+      <img src="./images/japan.jpg" alt="" width="640" />
+    </div>
+    <!-- Import Image with build/dev -->
+    <!-- Siema  -->
+    <div class="gallery">
+      <div class="siema" id="gallery-1">
+        <div>Hi, I'm slide 1</div>
+        <div>Hi, I'm slide 2</div>
+        <div>Hi, I'm slide 3</div>
+        <div>Hi, I'm slide 4</div>
+      </div>
+      <button class="prev">prev</button>
+      <button class="next">next</button>
+    </div>
+    <!-- Siema  -->
   </body>
 </html>
