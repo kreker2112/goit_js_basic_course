@@ -27,12 +27,14 @@ console.log(galleryItems);
 
 // basicLightbox
 
-const instance = basicLightbox.create(`
-	<h1>Dynamic Content</h1>
-	<p>You can set the content of the lightbox with JS.</p>
-`);
+// const instance = basicLightbox.create(`
+// 	<h1>Dynamic Content</h1>
+// 	<p>You can set the content of the lightbox with JS.</p>
+// `);
 
-instance.show();
+// instance.show();
+
+// Images Gallery
 
 const refs = {
   gallery: document.querySelector('.js-gallery'),
