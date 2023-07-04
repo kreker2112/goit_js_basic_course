@@ -34,13 +34,13 @@ buildPostsFeed(postsArray);
 
 // Make PostsFeed by post-feed.hbs (один шаблон - все сущности)
 
-import postFeedTemplate from './templates/post-feed.hbs';
+// import postFeedTemplate from './templates/post-feed.hbs';
 
-const markupSecondType = postFeedTemplate(postsArray);
+// const markupSecondType = postFeedTemplate(postsArray);
 
-console.log(markupSecondType);
+// console.log(markupSecondType);
 
-refs.postFeed.insertAdjacentHTML('beforeend', markupSecondType);
+// refs.postFeed.insertAdjacentHTML('beforeend', markupSecondType);
 
 // У метода JSON есть два метода:
 // 1) JSON.stringify(), который переводит объект в строку для хранения данных и отправки их в бэкэнд

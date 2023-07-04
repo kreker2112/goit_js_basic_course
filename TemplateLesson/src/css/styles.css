@@ -3,7 +3,8 @@
 }
 
 body {
-  background-color: rgb(37, 155, 13);
+  display: flex;
+  background-color: rgb(206, 223, 203);
   color: #211221;
-  text-align: center;
+  justify-content: center;
 }
