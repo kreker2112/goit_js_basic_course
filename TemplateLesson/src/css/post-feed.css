@@ -1,0 +1,15 @@
+.post-feed {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  flex: 200px;
+}
+
+.post-feed__item {
+  flex: 200px;
+}
+
+.post {
+  justify-content: space-around;
+  align-items: center;
+}
