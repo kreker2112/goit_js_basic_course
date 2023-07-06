@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  /* width: 600px; */
   overflow-x: hidden;
 }
 
@@ -17,7 +16,7 @@ body {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #fff;
   color: #212121;
-  background-image: url('https://icon2.cleanpng.com/20180216/ekw/kisspng-strip-steel-metal-iron-cartoon-5a8763634a86a1.6771169615188222433053.jpg');
+  background-image: url('https://www.psdgraphics.com/wp-content/uploads/2017/05/vector-diamond-metal.png');
 }
 
 .feedback-form {

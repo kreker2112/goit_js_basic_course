@@ -1,15 +1,48 @@
 .post-feed {
   display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  flex: 200px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -10px;
 }
 
 .post-feed__item {
-  flex: 200px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 10px 20px;
+  padding: 10px;
+  border: 1px solid #212121;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
 }
 
 .post {
-  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.post__header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.post__text{
+  margin: 10px 0;
+}
+
+.post__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
 }
