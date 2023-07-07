@@ -9,13 +9,26 @@
 .post-feed__item {
   width: 100%;
   max-width: 400px;
-  margin: 0 10px 20px;
+  margin: 10px 10px 20px;
   padding: 10px;
   border: 1px solid #212121;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
+}
+
+.post-feed__item::marker {
+  content: "";
+  list-style-type:none;
+}
+
+.post-feed__item:hover {
+  transform: scale(1.05);
+}
+
+.post-feed__item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .post {
@@ -31,7 +44,18 @@
   align-items: center;
 }
 
+.post__avatar {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  width: 135px;
+  border-radius: 50%;
+}
+
 .post__text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 10px 0;
 }
 
@@ -45,4 +69,13 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 -5px;
+}
+
+.tag-list__item {
+  margin: 0 5px;
+}
+
+.tag-list__item::marker {
+  content: "";
+  list-style-type:none;
 }
