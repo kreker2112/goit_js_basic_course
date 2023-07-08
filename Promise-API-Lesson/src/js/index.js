@@ -8,14 +8,35 @@ const beforePromise = document.getElementById("before_promise_output");
 
 const afterPromise = document.getElementById("after_promise_output");
 
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     const success = Math.random() > 0.5;
+//     if (success) {
+//       resolve(
+//         (promiseApiOutput.textContent = "Success!"),
+//         promiseApiOutput.classList.add("is-resolved")
+//       );
+//     } else {
+//       reject(
+//         (promiseApiOutput.textContent = "Promise Error!"),
+//         promiseApiOutput.classList.add("is-rejected")
+//       );
+//     }
+//   }, 1000);
+// });
+
 const promise = new Promise((resolve, reject) => {
   setTimeout(() => {
     const success = Math.random() > 0.5;
-    if (success) {
-      resolve((promiseApiOutput.textContent = "Success!"));
-    } else {
-      reject((promiseApiOutput.textContent = "Promise Error!"));
-    }
+    success
+      ? resolve(
+          (promiseApiOutput.textContent = "Success!"),
+          promiseApiOutput.classList.add("is-resolved")
+        )
+      : reject(
+          (promiseApiOutput.textContent = "Promise Error!"),
+          promiseApiOutput.classList.add("is-rejected")
+        );
   }, 2000);
 });
 
