@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212121;
+}
+
+body {
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #212121;
+}
+
+.post_h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.promiseAPI__output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.promise_api_output__span {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.output__span {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.before__promise__output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.after__promise__output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+}

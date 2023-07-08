@@ -1,6 +1,7 @@
 {
-  "name": "makepluginlesson",
+  "name": "promise-api-lesson",
   "version": "1.0.0",
+  "description": "My-Promise-API-Lesson",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
@@ -11,12 +12,11 @@
   "homepage": "https://kreker2112.github.io/goit_js_basic_course",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/ef0be9ea7c5631f2a83bdeefd7d75bdd1374b291/makepluginlesson"
+    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/ef0be9ea7c5631f2a83bdeefd7d75bdd1374b291/promise-api-lesson"
   },
   "keywords": [],
-  "author": "Oleksandr Tkachov <kreker2112@gmail.com>",
+  "author": "Tkachov Oleksandr <kreker2112@gmail.com>",
   "license": "ISC",
-  "description": "My template lesson",
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
