@@ -1,43 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 10px;
-  padding: 10px;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  list-style: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #212121;
-}
-
-body {
-  margin: 10px;
-  padding: 10px;
-  background-color: #3e3ca0;
-}
-.masthead {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  border-bottom: 1px solid #212121;
-}
-
-.post_h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 32px;
-  font-weight: 500;
-  color: rgb(151, 48, 45);
-  font-family: monospace;
-  text-shadow: 2px 2px 2px #212121;
-}
-
 .promiseAPI__output {
   display: flex;
   justify-content: center;
@@ -64,6 +24,7 @@ body {
   margin-bottom: 20px;
   font-size: 32px;
   font-weight: 500;
+  color: rgb(151, 48, 45);
 }
 
 .after__promise__output {
@@ -73,6 +34,7 @@ body {
   margin-bottom: 20px;
   font-size: 32px;
   font-weight: 500;
+  color: #cf4485e8;
 }
 
 .promise_api_output__span.is-resolved {

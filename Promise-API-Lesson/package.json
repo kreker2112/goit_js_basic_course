@@ -45,6 +45,7 @@
     "lodash.debounce": "^4.0.8",
     "notyf": "^3.10.0",
     "postcss-preset-env": "^8.5.0",
-    "siema": "^1.5.1"
+    "siema": "^1.5.1",
+    "uniqid": "^5.4.0"
   }
 }

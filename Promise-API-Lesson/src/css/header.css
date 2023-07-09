@@ -1,0 +1,20 @@
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #212121;
+}
+
+.post_h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(151, 48, 45);
+  font-family: monospace;
+  text-shadow: 2px 2px 2px #212121;
+}

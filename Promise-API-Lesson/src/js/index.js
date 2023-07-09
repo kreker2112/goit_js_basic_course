@@ -1,46 +1,33 @@
 "use strict";
 
-import "./../css/styles.css";
+// Импорт промиса из отдельного файла=====================================================
 
-const promiseApiOutput = document.getElementById("output");
+import { promise } from "./promise-intro/promise-example.js";
 
-const beforePromise = document.getElementById("before_promise_output");
+// Импорт объекта cart из отдельного файла================================================
 
-const afterPromise = document.getElementById("after_promise_output");
+import { cart } from "./cart-example/cartAsync.js";
 
-// const promise = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     const success = Math.random() > 0.5;
-//     if (success) {
-//       resolve(
-//         (promiseApiOutput.textContent = "Success!"),
-//         promiseApiOutput.classList.add("is-resolved")
-//       );
-//     } else {
-//       reject(
-//         (promiseApiOutput.textContent = "Promise Error!"),
-//         promiseApiOutput.classList.add("is-rejected")
-//       );
-//     }
-//   }, 1000);
-// });
+// Импорт объектов race и horse из отдельного файла================================================
 
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    const success = Math.random() > 0.5;
-    success
-      ? resolve(
-          (promiseApiOutput.textContent = "Success!"),
-          promiseApiOutput.classList.add("is-resolved")
-        )
-      : reject(
-          (promiseApiOutput.textContent = "Promise Error!"),
-          promiseApiOutput.classList.add("is-rejected")
-        );
-  }, 2000);
-});
+import { race } from "./racetrack/racetrack.js";
+import { horse } from "./racetrack/horses.js";
+import { notifyWhenHorseCrossesFinishLine } from "./racetrack/notify-when-horse-finished.js";
+import { notifyWhenHorseCrashed } from "./racetrack/notify-when-horse-crashed.js";
 
-beforePromise.textContent = "before promise";
+// Импорт стилей из отдельного файла======================================================
+
+import "./../css/main.css";
+import "./../css/header.css";
+import "./../css/promise-template.css";
+
+// Импорт ссылок на ДОМ-элементы из отдельного файла======================================
+
+import { refs } from "./promise-intro/refs.js";
+
+// Примеры работы с промисами из файла promise-template.js================================
+
+refs.beforePromise.textContent = "before promise";
 
 const onSuccess = (message) => {
   console.log(message);
@@ -52,4 +39,38 @@ const onError = (error) => {
 
 promise.then(onSuccess).catch(onError);
 
-afterPromise.textContent = "after promise";
+refs.afterPromise.textContent = "after promise";
+
+// Примеры работы с методами промисов из файла cartAsync.js=======================================
+
+const addedItem = cart
+  .add("Дроид")
+  .then((id) => {
+    updateUIAfterAdd(id);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+const removedItem = cart
+  .remove("fagw34546344tghfh5")
+  .then((id) => {
+    updateUIAfterRemove(id);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+function updateUIAfterAdd(item) {
+  console.log(`Updating with item id ${item.name}`);
+}
+
+function updateUIAfterRemove(id) {
+  console.log(`Removing with item id ${id}`);
+}
+
+// Примеры работы с методами промисов из файла racetrack.js=======================================
+
+race(horse)
+  .then(notifyWhenHorseCrossesFinishLine)
+  .catch(notifyWhenHorseCrashed);
