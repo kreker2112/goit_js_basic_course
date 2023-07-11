@@ -1,5 +1,7 @@
 "use strict";
 
+import uniqid from "uniqid";
+
 // Иморт массива items из отдельного файла=============================================
 
 import { items } from "./cart-items";
@@ -12,7 +14,7 @@ export const cart = {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const item = {
-          id: Date.now(),
+          id: uniqid("goods-", "-new"),
           name: itemName,
         };
 
