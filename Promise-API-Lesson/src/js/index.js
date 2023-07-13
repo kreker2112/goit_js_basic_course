@@ -63,6 +63,21 @@ function updateUIAfterRemove(id) {
   console.log(`Removing with item id ${id}`);
 }
 
+// Создание и вызов синхронной функции, которая возвращает мгновенный промис без таймаута==============================
+
+function updateUIAfterUpdate(id) {
+  console.log(
+    `Сначала выполняется эта функция мгновенно после всего синхронного кода: Updating with item id ${id}`
+  );
+}
+
+cart
+  .update("fagw34546344tghfh5")
+  .then(updateUIAfterUpdate)
+  .catch((error) => {
+    console.error(error);
+  });
+
 console.log("items: ", items);
 
 // Импорт массивов, объектов и функций из папки racetrack================================================
@@ -124,9 +139,35 @@ chainedPromiseExample
     console.log(error);
   });
 
-// Примеры работы с Fetch API из файла fetchFromSwapi.js=======================================
+// Примеры работы с бэкендом на примере Fetch API из файла fetchFromSwapi.js=======================================
 
 fetch("https://swapi.dev/api/planets")
   .then((response) => response.json())
   .then((data) => console.log(data.results))
-  .catch((error) => console.log(error));
+  .catch((error) => console.error(error));
+
+// Импорт файла геолокации из отдельного файла===============================================
+
+import { getGeoPosition } from "./geo/geo.js";
+
+// Примеры работы с геолокацией из файла geo.js=======================================
+
+getGeoPosition()
+  .then((position) => {
+    console.log("Geo position: ", position);
+  })
+  .catch((error) => {
+    console.error(err.message);
+  });
+
+// RAF
+// window.requestAnimationFrame()
+// Браузер делает отрисовку каждые 16 миллисекунд, если вкладка активна. 1 тик, или одна итерация ивент-лупа - это 16 миллисекунд.
+// И каждые 16 миллисекунд браузер будет paintJob - отрисовку на экране ставить. Это используется для анимации.
+// К примеру мы хотим сделать анимацию, которая будет двигаться с определенной скоростью.
+// Для этого определим функцию const animateBar = () => { bar.style.width = 5; }
+// И вызовем ее внутри requestAnimationFrame(animateBar)
+// Таким образом, браузер будет вызывать функцию animateBar каждые 16 миллисекунд, и внутри этой функции мы можем менять стили,
+// и тем самым создавать анимацию. Но эта функция будет вызываться бесконечно, и чтобы остановить ее, нужно внутри функции
+// animateBar добавить условие, которое будет проверять, что ширина bar не больше 100, и если больше, то вызывать функцию
+// cancelAnimationFrame(animateBar)
