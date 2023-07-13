@@ -3,8 +3,8 @@
 // Импорт стилей из отдельного файла======================================================
 
 import "./../css/main.css";
-import "./../css/header.css";
 import "./../css/promise-template.css";
+import "./../css/cart-items.css";
 
 // Импорт ссылок на ДОМ-элементы из отдельного файла======================================
 
@@ -114,6 +114,7 @@ chainedPromiseExample
   })
   .then((value3) => {
     console.log("resolve 3 - ", value3);
+    return value3 * 4;
   })
   .then((value4) => {
     console.log("resolve 4 - ", value4);
@@ -122,3 +123,10 @@ chainedPromiseExample
   .catch((error) => {
     console.log(error);
   });
+
+// Примеры работы с Fetch API из файла fetchFromSwapi.js=======================================
+
+fetch("https://swapi.dev/api/planets")
+  .then((response) => response.json())
+  .then((data) => console.log(data.results))
+  .catch((error) => console.log(error));

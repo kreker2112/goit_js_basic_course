@@ -33,4 +33,7 @@ export const cart = {
       }, 300);
     });
   },
+  update(id) {
+    return Promise.resolve(id);
+  },
 };

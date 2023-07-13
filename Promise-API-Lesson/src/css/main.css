@@ -13,7 +13,42 @@
 }
 
 body {
-  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #43b686;
+}
+
+.promise__lesson {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.masthead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
   padding: 10px;
-  background-color: #9795e4;
+  border-bottom: 1px solid #212121;
+}
+
+.post_h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(151, 48, 45);
+  font-family: monospace;
+  text-shadow: 2px 2px 2px #212121;
 }
