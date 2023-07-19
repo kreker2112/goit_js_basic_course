@@ -6,22 +6,16 @@ import "./../css/main.css";
 import "./../css/promise-template.css";
 import "./../css/cart-items.css";
 
-// Импорт ссылок на ДОМ-элементы из отдельного файла======================================
-
-import { refs } from "./promise-intro/refs.js";
-// import promiseIntroTemplate from "./promise-intro/promise-intro-tmplt.hbs";
-
 // Импорт промиса из отдельного файла=====================================================
 
-import { promise } from "./promise-intro/promise-example.js";
-
-// const promiseIntroRef = document.querySelector(".promise__intro__list");
-
-// promiseIntroRef.insertAdjacentHTML("beforeend", promiseIntroTemplate());
+import { promiseExample } from "./promise-intro/promise-example.js";
 
 // Примеры работы с промисами из файла promise-example.js================================
 
-refs.beforePromise.textContent = "before promise";
+// Создание разметки для примера работы с промисами из файла promise-example.js.
+promiseExample.addPromiseIntroMarkup();
+
+promiseExample.addTextBeforePromise();
 
 // Определение функции успеха, которая будет передана в метод then.
 
@@ -35,72 +29,76 @@ const onError = (error) => {
   console.error(`error: ${error}`);
 };
 
-promise.then(onSuccess).catch(onError);
+// Вызов промиса из файла promise-example.js.
 
-refs.afterPromise.textContent = "after promise";
+promiseExample.addPromiseText().then(onSuccess).catch(onError);
+
+// Вызов метода после промиса из файла promise-example.js.
+
+promiseExample.addTextAfterPromise();
 
 // Импорт объекта cart из отдельного файла================================================
 
-import { cart } from "./cart-example/cartAsync.js";
-import { items } from "./cart-example/cart-items.js";
-import cartItemsTemplate from "./cart-example/cart-items-tmplt.hbs";
-const cartItemsRef = document.querySelector(".table__body");
+// import { cart } from "./cart-example/cartAsync.js";
+// import { items } from "./cart-example/cart-items.js";
+// import cartItemsTemplate from "./cart-example/cart-items-tmplt.hbs";
+// const cartItemsRef = document.querySelector(".table__body");
 
-function buildCartItems() {
-  const markup = items.map((item) => cartItemsTemplate(item)).join("");
-  cartItemsRef.insertAdjacentHTML("beforeend", markup);
-}
+// function buildCartItems() {
+//   const markup = items.map((item) => cartItemsTemplate(item)).join("");
+//   cartItemsRef.insertAdjacentHTML("beforeend", markup);
+// }
 
-function buildCartItem(item) {
-  const markup = cartItemsTemplate(item);
-  cartItemsRef.insertAdjacentHTML("beforeend", markup);
-}
+// function buildCartItem(item) {
+//   const markup = cartItemsTemplate(item);
+//   cartItemsRef.insertAdjacentHTML("beforeend", markup);
+// }
 
 // Примеры работы с методами промисов из файла cartAsync.js=======================================
 
-const addedItem = cart
-  .add("Дроид")
-  .then((id) => {
-    updateUIAfterAdd(id);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// const addedItem = cart
+//   .add("Дроид")
+//   .then((id) => {
+//     updateUIAfterAdd(id);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
-const removedItem = cart
-  .remove("fagw34546344tghfh5")
-  .then((id) => {
-    updateUIAfterRemove(id);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// const removedItem = cart
+//   .remove("fagw34546344tghfh5")
+//   .then((id) => {
+//     updateUIAfterRemove(id);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
-function updateUIAfterAdd(item) {
-  buildCartItem(item);
-}
+// function updateUIAfterAdd(item) {
+//   buildCartItem(item);
+// }
 
-console.log("items: ", items);
+// console.log("items: ", items);
 
-function updateUIAfterRemove(id) {
-  console.log(`Removing with item id ${id}`);
-}
+// function updateUIAfterRemove(id) {
+//   console.log(`Removing with item id ${id}`);
+// }
 
 // Создание и вызов синхронной функции, которая возвращает мгновенный промис без таймаута==============================
 
-function updateUIAfterUpdate(id) {
-  buildCartItems(items);
-  console.log(
-    `Сначала выполняется эта функция мгновенно после всего синхронного кода: Updating with item id ${id}`
-  );
-}
+// function updateUIAfterUpdate(id) {
+//   buildCartItems(items);
+//   console.log(
+//     `Сначала выполняется эта функция мгновенно после всего синхронного кода: Updating with item id ${id}`
+//   );
+// }
 
-cart
-  .update("fagw34546344tghfh5")
-  .then(updateUIAfterUpdate)
-  .catch((error) => {
-    console.error(error);
-  });
+// cart
+//   .update("fagw34546344tghfh5")
+//   .then(updateUIAfterUpdate)
+//   .catch((error) => {
+//     console.error(error);
+//   });
 
 // console.log("items: ", items);
 
