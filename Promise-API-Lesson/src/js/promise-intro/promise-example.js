@@ -2,7 +2,7 @@
 
 // Импорт ссылок на ДОМ-элементы из отдельного файла======================================
 
-import { refs } from "./refs.js";
+import { refs } from "../refs/refs.js";
 
 // Импорт шаблона из отдельного файла======================================================
 
@@ -49,11 +49,16 @@ import promiseIntroTemplate from "./promise-intro-tmplt.hbs";
 export const promiseExample = {
   addPromiseIntroMarkup() {
     const markup = promiseIntroTemplate();
-    refs.promiseLesson.insertAdjacentHTML("beforeend", markup);
+    return Promise.resolve(
+      refs.promiseLesson.insertAdjacentHTML("afterbegin", markup)
+    );
   },
+
   addTextBeforePromise() {
-    document.getElementById("before_promise_output").textContent =
-      "before promise";
+    return Promise.resolve(
+      (document.getElementById("before_promise_output").textContent =
+        "before promise")
+    );
   },
   addPromiseText() {
     return new Promise((resolve, reject) => {
@@ -75,5 +80,11 @@ export const promiseExample = {
   addTextAfterPromise() {
     document.getElementById("after_promise_output").textContent =
       "after promise";
+  },
+  onError(error) {
+    console.error(`error: ${error}`);
+  },
+  onSuccess(message) {
+    console.log(message);
   },
 };

@@ -12,58 +12,38 @@ import { promiseExample } from "./promise-intro/promise-example.js";
 
 // Примеры работы с промисами из файла promise-example.js================================
 
-// Создание разметки для примера работы с промисами из файла promise-example.js.
-promiseExample.addPromiseIntroMarkup();
+// Сначала выполняется:
+// Вызов моментального промиса из метода addPromiseIntroMarkup из файла promise-example.js.,
+// который возвращает разметку для примера работы с промисами из файла promise-example.js.
+// Затем по цепочке вызывает методы then и catch.
+// Сначала выполняются асинхронные методы мгновенного вызова промиса после всего синхронного кода, а затем выполняются методы then и catch с таймаутом
+// и по его завершению через finally передается синхронный метод addTextAfterPromise.
 
-promiseExample.addTextBeforePromise();
-
-// Определение функции успеха, которая будет передана в метод then.
-
-const onSuccess = (message) => {
-  console.log(message);
-};
-
-// Определение функции ошибки, которая будет передана в метод catch.
-
-const onError = (error) => {
-  console.error(`error: ${error}`);
-};
-
-// Вызов промиса из файла promise-example.js.
-
-promiseExample.addPromiseText().then(onSuccess).catch(onError);
-
-// Вызов метода после промиса из файла promise-example.js.
-
-promiseExample.addTextAfterPromise();
+promiseExample
+  .addPromiseIntroMarkup()
+  .then(promiseExample.addTextBeforePromise)
+  .then(promiseExample.addPromiseText)
+  .then(promiseExample.onSuccess)
+  .catch(promiseExample.onError)
+  .finally(promiseExample.addTextAfterPromise);
 
 // Импорт объекта cart из отдельного файла================================================
 
-// import { cart } from "./cart-example/cartAsync.js";
-// import { items } from "./cart-example/cart-items.js";
-// import cartItemsTemplate from "./cart-example/cart-items-tmplt.hbs";
-// const cartItemsRef = document.querySelector(".table__body");
+import { cart } from "./cart-example/cartAsync.js";
 
-// function buildCartItems() {
-//   const markup = items.map((item) => cartItemsTemplate(item)).join("");
-//   cartItemsRef.insertAdjacentHTML("beforeend", markup);
-// }
+// Примеры работы с промисами из файла cartAsync.js=======================================
 
-// function buildCartItem(item) {
-//   const markup = cartItemsTemplate(item);
-//   cartItemsRef.insertAdjacentHTML("beforeend", markup);
-// }
+// Вызов методов объекта cart из файла cartAsync.js, которые возвращают разметку таблицы с
+// товарами из файла items для примера работы с промисами из файла cartAsync.js.
+
+cart.addTableMarkup().then(cart.buildCartItemsMarkup);
+
+// Вызов метода объекта cart из файла cartAsync.js, который добавляет товар в массив items и сразу отрисовывает его в таблице
+// И в случае ошибки, выводит ее на экран.
+
+cart.add("Колготки").catch(() => confirm("Wrong input data! Try again!"));
 
 // Примеры работы с методами промисов из файла cartAsync.js=======================================
-
-// const addedItem = cart
-//   .add("Дроид")
-//   .then((id) => {
-//     updateUIAfterAdd(id);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
 
 // const removedItem = cart
 //   .remove("fagw34546344tghfh5")
