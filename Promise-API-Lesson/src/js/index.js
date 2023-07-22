@@ -38,10 +38,40 @@ import { cart } from "./cart-example/cartAsync.js";
 
 cart.addTableMarkup().then(cart.buildCartItemsMarkup);
 
+// Определение ссылок на кнопки ДОМ-элемента из отдельного файла======================================
+
+const addItemBtn = document.querySelector('button[data-action="add_item"]');
+const deleteItemBtn = document.querySelector(
+  'button[data-action="delete_item"]'
+);
+
+// Обработчики событий на кнопках ДОМ-элемента из отдельного файла======================================
+
+addItemBtn.addEventListener("click", () => {
+  cart
+    .add(document.getElementById("add__item__input").value)
+    .catch(() => confirm("Wrong input data! Try again!"));
+});
+
+deleteItemBtn.addEventListener("click", () => {
+  cart
+    .remove(document.getElementById("delete__item__input").value)
+    .then(cart.updateTableAfterRemove)
+    .catch((error) => confirm("This product is not in the list! Try again!"));
+});
+
 // Вызов метода объекта cart из файла cartAsync.js, который добавляет товар в массив items и сразу отрисовывает его в таблице
 // И в случае ошибки, выводит ее на экран.
 
-cart.add("Колготки").catch(() => confirm("Wrong input data! Try again!"));
+// cart
+//   .add(prompt("Введите название товара"))
+//   .catch(() => confirm("Wrong input data! Try again!"));
+
+// cart
+//   .remove(prompt("Введите название товара для удаления"))
+//   .catch(() => confirm("This product is not in the list! Try again!"));
+
+// cart.updateTableAfterRemove("Сканер");
 
 // Примеры работы с методами промисов из файла cartAsync.js=======================================
 

@@ -52,7 +52,11 @@ export const cart = {
   add(itemName) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const success = Math.random() > 0.5;
+        const success =
+          typeof itemName === "string" &&
+          itemName.length > 0 &&
+          isNaN(itemName);
+
         const item = {
           id: uniqid("goods-", "-new"),
           name: itemName,
@@ -64,12 +68,17 @@ export const cart = {
     });
   },
   // Объявляем метод удаления товара из массива items объекта cart=======================================
-  remove(id) {
+  remove(name) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.items = this.items.filter((item) => item.id !== id);
+        const success = this.items.find((item) => item.name === name);
 
-        resolve(id);
+        success.name === name
+          ? resolve(
+              (this.items = this.items.filter((item) => item.name !== name)),
+              this.updateTableAfterRemove(name)
+            )
+          : reject((error) => confirm(error));
       }, 300);
     });
   },
@@ -81,5 +90,13 @@ export const cart = {
   // !!!!!!!!!!! и в этом случае мы можем использовать статический метод Catch, который отлавливает ошибку и выполняет какой-то код.
   update(id) {
     return Promise.resolve(id);
+  },
+  updateTableAfterRemove(name) {
+    const trArr = [...document.querySelectorAll(".cart__row")];
+    trArr.forEach((tr) => {
+      if (tr.children[2].textContent === name) {
+        tr.remove();
+      }
+    });
   },
 };
