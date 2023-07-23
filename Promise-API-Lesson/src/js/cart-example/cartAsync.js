@@ -41,12 +41,14 @@ export const cart = {
         .insertAdjacentHTML("beforeend", markup)
     );
   },
-  // Объявляем метод отрисовки строки товара в общую таблицу, добавленного в массив items объекта cart=======================================
+  // Объявляем метод отрисовки строки товара, добавленного в массив items объекта cart, в общую таблицу=======================================
   buildCartItem(item) {
     const markup = cartItemTemplate(item);
-    document
-      .getElementById("table-body")
-      .insertAdjacentHTML("beforeend", markup);
+    return Promise.resolve(
+      document
+        .getElementById("table-body")
+        .insertAdjacentHTML("beforeend", markup)
+    );
   },
   // Объявляем метод добавления товара в массив items объекта cart=======================================
   add(itemName) {
@@ -63,7 +65,7 @@ export const cart = {
         };
         success
           ? resolve(this.items.push(item), this.buildCartItem(item))
-          : reject((error) => confirm(error));
+          : reject((error) => alert(error));
       }, 1000);
     });
   },
@@ -71,14 +73,14 @@ export const cart = {
   remove(name) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const success = this.items.find((item) => item.name === name);
+        const findItem = this.items.find((item) => item.name === name);
 
-        success.name === name
+        findItem
           ? resolve(
               (this.items = this.items.filter((item) => item.name !== name)),
               this.updateTableAfterRemove(name)
             )
-          : reject((error) => confirm(error));
+          : reject((error) => alert(error));
       }, 300);
     });
   },
@@ -98,5 +100,19 @@ export const cart = {
         tr.remove();
       }
     });
+  },
+  successAddMsg(itemName) {
+    return Promise.resolve(
+      setTimeout(() => {
+        alert(`Товар ${itemName} добавлен в корзину!`);
+      }, 2000)
+    );
+  },
+  successRemoveMsg(name) {
+    return Promise.resolve(
+      setTimeout(() => {
+        alert(`Товар ${name} удален из корзины!`);
+      }, 2000)
+    );
   },
 };

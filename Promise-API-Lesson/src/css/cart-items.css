@@ -70,9 +70,8 @@
   margin: 0.1rem;
   padding: 0.1rem;
   border: 1px solid #ccc;
+  border-radius: 20px;
   background-color: rgb(119, 119, 27);
-  /* border-radius: 50%; */
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
 }
 
 .cart__row {
@@ -95,9 +94,7 @@
   justify-content: center;
   margin: 0.1rem;
   padding: 0.1rem;
-  /* border: 1px solid #aa7373; */
   border-radius: 5px;
-  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2); */
 }
 
 .cart__item__delimeter {
@@ -107,7 +104,6 @@
   justify-content: center;
   margin: 0.1rem;
   padding: 0.1rem;
-  /* border: 1px solid #ccc; */
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

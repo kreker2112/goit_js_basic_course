@@ -47,150 +47,84 @@ const deleteItemBtn = document.querySelector(
 
 // Обработчики событий на кнопках ДОМ-элемента из отдельного файла======================================
 
-addItemBtn.addEventListener("click", () => {
-  cart
-    .add(document.getElementById("add__item__input").value)
-    .catch(() => confirm("Wrong input data! Try again!"));
-});
-
-deleteItemBtn.addEventListener("click", () => {
-  cart
-    .remove(document.getElementById("delete__item__input").value)
-    .then(cart.updateTableAfterRemove)
-    .catch((error) => confirm("This product is not in the list! Try again!"));
-});
-
-// Вызов метода объекта cart из файла cartAsync.js, который добавляет товар в массив items и сразу отрисовывает его в таблице
+// Вызов метода объекта cart с промисами из файла cartAsync.js, который добавляет товар в массив items и сразу отрисовывает его в таблице
 // И в случае ошибки, выводит ее на экран.
 
-// cart
-//   .add(prompt("Введите название товара"))
-//   .catch(() => confirm("Wrong input data! Try again!"));
+addItemBtn.addEventListener("click", () => {
+  const addElement = document.getElementById("add__item__input");
+  const itemName = addElement.value;
+  cart
+    .add(itemName)
+    .catch(() => alert("Wrong input data! Try again!"))
+    .then(cart.successAddMsg(itemName))
+    .finally(() => (addElement.value = ""));
+});
 
-// cart
-//   .remove(prompt("Введите название товара для удаления"))
-//   .catch(() => confirm("This product is not in the list! Try again!"));
+// Вызов метода объекта cart с промисами из файла cartAsync.js, который удаляет товар из массива items и сразу отрисовывает новую таблицу
+// И в случае ошибки, выводит ее на экран.
 
-// cart.updateTableAfterRemove("Сканер");
-
-// Примеры работы с методами промисов из файла cartAsync.js=======================================
-
-// const removedItem = cart
-//   .remove("fagw34546344tghfh5")
-//   .then((id) => {
-//     updateUIAfterRemove(id);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
-
-// function updateUIAfterAdd(item) {
-//   buildCartItem(item);
-// }
-
-// console.log("items: ", items);
-
-// function updateUIAfterRemove(id) {
-//   console.log(`Removing with item id ${id}`);
-// }
-
-// Создание и вызов синхронной функции, которая возвращает мгновенный промис без таймаута==============================
-
-// function updateUIAfterUpdate(id) {
-//   buildCartItems(items);
-//   console.log(
-//     `Сначала выполняется эта функция мгновенно после всего синхронного кода: Updating with item id ${id}`
-//   );
-// }
-
-// cart
-//   .update("fagw34546344tghfh5")
-//   .then(updateUIAfterUpdate)
-//   .catch((error) => {
-//     console.error(error);
-//   });
-
-// console.log("items: ", items);
+deleteItemBtn.addEventListener("click", () => {
+  const deleteElement = document.getElementById("delete__item__input");
+  const name = deleteElement.value;
+  cart
+    .remove(name)
+    .then(cart.updateTableAfterRemove)
+    .catch(() => alert("This product is not in the list! Try again!"))
+    .then(cart.successRemoveMsg(name))
+    .finally(() => (deleteElement.value = ""));
+});
 
 // Импорт массивов, объектов и функций из папки racetrack================================================
 
-// import { race } from "./racetrack/racetrack.js";
-// import { horse } from "./racetrack/horses.js";
-// import { notifyWhenHorseCrossesFinishLine } from "./racetrack/notify-when-horse-finished.js";
-// import { notifyWhenHorseCrashed } from "./racetrack/notify-when-horse-crashed.js";
-// import { notifyWhenRaceFinished } from "./racetrack/notifyWhenRaceFinished.js";
-// import { horses } from "./racetrack/horses.js";
-// import { notifyOnWinner } from "./racetrack/notifyOnWinner.js";
-// console.table("Horses: ", horses);
+import { race } from "./racetrack/racetrack.js";
+import { horse } from "./racetrack/horses.js";
+import { notifyWhenHorseCrossesFinishLine } from "./racetrack/notify-when-horse-finished.js";
+import { notifyWhenHorseCrashed } from "./racetrack/notify-when-horse-crashed.js";
+import { notifyWhenRaceFinished } from "./racetrack/notifyWhenRaceFinished.js";
+import { horses } from "./racetrack/horses.js";
+import { notifyOnWinner } from "./racetrack/notifyOnWinner.js";
+console.table("Horses: ", horses);
 
 // Примеры работы с методами промисов из файла racetrack.js=======================================
 
-// race(horse)
-//   .then(notifyWhenHorseCrossesFinishLine)
-//   .catch(notifyWhenHorseCrashed);
+race(horse)
+  .then(notifyWhenHorseCrossesFinishLine)
+  .catch(notifyWhenHorseCrashed);
 
 // Примеры работы с методами промисов all и race из файла racetrack.js=======================================
 
 // Создаем массив промисов, который будет передан в методы all и race.
 
-// const promises = horses.map((horse) => race(horse));
+const promises = horses.map((horse) => race(horse));
 
 // Метод all принимает массив промисов и возвращает новый промис, который завершится, когда завершатся все промисы в массиве.
 
-// notifyWhenRaceFinished(promises);
+notifyWhenRaceFinished(promises);
 
 // Метод race принимает массив промисов и возвращает новый промис, который завершится, когда завершится первый промис в массиве.
 
-// notifyOnWinner(promises);
-
-// Импорт примера цепного промиса из отдельного файла===============================================
-
-// import { chainedPromiseExample } from "./Chained_promise/chained-promise.js";
-
-// Примеры работы с цепными промисами из файла chained-promise.js=======================================
-
-// chainedPromiseExample
-//   .then((value1) => {
-//     console.log("resolve 1 - ", value1);
-//     return value1 * 2;
-//   })
-//   .then((value2) => {
-//     console.log("resolve 2 - ", value2);
-
-//     return value2 * 3;
-//   })
-//   .then((value3) => {
-//     console.log("resolve 3 - ", value3);
-//     return value3 * 4;
-//   })
-//   .then((value4) => {
-//     console.log("resolve 4 - ", value4);
-//     throw new Error("Error in resolve 4");
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
+notifyOnWinner(promises);
 
 // Примеры работы с бэкендом на примере Fetch API из файла fetchFromSwapi.js=======================================
 
-// fetch("https://swapi.dev/api/planets")
-//   .then((response) => response.json())
-//   .then((data) => console.log(data.results))
-//   .catch((error) => console.error(error));
+fetch("https://swapi.dev/api/planets")
+  .then((response) => response.json())
+  .then((data) => console.log(data.results))
+  .catch((error) => console.error(error));
 
 // Импорт файла геолокации из отдельного файла===============================================
 
-// import { getGeoPosition } from "./geo/geo.js";
+import { getGeoPosition } from "./geo/geo.js";
 
 // Примеры работы с геолокацией из файла geo.js=======================================
 
-// getGeoPosition()
-//   .then((position) => {
-//     console.log("Geo position: ", position);
-//   })
-//   .catch((error) => {
-//     console.error(err.message);
-//   });
+getGeoPosition()
+  .then((position) => {
+    console.log("Geo position: ", position);
+  })
+  .catch((error) => {
+    console.error(err.message);
+  });
 
 // RAF
 // window.requestAnimationFrame()
