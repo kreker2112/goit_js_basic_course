@@ -1,20 +1,39 @@
 {
   "users": [
     {
-      "name": "John Doe",
-      "email": "JohnDoe@gmail",
-      "id": 1,
-      "group": "admin"
-    },
-    {
-      "name": "Vanilla",
-      "email": "vanillajs@mail.com",
+      "name": "Norman",
+      "email": "poly@mail.com",
       "id": 2
     },
     {
-      "name": "Mango",
-      "email": "Mango@mail.com",
+      "name": "Poly",
+      "email": "poly@mail.com",
       "id": 4
+    },
+    {
+      "name": "Oliver",
+      "email": "oliver@mai;.com",
+      "id": 7
+    },
+    {
+      "name": "Nirvana",
+      "email": "nirvana@mail.com",
+      "id": 8
+    },
+    {
+      "name": "Nirvana",
+      "email": "nirvana@mail.com",
+      "id": 9
+    },
+    {
+      "name": "Nirvana",
+      "email": "nirvana@mail.com",
+      "id": 10
+    },
+    {
+      "name": "Nirvana",
+      "email": "nirvana@mail.com",
+      "id": 11
     }
   ]
 }

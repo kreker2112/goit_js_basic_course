@@ -10,7 +10,7 @@ axios.defaults.baseURL = "http://localhost:3030";
 export const axiosApi = {
   // GET - READ функция
   fetchUsers() {
-    return axios.get("/users").then(console.dir).catch(console.warn);
+    return axios.get("/users").then(console.log).catch(console.warn);
   },
 
   fetchUserWithId(userId) {
