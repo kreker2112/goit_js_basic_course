@@ -9,7 +9,9 @@
     <header class="header">
       <div class="container container--header">
         <nav class="nav">
-          <a href="#" class="logo"><img src="./img/logo.svg" alt="2rism" /></a>
+          <a href="#" class="logo"
+            ><img src="./img/logo/logo.svg" alt="2rism"
+          /></a>
 
           <ul class="nav-list">
             <li class="nav-list__item">
@@ -27,7 +29,7 @@
             <li class="nav-list__item">
               <a href="#" class="nav-list__link">destinations</a>
             </li>
-            <li class="nav-list__item">
+            <li cla ss="nav-list__item">
               <a href="#" class="nav-list__link">activities</a>
             </li>
             <li class="nav-list__item">
@@ -37,11 +39,15 @@
 
           <div class="user">
             <div class="user__content">
-              <span class="user__greeting">Hola,</span><br />
+              <span class="user__greeting">Hola,</span>
               <span class="user__name">Hesus Hernandes</span>
             </div>
             <div class="user__avatar">
-              <img class="user__avatar-img" src="./img/user.jpg" alt="Avatar" />
+              <img
+                class="user__avatar-img"
+                src="./img/header/user.jpg"
+                alt="Avatar"
+              />
             </div>
           </div>
         </nav>
@@ -49,7 +55,7 @@
         <div class="header__content">
           <h1 class="header__title">Discover the most engaging places</h1>
 
-          <button class="button">
+          <button type="button" class="button button--huge">
             <img
               class="header__icon-global"
               src="./img/icons/global.svg"
@@ -59,8 +65,107 @@
           </button>
         </div>
 
-        <form action="" class="header-form">FORM</form>
+        <form action="" class="form">
+          <div class="form__input-wrapper form__input--location">
+            <label for="location" class="form__label">Location</label>
+            <input
+              autocomplete="off"
+              type="text"
+              class="form__input"
+              id="location"
+              placeholder="Explore nearby destinations"
+            />
+          </div>
+
+          <div class="form__input-wrapper form__input--activity">
+            <label for="activity" class="form__label">Activity</label>
+            <select name="activity" id="activity" class="form__select">
+              <option value="all">All Activities</option>
+              <option value="Culture">Culture</option>
+              <option value="Sport">Sport</option>
+              <option value="X-Treme">X-Treme</option>
+            </select>
+          </div>
+
+          <div class="form__input-wrapper form__input--date">
+            <label for="date" class="form__label">When</label>
+            <input
+              type="text"
+              class="form__input"
+              id="date"
+              placeholder="Choose a Date"
+            />
+          </div>
+
+          <div class="form__input-wrapper form__input--guests">
+            <label for="guests" class="form__label">Guests</label>
+            <select name="guests" id="guests" class="form__select">
+              <option value="">1 guest</option>
+              <option value="">2 guests</option>
+              <option value="">3 guests</option>
+              <option value="">4 guests or more</option>
+            </select>
+          </div>
+
+          <button type="button" class="button button--search">
+            <img src="./img/icons/search.svg" alt="Search" />Search
+          </button>
+        </form>
       </div>
     </header>
+
+    <main class="main">
+      <!-- Popular -->
+      <section class="section">
+        <div class="container">
+          <div class="section__header">
+            <h2 class="title-1">Popular Destinations</h2>
+          </div>
+          <div class="section__cards section__cards--popular">
+            <article class="card">
+              <a href="#!" class="card__link"></a>
+              <img class="card__img" src="./img/popular/01.jpg" alt="Img" />
+              <h3 class="card__title">Big Sur</h3>
+              <a href="#california" class="card__location">California, USA</a>
+            </article>
+
+            <article class="card">
+              <a href="#!" class="card__link"></a>
+              <img class="card__img" src="./img/popular/02.jpg" alt="Img" />
+              <h3 class="card__title">Prescott</h3>
+              <a href="#arisona" class="card__location">Arisona, USA</a>
+            </article>
+
+            <article class="card">
+              <a href="#!" class="card__link"></a>
+              <img class="card__img" src="./img/popular/03.jpg" alt="Img" />
+              <h3 class="card__title">Fort Mayers</h3>
+              <a href="#florida" class="card__location">Florida, USA</a>
+            </article>
+
+            <article class="card">
+              <a href="#!" class="card__link"></a>
+              <img class="card__img" src="./img/popular/04.jpg" alt="Img" />
+              <h3 class="card__title">Tucson</h3>
+              <a href="#arisona" class="card__location">Arisona, USA</a>
+            </article>
+
+            <article class="card">
+              <a href="#!" class="card__link"></a>
+              <img class="card__img" src="./img/popular/05.jpg" alt="Img" />
+              <h3 class="card__title">St. Joseph</h3>
+              <a href="#michigan" class="card__location">Michigan, USA</a>
+            </article>
+
+            <article class="card">
+              <a href="#!" class="card__link"></a>
+              <img class="card__img" src="./img/popular/06.jpg" alt="Img" />
+              <h3 class="card__title">Madrid</h3>
+              <a href="#spain" class="card__location">Spain</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

@@ -88,6 +88,11 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+/* button,
+input[type="date"] {
+  cursor: pointer;
+} */
+
 input:focus,
 input:active,
 button:focus,
