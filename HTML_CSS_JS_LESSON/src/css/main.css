@@ -270,6 +270,9 @@ body {
 }
 .section__header {
   margin-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .section__cards {
   display: grid;
@@ -279,6 +282,14 @@ body {
 
 .section__cards--popular {
   grid-template-columns: repeat(6, 1fr);
+}
+
+.section__cards--hotels {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.section__cards--activities {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /* Card */
@@ -303,11 +314,29 @@ body {
   margin-bottom: 8px;
 }
 
+.card__img--hotel {
+  width: 320px;
+  height: 346px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card__img--activities {
+  width: 320px;
+  height: 346px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+
 .card__title {
   font-weight: 500;
   font-size: 16px;
   color: #161414;
   margin: 4px 0px;
+}
+
+.card__title--hotel {
+  margin-bottom: 12px;
 }
 
 .card__location {
@@ -319,4 +348,30 @@ body {
 
 .card__location:hover {
   color: #7b61ff;
+}
+
+.card__location-icon {
+  padding-left: 20px;
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+  background-image: url("../img/icons/map-pin-line.svg");
+  background-size: 16px;
+}
+
+.star-img {
+  width: 16px;
+  height: 16px;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card__rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
