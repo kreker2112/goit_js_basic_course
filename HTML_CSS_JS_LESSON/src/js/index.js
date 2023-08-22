@@ -56,4 +56,26 @@ const autoCompleteJS = new autoComplete({
 
 const datepicker = require("js-datepicker");
 
-const picker = datepicker("#date");
+const picker = datepicker("#date", {
+  // Event callbacks.
+  onSelect: (instance) => {
+    // Show which date was selected.
+    console.log(instance.dateSelected);
+  },
+  onShow: (instance) => {
+    console.log("Calendar showing.");
+  },
+  onHide: (instance) => {
+    console.log("Calendar hidden.");
+  },
+  onMonthChange: (instance) => {
+    // Show the month of the selected date.
+    console.log(instance.currentMonthName);
+  },
+
+  // Customizations.
+  formatter: (input, date, instance) => {
+    // This will display the date as `1/1/2019`.
+    input.value = date.toDateString();
+  },
+});

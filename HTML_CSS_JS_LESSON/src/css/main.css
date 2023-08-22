@@ -221,35 +221,6 @@ body {
   margin: 0;
 }
 
-/* Добавление иконок через псевдоэлементы */
-
-/* .form__input::before {
-  content: "";
-  display: block;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  left: 16px;
-  top: 24px;
-} */
-
-/* .form__input--location::before {
-  background-image: url("../img/icons/map.svg");
-  stroke: #fff;
-} */
-
-/* .form__input--activity::before {
-  background-image: url("../img/icons/activity.svg");
-}
-
-.form__input--when::before {
-  background-image: url("../img/icons/calendar.svg");
-}
-
-.form__input--guests::before {
-  background-image: url("../img/icons/guests.svg");
-} */
-
 /* Main */
 
 .title-1 {
@@ -284,18 +255,24 @@ body {
   grid-template-columns: repeat(6, 1fr);
 }
 
-.section__cards--hotels {
+.section__cards--4-in-row {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.section__cards--activities {
-  grid-template-columns: repeat(4, 1fr);
+.section__cards--2-in-row {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* Card */
 
 .card {
   position: relative;
+}
+
+.card__wide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 
 .card__link {
@@ -321,11 +298,22 @@ body {
   margin-bottom: 10px;
 }
 
+.card__img--tips {
+  width: 320px;
+  height: 346px;
+  object-fit: cover;
+  margin: 0;
+}
+
 .card__img--activities {
   width: 320px;
   height: 346px;
   object-fit: cover;
   margin-bottom: 16px;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 .card__title {
@@ -370,8 +358,130 @@ body {
   cursor: pointer;
 }
 
+.card__footer--wide {
+  margin-top: auto;
+}
+
+.card__footer-link {
+  font-size: 12px;
+  color: #878787;
+  position: relative;
+  z-index: 1;
+}
+
+.card__footer-link:hover {
+  color: #7b61ff;
+}
+
 .card__rating {
   display: flex;
   align-items: center;
   gap: 2px;
 }
+
+.card__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card__title--big {
+  color: #161414;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.card__text {
+  color: #5b5b5b;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.card__footer-link {
+  font-size: 12px;
+  color: #878787;
+  position: relative;
+  z-index: 1;
+
+  padding-left: 20px;
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+}
+
+.card__footer-link--date {
+  background-image: url("../img/icons/calendar-gray.svg");
+  background-size: 16px;
+}
+
+.card__footer-link--author {
+  background-image: url("../img/icons/user.svg");
+  background-size: 16px;
+}
+
+.card__footer-link--comments {
+  background-image: url("../img/icons/comment.svg");
+  background-size: 16px;
+}
+
+.about-us {
+  margin: 0 auto;
+  max-width: 1144;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.about-us__desc {
+  display: grid;
+  gap: 32px;
+  align-content: center;
+}
+.about-us__title {
+  color: #161414;
+  font-size: 32px;
+  font-weight: 600;
+}
+.about-us__text {
+  color: #5b5b5b;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.about-us__btn {
+  justify-self: flex-start;
+}
+
+.about-us__img {
+  width: 556px;
+  height: 488px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Добавление иконок через псевдоэлементы */
+
+/* .form__input::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 16px;
+  top: 24px;
+} */
+
+/* .form__input--location::before {
+  background-image: url("../img/icons/map.svg");
+  stroke: #fff;
+} */
+
+/* .form__input--activity::before {
+  background-image: url("../img/icons/activity.svg");
+}
+
+.form__input--when::before {
+  background-image: url("../img/icons/calendar.svg");
+}
+
+.form__input--guests::before {
+  background-image: url("../img/icons/guests.svg");
+} */
