@@ -47,7 +47,13 @@ const autoCompleteJS = new autoComplete({
     },
   },
   resultList: {
+    tag: "input",
+    id: "location",
+    class: "form__input",
+    destination: "#location",
+    position: "afterend",
     maxResults: 15,
+    noResults: true,
   },
   searchEngine: "strict",
 });
@@ -78,4 +84,15 @@ const picker = datepicker("#date", {
     // This will display the date as `1/1/2019`.
     input.value = date.toDateString();
   },
+});
+
+// Работа с инпутами
+
+const inputSubscribe = document.querySelector(".subscribe__input");
+const label = document.querySelector(".subscribe__label");
+
+inputSubscribe.addEventListener("input", () => {
+  inputSubscribe.value.trim()
+    ? label.classList.add("subscribe__label--top")
+    : label.classList.remove("subscribe__label--top");
 });
