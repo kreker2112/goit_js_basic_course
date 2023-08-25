@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import "./buttons.css";
 @import "./../../node_modules/js-datepicker/dist/datepicker.min.css";
+@import "./media.css";
+@import "./nav-icon.css";
+@import "./mobile-nav.css";
 
 body {
   font-family: "Poppins", sans-serif;
@@ -11,13 +14,17 @@ body {
 /* Header */
 
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   height: 800px;
   padding: 31px 0 100px;
 
   background-color: #000;
   background-image: url("../img/header/header-bg.jpeg");
   background-size: cover;
-  /* background-position: center center; */
+  background-position: center center;
 
   border-radius: 0 0 54px 54px;
 
@@ -41,7 +48,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  align-items: center;
 }
 
 /* Nav */
@@ -66,10 +72,6 @@ body {
   column-gap: 54px;
   font-size: 14px;
   font-weight: 300;
-}
-
-.nav-list__item {
-  /* text-transform: capitalize; */
 }
 
 .nav-list__link {
@@ -175,6 +177,7 @@ body {
   width: 300px;
   background-image: url("../img/icons/map.svg");
   background-size: 28px;
+  background-position: 7% 50%;
 }
 
 .form__input--activity {
@@ -210,6 +213,7 @@ body {
   padding: 0;
   margin: 0;
   cursor: pointer;
+  overflow-y: scroll;
 }
 
 .form__input::placeholder {
@@ -236,10 +240,7 @@ body {
   display: grid;
   gap: 120px;
 }
-.section {
-}
-.container {
-}
+
 .section__header {
   margin-bottom: 64px;
   display: flex;
@@ -499,8 +500,7 @@ body {
 .footer__socials-item:hover {
   transform: scale(1.05);
 }
-.footer__socials-link:hover {
-}
+
 .footer__socials-logo {
   width: 32px;
   height: 32px;
@@ -529,8 +529,7 @@ body {
   display: grid;
   gap: 12px;
 }
-.footer__nav-item {
-}
+
 .footer__nav-link {
   font-size: 13px;
   color: #5b5b5b;

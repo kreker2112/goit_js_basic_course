@@ -46,14 +46,9 @@ const autoCompleteJS = new autoComplete({
       },
     },
   },
+  threshold: 0,
   resultList: {
-    tag: "input",
-    id: "location",
-    class: "form__input",
-    destination: "#location",
-    position: "afterend",
     maxResults: 15,
-    noResults: true,
   },
   searchEngine: "strict",
 });
@@ -96,3 +91,13 @@ inputSubscribe.addEventListener("input", () => {
     ? label.classList.add("subscribe__label--top")
     : label.classList.remove("subscribe__label--top");
 });
+
+// Импорт обработчика событий для мобильных устройств
+
+import { mobileNavScript } from "./mobile-nav";
+
+// Инициализация обработчика событий для мобильных устройств
+
+const mobileNav = new mobileNavScript();
+
+mobileNav.bindEvents();

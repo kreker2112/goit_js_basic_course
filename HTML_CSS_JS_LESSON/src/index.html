@@ -37,19 +37,25 @@
             </li>
           </ul>
 
-          <div class="user">
-            <div class="user__content">
-              <span class="user__greeting">Hola,</span>
-              <span class="user__name">Jesus Hernandes</span>
-            </div>
-            <div class="user__avatar">
-              <img
-                class="user__avatar-img"
-                src="./img/header/user.jpg"
-                alt="Avatar"
-              />
+          <div class="nav__user">
+            <div class="user">
+              <div class="user__content">
+                <span class="user__greeting">Hola,</span>
+                <span class="user__name">Jesus Hernandes</span>
+              </div>
+              <div class="user__avatar">
+                <img
+                  class="user__avatar-img"
+                  src="./img/header/user.jpg"
+                  alt="Avatar"
+                />
+              </div>
             </div>
           </div>
+
+          <button class="mobile-nav-btn">
+            <div class="nav-icon"></div>
+          </button>
         </nav>
 
         <div class="header__content">
@@ -65,7 +71,7 @@
           </button>
         </div>
 
-        <form action="" class="form">
+        <form action="" class="form none">
           <div class="form__input-wrapper form__input--location">
             <label for="location" class="form__label">Location</label>
             <input
@@ -90,6 +96,7 @@
           <div class="form__input-wrapper form__input--date">
             <label for="date" class="form__label">When</label>
             <input
+              autocomplete="off"
               type="text"
               class="form__input"
               id="date"
@@ -113,6 +120,20 @@
         </form>
       </div>
     </header>
+
+    <div class="mobile-nav-fade"></div>
+
+    <div class="mobile-nav">
+      <ul class="mobile-nav__list">
+        <li><a href="#!" class="active">Home</a></li>
+        <li><a href="#!">hotels</a></li>
+        <li><a href="#!">restaurants</a></li>
+        <li><a href="#!">tours</a></li>
+        <li><a href="#!">destinations</a></li>
+        <li><a href="#!">activities</a></li>
+        <li><a href="#!">contact</a></li>
+      </ul>
+    </div>
 
     <main class="main">
       <!-- Popular -->
@@ -601,8 +622,15 @@
 
             <form action="" class="subscribe">
               <div class="subscribe__input-wrapper">
-                <input type="email" class="subscribe__input" required />
-                <label for="" class="subscribe__label">Your Email</label>
+                <input
+                  type="email"
+                  id="subscribe__input-id"
+                  class="subscribe__input"
+                  required
+                />
+                <label for="subscribe__input-id" class="subscribe__label"
+                  >Your Email</label
+                >
               </div>
               <div class="subscribe__btn-wrapper">
                 <button class="button button--subscribe">

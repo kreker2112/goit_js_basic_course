@@ -1,0 +1,31 @@
+@media (max-width: 1226px) {
+  .header {
+    height: auto !important;
+    min-height: 500px;
+    border-radius: 0 0 40px 40px !important;
+  }
+
+  .container--header {
+    width: 100%;
+    justify-content: flex-start;
+    row-gap: 90px;
+  }
+
+  .nav__user {
+    display: none !important;
+  }
+  .nav-list {
+    display: none !important;
+  }
+
+  .mobile-nav-btn {
+    display: block !important;
+    position: absolute !important;
+    top: 35px;
+    right: 35px;
+  }
+
+  .form {
+    width: 100% !important;
+  }
+}
