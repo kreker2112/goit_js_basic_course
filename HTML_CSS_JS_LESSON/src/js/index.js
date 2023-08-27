@@ -81,7 +81,7 @@ const picker = datepicker("#date", {
   },
 });
 
-// Работа с инпутами
+// Работа с инпутами подписки===========================================================
 
 const inputSubscribe = document.querySelector(".subscribe__input");
 const label = document.querySelector(".subscribe__label");

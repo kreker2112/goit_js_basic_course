@@ -25,6 +25,12 @@
   right: 0;
 }
 
+.nav__user--mobile-nav {
+  margin: 0 auto;
+  color: #fff;
+  padding: 20px 0 0 0;
+}
+
 .mobile-nav-fade {
   position: fixed;
   left: 0;

@@ -61,10 +61,6 @@ body {
 
 .logo {
   flex-shrink: 0;
-  /* width: 128px;
-  height: 128px;
-  display: flex;
-  align-items: center; */
 }
 
 .nav-list {
@@ -153,6 +149,7 @@ body {
 .form {
   display: flex;
   align-items: center;
+  align-self: center;
 
   width: 1140px;
   height: 88px;
@@ -178,6 +175,10 @@ body {
   background-image: url("../img/icons/map.svg");
   background-size: 28px;
   background-position: 7% 50%;
+}
+
+.autoComplete_wrapper > input {
+  height: 25px !important;
 }
 
 .form__input--activity {
@@ -253,7 +254,7 @@ body {
   gap: 32px;
 }
 
-.section__cards--popular {
+.section__cards--6-in-row {
   grid-template-columns: repeat(6, 1fr);
 }
 
@@ -629,3 +630,11 @@ body {
 .form__input--guests::before {
   background-image: url("../img/icons/guests.svg");
 } */
+
+/* .main {
+  display: none;
+} */
+
+.footer {
+  display: none;
+}

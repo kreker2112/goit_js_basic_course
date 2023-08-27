@@ -21,7 +21,7 @@
   column-gap: 8px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 601px) {
   .button--huge {
     padding: 12px !important;
     font-size: 16px !important;

@@ -6,9 +6,13 @@
   }
 
   .container--header {
-    width: 100%;
+    width: 100% !important;
     justify-content: flex-start;
     row-gap: 90px;
+  }
+
+  .header__title {
+    font-size: 32px !important;
   }
 
   .nav__user {
@@ -27,5 +31,75 @@
 
   .form {
     width: 100% !important;
+  }
+
+  .button--search img {
+    max-width: none !important;
+    height: 20px !important;
+  }
+
+  .main {
+    row-gap: 60px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .section__header {
+    margin-bottom: 34px !important;
+  }
+
+  .title-1 {
+    font-size: 26px !important;
+  }
+
+  .section__cards--6-in-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 970px) {
+  .form__input--location {
+    width: 235px !important;
+  }
+
+  .form__input--date {
+    width: 200px !important;
+  }
+
+  .qs-datepicker {
+    z-index: 9 !important;
+  }
+
+  .form__input--guests {
+    width: 140px !important;
+  }
+
+  .form__input--activity {
+    width: 180px !important;
+  }
+}
+
+@media (max-width: 880px) {
+  .form {
+    width: auto !important;
+    height: auto !important;
+    flex-direction: column !important;
+  }
+
+  .button--search {
+    width: 100%;
+  }
+
+  .button--search img {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .form__input-wrapper {
+    width: 100% !important;
+  }
+
+  .autoComplete_wrapper > input {
+    width: auto !important;
   }
 }
