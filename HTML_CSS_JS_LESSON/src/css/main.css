@@ -86,12 +86,14 @@ body {
   display: flex;
   align-items: center;
   column-gap: 8px;
+  cursor: pointer;
 }
 
 .user__content {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  cursor: pointer;
 }
 
 .user__greeting {
@@ -234,6 +236,7 @@ body {
   font-size: 32px;
   line-height: 1, 5;
   color: #161414;
+  cursor: default;
 }
 
 .main {
@@ -287,11 +290,14 @@ body {
 }
 
 .card__img {
-  width: 203px;
-  height: 203px;
+  width: 100%;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 8px;
+}
+
+.card__img--popular {
+  height: 100%;
 }
 
 .card__img--hotel {
@@ -324,6 +330,7 @@ body {
   font-size: 16px;
   color: #161414;
   margin: 4px 0px;
+  cursor: default;
 }
 
 .card__title--hotel {
@@ -354,7 +361,7 @@ body {
   height: 16px;
 }
 
-.card__footer {
+.card__footer--hotels {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -363,6 +370,9 @@ body {
 
 .card__footer--wide {
   margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .card__footer-link {
@@ -442,11 +452,13 @@ body {
   color: #161414;
   font-size: 32px;
   font-weight: 600;
+  cursor: default;
 }
 .about-us__text {
   color: #5b5b5b;
   font-size: 16px;
   line-height: 2;
+  cursor: default;
 }
 
 .about-us__btn {
@@ -552,7 +564,8 @@ body {
 }
 .subscribe {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 72px;
+  gap: 16px;
 }
 .subscribe__input-wrapper {
   position: relative;
@@ -631,10 +644,26 @@ body {
   background-image: url("../img/icons/guests.svg");
 } */
 
-/* .main {
+/* .section--popular {
   display: none;
-} */
+}
+
+.section--hotels {
+  display: none;
+}
+
+.section--tips {
+  display: none;
+}
+
+.section--activities {
+  display: none;
+}
+
+.section--about-us {
+  display: none;
+}
 
 .footer {
   display: none;
-}
+} */

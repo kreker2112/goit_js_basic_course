@@ -1,4 +1,40 @@
-@media (max-width: 1226px) {
+@media (max-width: 1475px) {
+  .footer {
+    padding: 60px 0px !important;
+  }
+  .footer__row {
+    grid-template-columns: 1fr 3fr !important;
+  }
+  .footer__subscribe {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    max-width: none !important;
+  }
+  .subscribe__input {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 1303px) {
+  .about-us__img {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 1300px) {
+  .card__title--hotel {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 1285px) {
+  .card__location--hotels {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 1230px) {
   .header {
     height: auto !important;
     min-height: 500px;
@@ -55,6 +91,54 @@
   .section__cards--6-in-row {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+
+  .section__cards--4-in-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .section__cards {
+    gap: 55px !important;
+    column-gap: 20px !important;
+  }
+
+  .section__cards--hotels {
+    gap: 20px !important;
+  }
+
+  .card__link--footer {
+    margin: 0 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+
+  .card__location {
+    margin: 6px 0px;
+  }
+
+  .card__footer {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+
+  .card__text {
+    font-size: 14px !important;
+  }
+
+  .card__img {
+    width: 100% !important;
+  }
+  .card__title--hotel {
+    font-size: 18px !important;
+  }
+
+  .card__title--big {
+    font-size: 18px !important;
+  }
+  .card__location--hotels {
+    font-size: 14px !important;
+  }
 }
 
 @media (max-width: 970px) {
@@ -76,6 +160,9 @@
 
   .form__input--activity {
     width: 180px !important;
+  }
+  .section__cards--2-in-row {
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }
 
@@ -102,4 +189,235 @@
   .autoComplete_wrapper > input {
     width: auto !important;
   }
+
+  .about-us {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .about-us__desc {
+    gap: 8px !important;
+  }
+  .about-us__title {
+    margin: 16px 0px !important;
+    font-size: 26px !important;
+  }
+  .about-us__text {
+    margin: 7px 0px !important;
+    font-size: 14px !important;
+  }
+  .about-us__btn {
+    justify-self: flex-end !important;
+  }
+}
+
+@media (max-width: 790px) {
+  .footer__row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 747px) {
+  .section__cards--6-in-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 740px) {
+  .card__title--hotel {
+    font-size: 15px !important;
+  }
+  .card__location--hotels {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 670px) {
+  .card__title--hotel {
+    font-size: 15px !important;
+    text-align: center !important;
+  }
+  .card__footer--hotels {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .card__location--hotels {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 630px) {
+  .card__title--hotel {
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+  .card__footer--hotels {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .card__location--hotels {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .section__cards--4-in-row {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .card__title--hotel {
+    font-size: 18px !important;
+  }
+
+  .card__footer--hotels {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+
+  .card__location--hotels {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .card__wide {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .card__desc {
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 515px) {
+  .section__cards {
+    gap: 55px !important;
+  }
+
+  .section__cards--6-in-row {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .card__link--footer {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+  }
+
+  .card__location {
+    margin: 6px 0px;
+  }
+
+  .card__title--popular {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 495px) {
+  .title-1--hotels {
+    font-size: 20px !important;
+  }
+  .title-1--tips {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .title-1--hotels {
+    font-size: 19px !important;
+  }
+}
+
+@media (max-width: 415px) {
+  .title-1--tips {
+    font-size: 19px !important;
+  }
+  .card__title--big {
+    font-size: 16px !important;
+  }
+  .about-us__desc {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .button-more--about-us {
+    justify-content: center !important;
+  }
+  .section__header--popular {
+    justify-content: center !important;
+  }
+  .footer__row {
+    text-align: center !important;
+    gap: 32px !important;
+  }
+  .footer__nav-wrapper {
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+  .footer__nav {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .footer__socials {
+    justify-content: center !important;
+  }
+
+  .footer__logo {
+    margin: auto !important;
+  }
+}
+
+@media (max-width: 413px) {
+  .title-1--hotels {
+    font-size: 24px !important;
+  }
+
+  .title-1--tips {
+    font-size: 24px !important;
+  }
+
+  .section__header--hotels {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .section__header--tips {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .button-more--tips {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .button-more--hotels {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .title-1--hotels {
+    font-size: 24px !important;
+  }
+  .card__title--hotel {
+    font-size: 14px !important;
+  }
+  .card__location--hotels {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  /* .title-1--hotels {
+    font-size: 24px !important;
+  } */
+  /* .title-1--tips {
+    font-size: 24px !important;
+  } */
 }

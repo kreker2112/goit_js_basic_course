@@ -38,19 +38,20 @@
           </ul>
 
           <div class="nav__user">
-            <div class="user">
-              <div class="user__content">
-                <span class="user__greeting">Hola,</span>
-                <span class="user__name">Jesus Hernandes</span>
-              </div>
-              <div class="user__avatar">
-                <img
-                  class="user__avatar-img"
-                  src="./img/header/user.jpg"
-                  alt="Avatar"
-                />
-              </div>
-            </div>
+            <a href="#!"
+              ><div class="user">
+                <div class="user__content">
+                  <span class="user__greeting">Hola,</span>
+                  <span class="user__name">Jesus Hernandes</span>
+                </div>
+                <div class="user__avatar">
+                  <img
+                    class="user__avatar-img"
+                    src="./img/header/user.jpg"
+                    alt="Avatar"
+                  />
+                </div></div
+            ></a>
           </div>
 
           <button class="mobile-nav-btn">
@@ -158,63 +159,101 @@
 
     <main class="main">
       <!-- Popular -->
-      <section class="section">
+      <section class="section--popular">
         <div class="container">
-          <header class="section__header">
-            <h2 class="title-1">Popular Destinations</h2>
+          <header class="section__header section__header--popular">
+            <h2 class="title-1 title-1--popular">Popular Destinations</h2>
           </header>
-          <div class="section__cards section__cards--6-in-row">
+          <div
+            class="section__cards section__cards--6-in-row section__cards--popular"
+          >
             <article class="card">
               <a href="#!" class="card__link"></a>
-              <img class="card__img" src="./img/popular/01.jpg" alt="Img" />
-              <h3 class="card__title">Big Sur</h3>
-              <a href="#california" class="card__location">California, USA</a>
+              <img
+                class="card__img card__img--popular"
+                src="./img/popular/01.jpg"
+                alt="Img"
+              />
+              <footer class="card__link--footer">
+                <h3 class="card__title card__title--popular">Big Sur</h3>
+                <a href="#california" class="card__location">California, USA</a>
+              </footer>
             </article>
 
             <article class="card">
               <a href="#!" class="card__link"></a>
-              <img class="card__img" src="./img/popular/02.jpg" alt="Img" />
-              <h3 class="card__title">Prescott</h3>
-              <a href="#arisona" class="card__location">Arisona, USA</a>
+              <img
+                class="card__img card__img--popular"
+                src="./img/popular/02.jpg"
+                alt="Img"
+              />
+              <footer class="card__link--footer">
+                <h3 class="card__title card__title--popular">Prescott</h3>
+                <a href="#arisona" class="card__location">Arisona, USA</a>
+              </footer>
             </article>
 
             <article class="card">
               <a href="#!" class="card__link"></a>
-              <img class="card__img" src="./img/popular/03.jpg" alt="Img" />
-              <h3 class="card__title">Fort Mayers</h3>
-              <a href="#florida" class="card__location">Florida, USA</a>
+              <img
+                class="card__img card__img--popular"
+                src="./img/popular/03.jpg"
+                alt="Img"
+              />
+              <footer class="card__link--footer">
+                <h3 class="card__title card__title--popular">Fort Mayers</h3>
+                <a href="#florida" class="card__location">Florida, USA</a>
+              </footer>
             </article>
 
             <article class="card">
               <a href="#!" class="card__link"></a>
-              <img class="card__img" src="./img/popular/04.jpg" alt="Img" />
-              <h3 class="card__title">Tucson</h3>
-              <a href="#arisona" class="card__location">Arisona, USA</a>
+              <img
+                class="card__img card__img--popular"
+                src="./img/popular/04.jpg"
+                alt="Img"
+              />
+              <footer class="card__link--footer">
+                <h3 class="card__title card__title--popular">Tucson</h3>
+                <a href="#arisona" class="card__location">Arisona, USA</a>
+              </footer>
             </article>
 
             <article class="card">
               <a href="#!" class="card__link"></a>
-              <img class="card__img" src="./img/popular/05.jpg" alt="Img" />
-              <h3 class="card__title">St. Joseph</h3>
-              <a href="#michigan" class="card__location">Michigan, USA</a>
+              <img
+                class="card__img card__img--popular"
+                src="./img/popular/05.jpg"
+                alt="Img"
+              />
+              <footer class="card__link--footer">
+                <h3 class="card__title card__title--popular">St. Joseph</h3>
+                <a href="#michigan" class="card__location">Michigan, USA</a>
+              </footer>
             </article>
 
             <article class="card">
               <a href="#!" class="card__link"></a>
-              <img class="card__img" src="./img/popular/06.jpg" alt="Img" />
-              <h3 class="card__title">Madrid</h3>
-              <a href="#spain" class="card__location">Spain</a>
+              <img
+                class="card__img card__img--popular"
+                src="./img/popular/06.jpg"
+                alt="Img"
+              />
+              <footer class="card__link--footer">
+                <h3 class="card__title card__title--popular">Madrid</h3>
+                <a href="#spain" class="card__location">Spain</a>
+              </footer>
             </article>
           </div>
         </div>
       </section>
 
       <!-- Hotels -->
-      <section class="section">
+      <section class="section--hotels">
         <div class="container">
-          <header class="section__header">
-            <h2 class="title-1">Hotels and Restaurants</h2>
-            <a href="#!" class="button-more">
+          <header class="section__header section__header--hotels">
+            <h2 class="title-1 title-1--hotels">Hotels and Restaurants</h2>
+            <a href="#!" class="button-more button-more--hotels">
               View All
               <img
                 class="arrow-more"
@@ -223,7 +262,9 @@
               />
             </a>
           </header>
-          <div class="section__cards section__cards--4-in-row">
+          <div
+            class="section__cards section__cards--hotels section__cards--4-in-row"
+          >
             <article class="card">
               <a href="#!" class="card__link"></a>
               <img
@@ -235,8 +276,11 @@
                 Monastero Santa Rosa Hotel & Spa
               </h3>
 
-              <footer class="card__footer">
-                <a href="#salerno" class="card__location card__location-icon">
+              <footer class="card__footer--hotels">
+                <a
+                  href="#salerno"
+                  class="card__location card__location-icon card__location--hotels"
+                >
                   Salerno, Italy
                 </a>
                 <div class="card__rating">
@@ -264,8 +308,11 @@
                 Grand Hotel Tremezo
               </h3>
 
-              <footer class="card__footer">
-                <a href="#lake_como" class="card__location card__location-icon">
+              <footer class="card__footer--hotels">
+                <a
+                  href="#lake_como"
+                  class="card__location card__location-icon card__location--hotels"
+                >
                   Lake Como, Italy
                 </a>
                 <div class="card__rating">
@@ -293,8 +340,11 @@
                 The Oberoi Udaivilas, Udaipur
               </h3>
 
-              <footer class="card__footer">
-                <a href="#udaipur" class="card__location card__location-icon">
+              <footer class="card__footer--hotels">
+                <a
+                  href="#udaipur"
+                  class="card__location card__location-icon card__location--hotels"
+                >
                   Udaipur, India
                 </a>
                 <div class="card__rating">
@@ -324,10 +374,10 @@
               />
               <h3 class="card__title card__title--hotel">AKA Beverly Hills</h3>
 
-              <footer class="card__footer">
+              <footer class="card__footer--hotels">
                 <a
                   href="#los_angeles"
-                  class="card__location card__location-icon"
+                  class="card__location card__location-icon card__location--hotels"
                 >
                   Los Angeles, United States
                 </a>
@@ -357,11 +407,11 @@
       </section>
 
       <!-- Travel Tips and Advice -->
-      <section class="section">
+      <section class="section--tips">
         <div class="container">
-          <header class="section__header">
-            <h2 class="title-1">Travel Tips and Advice</h2>
-            <a href="#!" class="button-more">
+          <header class="section__header section__header--tips">
+            <h2 class="title-1 title-1--tips">Travel Tips and Advice</h2>
+            <a href="#!" class="button-more button-more--tips">
               View All
               <img
                 class="arrow-more"
@@ -450,9 +500,9 @@
       </section>
 
       <!-- Activities -->
-      <section class="section">
+      <section class="section--activities">
         <div class="container">
-          <header class="section__header">
+          <header class="section__header section__header--activities">
             <h2 class="title-1">Activities</h2>
             <a href="#!" class="button-more">
               View All
@@ -509,7 +559,7 @@
       </section>
 
       <!-- About Us -->
-      <section class="section">
+      <section class="section--about-us">
         <div class="container">
           <div class="about-us">
             <div class="about-us__desc">
@@ -526,14 +576,17 @@
                 to start.
               </p>
               <div class="about-us__btn">
-                <a href="#read-more" class="button-more">Read More</a>
+                <a href="#read-more" class="button-more button-more--about-us"
+                  >Read More</a
+                >
               </div>
             </div>
-            <img
-              class="about-us__img"
-              src="./img/about-us/about.jpg"
-              alt="about-us"
-            />
+            <a href="#about-us-img"
+              ><img
+                class="about-us__img"
+                src="./img/about-us/about.jpg"
+                alt="about-us"
+            /></a>
           </div>
         </div>
       </section>
@@ -644,6 +697,7 @@
             <form action="" class="subscribe">
               <div class="subscribe__input-wrapper">
                 <input
+                  autocomplete="off"
                   type="email"
                   id="subscribe__input-id"
                   class="subscribe__input"
