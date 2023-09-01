@@ -16,7 +16,7 @@
   align-items: flex-start;
   padding: 40px;
 
-  /* backkround: linear-gradient(209deg, #4287b3 -17.38%, #133f6b 78.4%), #276195; */
+  background: linear-gradient(209deg, #4287b3 -17.38%, #133f6b 78.4%), #276195;
   background-color: #141d22;
   transition: all 0.4s ease-in;
 }
