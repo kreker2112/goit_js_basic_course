@@ -12,7 +12,7 @@
   "homepage": "https://kreker2112.github.io/goit_js_basic_course",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/ef0be9ea7c5631f2a83bdeefd7d75bdd1374b291/promise-api-lesson"
+    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/d36909c73754a91f142afadd0f80ccd220e4fcb9/Masonry-lesson"
   },
   "keywords": [],
   "author": "Tkachov Oleksandr <kreker2112@gmail.com>",
@@ -42,7 +42,9 @@
     "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.3",
     "html-loader": "^4.2.0",
+    "imagesloaded": "^5.0.0",
     "lodash.debounce": "^4.0.8",
+    "masonry-layout": "^4.2.2",
     "notyf": "^3.10.0",
     "postcss-preset-env": "^8.5.0",
     "siema": "^1.5.1",

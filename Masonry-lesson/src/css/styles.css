@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+/* force scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* ---- grid ---- */
+
+.grid {
+  background: #ddd;
+}
+
+/* clear fix */
+.grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: calc(33% - 10px);
+  margin-bottom: 20px;
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
