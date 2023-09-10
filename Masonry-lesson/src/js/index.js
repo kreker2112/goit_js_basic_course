@@ -66,7 +66,9 @@ fetch(
   .then((response) => response.json())
   .then(({ hits }) => {
     // webformatURL - это свойство объекта, которое содержит ссылку на маленькое изображение
-    const elements = hits.map((hit) => makeGridItem(hit.webformatURL));
+    const elements = hits.map((hit) =>
+      makeGridItem(hit.webformatURL, hit.tags)
+    );
     // Добавление элементов в DOM
     document.querySelector("#gallery").append(...elements);
     // Добавление элементов в экземпляр Masonry для слежения за ними
