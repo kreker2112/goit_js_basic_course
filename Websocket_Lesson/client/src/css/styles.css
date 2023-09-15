@@ -1,0 +1,112 @@
+@import "./reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 10px;
+}
+
+.chatty {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  border: #328de2 solid 1px;
+  border-radius: 15px;
+  background-color: #d7e9db;
+}
+.mychat {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.nametag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #328de2;
+}
+
+.nametag b {
+  color: #000;
+}
+.message-editor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 10px;
+
+  width: 100%;
+  padding: 10px;
+}
+
+.message-editor > input {
+  width: 100%;
+  height: 50px;
+  border-radius: 15px;
+  border: #328de2 solid 1px;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+input:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+}
+
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+}
+
+input:-ms-input-placeholder {
+  text-align: center;
+}
+
+.button__send {
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: #328de2;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.message-feed {
+  padding: 10px;
+  overflow-y: scroll;
+  word-break: break-all;
+  height: 400px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  color: #000;
+}
