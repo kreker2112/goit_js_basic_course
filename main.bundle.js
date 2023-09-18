@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
-;// CONCATENATED MODULE: ./js/gallery-items.js
+;// CONCATENATED MODULE: ./items/gallery-items.js
 var galleryItems = [{
   preview: "https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg",
   original: "https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg",
@@ -40,7 +40,17 @@ var galleryItems = [{
   original: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
   description: "Lighthouse Coast Sea"
 }];
-;// CONCATENATED MODULE: ./app.js
+;// CONCATENATED MODULE: ./js/refs.js
+
+
+var refs = {
+  gallery: document.querySelector('.js-gallery'),
+  lightbox: document.querySelector('.js-lightbox'),
+  closeButton: document.querySelector('button[data-action="close-lightbox"]'),
+  lightboxOverlay: document.querySelector('.js-lightbox__overlay'),
+  lightboxImage: document.querySelector('.js-lightbox__image')
+};
+;// CONCATENATED MODULE: ./js/image_generator_by_index.js
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -56,10 +66,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
-
-var index;
-
-// * ImageGenerator
 var ImageGeneratorByIndex = /*#__PURE__*/function () {
   function ImageGeneratorByIndex() {
     _classCallCheck(this, ImageGeneratorByIndex);
@@ -87,26 +93,46 @@ var ImageGeneratorByIndex = /*#__PURE__*/function () {
   }]);
   return ImageGeneratorByIndex;
 }();
-var imageGenerator = new ImageGeneratorByIndex();
+;// CONCATENATED MODULE: ./js/create_images_with_pattern_string.js
 
-//* Refs:
 
-var refs = {
-  gallery: document.querySelector('.js-gallery'),
-  lightbox: document.querySelector('.js-lightbox'),
-  closeButton: document.querySelector('button[data-action="close-lightbox"]'),
-  lightboxOverlay: document.querySelector('.js-lightbox__overlay'),
-  lightboxImage: document.querySelector('.js-lightbox__image')
-};
-
-//* Functions:
 
 function createImagesGalleryWithPatternString() {
   var container = document.querySelector('.js-gallery');
   galleryItems.forEach(function (item) {
-    container.insertAdjacentHTML('beforeend', " <li class=\"gallery__item js-gallery__item\">\n      <a\n        class=\"gallery__link\"\n        href=\"".concat(item.original, "\"\n      >\n        <img\n          class=\"gallery__image\"\n          src=\"").concat(item.preview, "\"\n          data-source=\"").concat(item.original, "\"\n          alt=\"").concat(item.description, "\"\n        />\n      </a>\n    </li>"));
+    container.insertAdjacentHTML('beforeend', " <li class=\"gallery__item js-gallery__item\">\n        <a\n          class=\"gallery__link\"\n          href=\"".concat(item.original, "\"\n        >\n          <img\n            class=\"gallery__image\"\n            src=\"").concat(item.preview, "\"\n            data-source=\"").concat(item.original, "\"\n            alt=\"").concat(item.description, "\"\n          />\n        </a>\n      </li>"));
   });
 }
+;// CONCATENATED MODULE: ./app.js
+
+
+// * Index variable:
+var index;
+
+// * Styles import:
+
+
+
+// * Gallery items import:
+
+
+
+//* Refs import:
+
+
+
+// * ImageGenerator class import:
+
+
+
+//* Functions:
+
+// Import createImagesGalleryWithPatternString function:
+
+
+
+// Modal functions:
+
 function openModal(e) {
   var targetImgSrc = e.target.src;
   for (var i = 0; i < galleryItems.length; i += 1) {
@@ -161,14 +187,14 @@ window.addEventListener('keydown', function (e) {
   switch (e.key) {
     case 'ArrowRight':
       if (index === galleryItems.length - 1) {
-        return;
+        index = -1;
       }
       index += 1;
       newImage.addImageByIndex(index);
       break;
     case 'ArrowLeft':
       if (index === 0) {
-        return;
+        index = galleryItems.length;
       }
       index -= 1;
       newImage.addImageByIndex(index);
