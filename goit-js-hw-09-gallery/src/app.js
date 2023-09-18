@@ -1,8 +1,8 @@
 'use strict';
 
-import { galleryItems } from './js/gallery-items.js';
+import { galleryItems } from './gallery-items.js';
 
-import './css/styles.css';
+import './styles.css';
 
 let index;
 
