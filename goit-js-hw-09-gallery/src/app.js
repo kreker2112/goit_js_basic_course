@@ -1,69 +1,32 @@
 'use strict';
 
-import { galleryItems } from './js/gallery-items.js';
-
-import './css/styles.css';
+// * Index variable:
 
 let index;
 
-// * ImageGenerator
-class ImageGeneratorByIndex {
-  getImageByIndex(index) {
-    const imageObjectArray = [];
-    const imagesArray = [
-      ...refs.gallery.querySelectorAll('img.gallery__image'),
-    ];
-    for (let i = 0; i < imagesArray.length; i += 1) {
-      const imageObject = {
-        source: imagesArray[i].getAttribute('data-source'),
-        alt: imagesArray[i].getAttribute('alt'),
-      };
-      imageObjectArray.push(imageObject);
-    }
+// * Styles import:
 
-    return imageObjectArray[index];
-  }
-  addImageByIndex(index) {
-    refs.lightboxImage.src = this.getImageByIndex(index).source;
-    refs.lightboxImage.alt = this.getImageByIndex(index).alt;
-  }
-}
+import './css/styles.css';
 
-const imageGenerator = new ImageGeneratorByIndex();
+// * Gallery items import:
 
-//* Refs:
+import { galleryItems } from './items/gallery-items.js';
 
-const refs = {
-  gallery: document.querySelector('.js-gallery'),
-  lightbox: document.querySelector('.js-lightbox'),
-  closeButton: document.querySelector('button[data-action="close-lightbox"]'),
-  lightboxOverlay: document.querySelector('.js-lightbox__overlay'),
-  lightboxImage: document.querySelector('.js-lightbox__image'),
-};
+//* Refs import:
+
+import { refs } from './js/refs.js';
+
+// * ImageGenerator class import:
+
+import { ImageGeneratorByIndex } from './js/image_generator_by_index.js';
 
 //* Functions:
 
-function createImagesGalleryWithPatternString() {
-  const container = document.querySelector('.js-gallery');
-  galleryItems.forEach(item => {
-    container.insertAdjacentHTML(
-      'beforeend',
-      ` <li class="gallery__item js-gallery__item">
-      <a
-        class="gallery__link"
-        href="${item.original}"
-      >
-        <img
-          class="gallery__image"
-          src="${item.preview}"
-          data-source="${item.original}"
-          alt="${item.description}"
-        />
-      </a>
-    </li>`,
-    );
-  });
-}
+// Import createImagesGalleryWithPatternString function:
+
+import { createImagesGalleryWithPatternString } from './js/create_images_with_pattern_string.js';
+
+// Modal functions:
 
 function openModal(e) {
   const targetImgSrc = e.target.src;
@@ -131,7 +94,7 @@ window.addEventListener('keydown', e => {
   switch (e.key) {
     case 'ArrowRight':
       if (index === galleryItems.length - 1) {
-        return;
+        index = -1;
       }
       index += 1;
       newImage.addImageByIndex(index);
@@ -139,7 +102,7 @@ window.addEventListener('keydown', e => {
 
     case 'ArrowLeft':
       if (index === 0) {
-        return;
+        index = galleryItems.length;
       }
       index -= 1;
       newImage.addImageByIndex(index);
