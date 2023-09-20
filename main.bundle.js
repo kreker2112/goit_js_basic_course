@@ -1660,7 +1660,7 @@ function buildMenu() {
   }).join('');
   refs.menu.insertAdjacentHTML('beforeend', markup);
 }
-;// CONCATENATED MODULE: ./index.js
+;// CONCATENATED MODULE: ./app.js
 
 
 
