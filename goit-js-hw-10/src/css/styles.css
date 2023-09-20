@@ -165,6 +165,9 @@ body.dark-theme {
   align-items: center;
   margin-top: 24px;
   font-size: 20px;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .card__price i {
@@ -199,6 +202,11 @@ body.dark-theme {
   border-radius: 2px;
   background-color: #3f51b5;
   color: #fff;
+}
+
+.tag-list__link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .button {
