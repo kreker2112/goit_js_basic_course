@@ -20,8 +20,6 @@ import { refs } from './js/refs.js';
 
 import { ImageGeneratorByIndex } from './js/image_generator_by_index.js';
 
-//* Functions:
-
 // Import createImagesGalleryWithPatternString function:
 
 import { createImagesGalleryWithPatternString } from './js/create_images_with_pattern_string.js';
@@ -75,11 +73,11 @@ function closeModalByBackdropClick(event) {
   closeModal();
 }
 
-//* Callbacks
+//* Callbacks for createImagesGalleryWithPatternString function:
 
 createImagesGalleryWithPatternString(galleryItems);
 
-//* Event Listeners
+//* Event Listeners for modal:
 
 refs.gallery.addEventListener('click', openModal);
 
