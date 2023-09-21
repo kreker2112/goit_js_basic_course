@@ -133,6 +133,13 @@ body.dark-theme {
   justify-content: space-between;
   height: 100%;
   padding-bottom: 8px;
+  cursor: default;
+  border-radius: 4px;
+}
+
+.card:hover {
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
 }
 
 .card__content {
@@ -202,6 +209,10 @@ body.dark-theme {
   border-radius: 2px;
   background-color: #3f51b5;
   color: #fff;
+}
+
+.tag-list__item:hover {
+  background-color: #303f9f;
 }
 
 .tag-list__link {
