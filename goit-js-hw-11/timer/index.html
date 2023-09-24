@@ -7,27 +7,46 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="timer" id="timer-1">
-      <div class="field">
-        <span class="value" data-value="days">11</span>
-        <span class="label">Days</span>
-      </div>
+    <main class="timer-main">
+      <form action="" class="timer-inputs">
+        <div class="input-date">
+          <label for="date" class="form__label">Choose a Date:</label>
+          <input
+            autocomplete="off"
+            type="date"
+            class="form__input"
+            id="date"
+            placeholder="Choose a Date"
+          />
+        </div>
+        <div class="timer-buttons">
+          <button type="button" class="start-button">Start Timer</button>
+          <button type="button" class="stop-button">Stop Timer</button>
+        </div>
+      </form>
 
-      <div class="field">
-        <span class="value" data-value="hours">11</span>
-        <span class="label">Hours</span>
-      </div>
+      <div class="timer" id="timer-1">
+        <div class="field">
+          <span class="value" data-value="days">00</span>
+          <span class="label">Days</span>
+        </div>
 
-      <div class="field">
-        <span class="value" data-value="mins">11</span>
-        <span class="label">Minutes</span>
-      </div>
+        <div class="field">
+          <span class="value" data-value="hours">00</span>
+          <span class="label">Hours</span>
+        </div>
 
-      <div class="field">
-        <span class="value" data-value="secs">11</span>
-        <span class="label">Seconds</span>
+        <div class="field">
+          <span class="value" data-value="mins">00</span>
+          <span class="label">Minutes</span>
+        </div>
+
+        <div class="field">
+          <span class="value" data-value="secs">00</span>
+          <span class="label">Seconds</span>
+        </div>
       </div>
-    </div>
+    </main>
   </body>
-  <script src="timer.js"></script>
+  <script src="index.js"></script>
 </html>
