@@ -49,6 +49,7 @@
     "html-loader": "^4.2.0",
     "js-datepicker": "^5.18.2",
     "lodash.debounce": "^4.0.8",
+    "notiflix": "^3.2.6",
     "notyf": "^3.10.0",
     "postcss-preset-env": "^8.5.0",
     "siema": "^1.5.1",

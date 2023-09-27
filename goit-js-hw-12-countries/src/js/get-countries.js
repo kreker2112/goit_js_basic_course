@@ -4,7 +4,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://restcountries.com/v3.1/";
 
-const fields = "?fields=name,capital,population,flag,languages";
+const fields = "?fields=name,capital,population,flags,languages";
 
 export async function getCountries(name) {
   const country = await axios.get(`name/${name}${fields}`);
