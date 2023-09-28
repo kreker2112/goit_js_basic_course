@@ -1,7 +1,7 @@
 {
-  "name": "html_css_js_lesson",
+  "name": "goit-js-hw-13-image-finder",
   "version": "1.0.0",
-  "description": "My-html_css_js_lesson",
+  "description": "goit-js-hw-13-image-finder",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
@@ -12,7 +12,7 @@
   "homepage": "https://kreker2112.github.io/goit_js_basic_course",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/f977db5aab1e457b4b694e675d372b7cc0907d96/HTML_CSS_JS_LESSON"
+    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/aaf2f3503608c9abbfc2f05ba43b8e0c5f7d6d5c/goit-js-hw-13-image-finder"
   },
   "keywords": [],
   "author": "Tkachov Oleksandr <kreker2112@gmail.com>",
