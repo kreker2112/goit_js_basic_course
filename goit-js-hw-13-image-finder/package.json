@@ -1,7 +1,7 @@
 {
-  "name": "goit-js-hw-12-countries",
+  "name": "html_css_js_lesson",
   "version": "1.0.0",
-  "description": "goit-js-hw-12-countries",
+  "description": "My-html_css_js_lesson",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
@@ -12,7 +12,7 @@
   "homepage": "https://kreker2112.github.io/goit_js_basic_course",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/0863c6eee1fa2cfc5a08d5e7cad443b5b07a088a/goit-js-hw-12-countries"
+    "url": "https://github.com/kreker2112/goit_js_basic_course/tree/f977db5aab1e457b4b694e675d372b7cc0907d96/HTML_CSS_JS_LESSON"
   },
   "keywords": [],
   "author": "Tkachov Oleksandr <kreker2112@gmail.com>",
