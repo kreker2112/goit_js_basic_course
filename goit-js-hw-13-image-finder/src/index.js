@@ -50,6 +50,7 @@ function onSearch(e) {
 
   // Запись ответа от сервера в переменную:
   const imagesResponse = getImages(searchQuery, pageNumber);
+
   // Вызов цепочки промисов для получения изображений:
   imagesResponse
     .then((images) => {
@@ -144,5 +145,7 @@ function addMoreImagesOnClick() {
     // Проверка на последнюю страницу:
     .catch(console.warn);
 }
+
+// Подписка на событие отправки формы:
 
 refs.searchForm.addEventListener("submit", onSearch);
