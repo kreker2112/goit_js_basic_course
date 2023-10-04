@@ -20,11 +20,25 @@ import imageCard from "./templates/photo-card.hbs";
 
 import { refs } from "./js/refs.js";
 
+// Импорт библиотеки для модального окна:
+
+import SimpleLightbox from "simplelightbox";
+
+// Импорт стилей для модального окна:
+
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 // Функция рендера карточек изображений:
 function renderImageCard(imagesArr) {
   const markup = imagesArr.map((image) => imageCard(image)).join("");
   refs.gallery.insertAdjacentHTML("beforeend", markup);
 }
+
+let lightbox = new SimpleLightbox(".gallery a", {
+  captions: true,
+  captionsData: "alt",
+  captionDelay: 250,
+});
 
 // Объявление переменных:
 
@@ -71,14 +85,16 @@ async function onSearch(e) {
     successSearch(totalHits);
 
     // Проверка на наличие совпадений:
-    if (currentHits === 0) {
-      return alertNoMatches();
-    }
+    checkNoMatches();
+
     // Очистка галереи:
     refs.gallery.innerHTML = "";
 
     // Рендер карточек изображений:
     renderImageCard(imagesArr);
+
+    // Добавление модального окна:
+    lightbox.refresh();
 
     // Подписка на событие клика по кнопке "Загрузить еще":
     refs.loadMoreBtn.addEventListener("click", addMoreImagesOnClick);
@@ -153,6 +169,9 @@ async function addMoreImagesOnClick() {
 
     // Рендер карточек изображений:
     renderImageCard(imagesArr);
+
+    // Добавление модального окна:
+    lightbox.refresh();
 
     // Проверка на последнюю страницу:
     checkForLastPage(totalHits);

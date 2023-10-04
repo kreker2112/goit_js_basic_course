@@ -53,6 +53,7 @@
     "notyf": "^3.10.0",
     "postcss-preset-env": "^8.5.0",
     "siema": "^1.5.1",
+    "simplelightbox": "^2.14.2",
     "uniqid": "^5.4.0"
   }
 }
