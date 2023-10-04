@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: "./index.js",
+  entry: "./indexAsync.js",
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),

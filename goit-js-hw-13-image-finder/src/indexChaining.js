@@ -66,6 +66,9 @@ function onSearch(e) {
       const totalHits = images.data.totalHits;
       console.log("totalHits: ", totalHits);
 
+      // Вызов функции уведомления об успешном поиске:
+      successSearch(totalHits);
+
       // Проверка на наличие совпадений:
       if (currentHits === 0) {
         return alertNoMatches();
@@ -82,13 +85,17 @@ function onSearch(e) {
 
       // Подписка на событие клика по кнопке "Загрузить еще":
       refs.loadMoreBtn.addEventListener("click", addMoreImagesOnClick);
+
       // Проверка на последнюю страницу:
-      if (totalHits <= pageNumber * 40) {
-        refs.loadMoreBtn.classList.remove("is-open");
-        warningNoMatches();
-      }
+      checkForLastPage(totalHits);
     })
     .catch(console.warn);
+}
+
+function successSearch(totalHits) {
+  if (totalHits > 0) {
+    Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
+  }
 }
 
 // Функция уведомления об отсутствии совпадений:
@@ -98,6 +105,7 @@ function alertNoMatches() {
   );
 }
 
+// Функция уведомления о достижении последней страницы:
 function warningNoMatches() {
   Notiflix.Notify.warning(
     "We're sorry, but you've reached the end of search results."
@@ -112,19 +120,34 @@ function addMoreButton(totalHits) {
   refs.loadMoreBtn.classList.add("is-open");
 }
 
+function checkForLastPage(totalHits) {
+  if (totalHits <= pageNumber * 40) {
+    refs.loadMoreBtn.classList.remove("is-open");
+    warningNoMatches();
+  }
+}
+
+// ========================================================================================
+
 // Функция добавления изображений при клике на кнопку "Загрузить еще":
 function addMoreImagesOnClick() {
   // Увеличение номера страницы на 1 при клике на кнопку "Загрузить еще":
   pageNumber += 1;
+
   // Запись ответа от сервера в переменную:
   const imagesResponse = getImages(searchQuery, pageNumber);
+
   // Вызов цепочки промисов для получения изображений:
   imagesResponse
     .then((images) => {
       // Запись массива изображений из ответа от сервера в переменную:
       const imagesArr = images.data.hits;
+      console.log("currentHits after LoadMore: ", currentHits * pageNumber);
+
       // Запись количества найденных изображений в переменную:
       const totalHits = images.data.totalHits;
+      console.log("totalHits after LoadMore: ", totalHits);
+
       // Проверка на наличие совпадений:
       if (currentHits === 0) {
         alertNoMatches();
@@ -132,6 +155,10 @@ function addMoreImagesOnClick() {
       }
       // Рендер карточек изображений:
       renderImageCard(imagesArr);
+
+      // Проверка на последнюю страницу:
+      checkForLastPage(totalHits);
+
       // Добавление скролла при клике на кнопку "Загрузить еще":
       const { height: cardHeight } = document
         .querySelector(".gallery")
@@ -142,7 +169,7 @@ function addMoreImagesOnClick() {
         behavior: "smooth",
       });
     })
-    // Проверка на последнюю страницу:
+    // Отлавливание ошибки:
     .catch(console.warn);
 }
 
