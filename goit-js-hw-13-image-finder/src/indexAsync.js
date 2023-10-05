@@ -30,7 +30,9 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 // // Импорт библиотеки для ленивой загрузки:
 
-// import { lazyLoad } from "./js/lazy-load.js";
+import { lazyLoad } from "./js/lazy-load.js";
+
+// ========================================================================================
 
 // Функция рендера карточек изображений:
 function renderImageCard(imagesArr) {
@@ -105,6 +107,9 @@ async function onSearch(e) {
 
     // Проверка на последнюю страницу:
     checkForLastPage(totalHits);
+
+    // Активация ленивой загрузки:
+    activateLazyLoad();
   } catch (error) {
     console.log(error);
   }
@@ -189,6 +194,9 @@ async function addMoreImagesOnClick() {
       top: cardHeight * 2.5,
       behavior: "smooth",
     });
+
+    // Активация ленивой загрузки:
+    activateLazyLoad();
   } catch (error) {
     console.log(error);
   }
@@ -200,10 +208,13 @@ refs.searchForm.addEventListener("submit", onSearch);
 
 // ========================================================================================
 
-// // Запись всех изображений в переменную:
-// const images = document.querySelectorAll(".gallery img");
+// Функция активации ленивой загрузки:
+function activateLazyLoad() {
+  // Запись всех изображений в переменную:
+  const images = document.querySelectorAll(".gallery img");
 
-// // Применение ленивой загрузки к каждому изображению:
-// images.forEach((image) => {
-//   lazyLoad(image);
-// });
+  // Применение ленивой загрузки к каждому изображению:
+  images.forEach((image) => {
+    lazyLoad(image);
+  });
+}
