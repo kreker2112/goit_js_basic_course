@@ -23,7 +23,7 @@ const projects = [
     skills: "React, Node.js, MongoDB",
     img: project01,
     imgBig: project01Big,
-    gitHubLink: "https://github.com",
+    gitHubLink: "https://github.com/kreker2112",
   },
   {
     key: 2,
@@ -31,7 +31,7 @@ const projects = [
     skills: "React, PHP, MySQL",
     img: project02,
     imgBig: project02Big,
-    gitHubLink: "https://github.com",
+    gitHubLink: "https://github.com/kreker2112",
   },
   {
     key: 3,
@@ -39,7 +39,7 @@ const projects = [
     skills: "Vue JS, Node.js, MongoDB",
     img: project03,
     imgBig: project03Big,
-    gitHubLink: "https://github.com",
+    gitHubLink: "https://github.com/kreker2112",
   },
   {
     key: 4,
