@@ -1,3 +1,61 @@
 .header {
-  color: aqua;
+  padding: 46px 0 56px;
+}
+
+.header__row {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.header__logo span {
+  font-family: Poppins;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.header__nav {
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.22px;
+}
+
+.header__nav ul {
+  display: flex;
+  align-items: flex-start;
+  gap: 65px;
+}
+
+.header__nav a {
+  color: var(--textColor);
+}
+
+.header__nav-btn,
+a.header__nav-btn {
+  padding: 13px 22px 17px;
+  border-radius: 7px;
+  background-color: #000;
+
+  color: #fefefe;
+
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.72px;
 }
