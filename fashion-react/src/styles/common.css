@@ -1,6 +1,7 @@
 :root {
   --textColor: #000;
   --yellow: #ebd96b;
+  --gray: #7f7f7f;
 }
 
 body {
@@ -12,4 +13,34 @@ body {
   max-width: 1780px;
   margin: 0 auto;
   padding: 0 30px;
+}
+
+.title-2 {
+  display: inline-block;
+
+  position: relative;
+
+  color: #000;
+
+  font-family: Poppins;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.04167%;
+  letter-spacing: 0.06em;
+  z-index: 1;
+}
+
+.title-2::after {
+  content: "";
+  position: absolute;
+
+  right: 0;
+  bottom: -24px;
+  width: 190px;
+  height: 32px;
+  background-image: url(./../img/icons/decor-yellow.svg);
+  background-repeat: no-repeat;
+
+  z-index: -1;
 }

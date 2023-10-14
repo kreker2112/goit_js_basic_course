@@ -1,0 +1,13 @@
+.arrivals {
+  padding: 120px 100px 143px;
+}
+
+.arrivals__header {
+  margin-bottom: 114px;
+}
+
+.arrivals__cars {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 131px;
+}
