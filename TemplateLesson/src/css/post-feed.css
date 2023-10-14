@@ -19,8 +19,8 @@
 }
 
 .post-feed__item::marker {
-  content: "";
-  list-style-type:none;
+  content: '';
+  list-style-type: none;
 }
 
 .post-feed__item:hover {
@@ -52,7 +52,7 @@
   border-radius: 50%;
 }
 
-.post__text{
+.post__text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -76,6 +76,6 @@
 }
 
 .tag-list__item::marker {
-  content: "";
-  list-style-type:none;
+  content: '';
+  list-style-type: none;
 }

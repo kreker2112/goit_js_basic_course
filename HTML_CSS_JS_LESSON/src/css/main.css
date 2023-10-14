@@ -273,6 +273,7 @@ body {
 
 .card {
   position: relative;
+  transition: all 0.5s;
 }
 
 .card__wide {
