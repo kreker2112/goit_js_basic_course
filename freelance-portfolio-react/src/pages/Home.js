@@ -11,13 +11,14 @@ const Home = () => {
             <li className="content-list__item">
               <h2 className="title-2">Frontend</h2>
               <p>
-                JavaScript, TypeScript, ReactJS, Angular, Redux, HTML, CSS, NPM,
-                BootStrap, MaterialUI, Yarn, TailwindCSS, StyledComponents
+                JavaScript, TypeScript, ReactJS, Vue3, Vue3 + Composition API,
+                Vuex, HTML, CSS, SCSS(SASS), NPM, BootStrap, Yarn, TailwindCSS,
+                Handlebars, Vue-router, Websocket, Webpack, Axios, REST API
               </p>
             </li>
             <li className="content-list__item">
               <h2 className="title-2">Backend</h2>
-              <p>NodeJS, MySQL, MongoDB, PHP, Laravel</p>
+              <p>NodeJS, MySQL, MongoDB, ASP.NET API, PostgreSQL </p>
             </li>
           </ul>
         </div>

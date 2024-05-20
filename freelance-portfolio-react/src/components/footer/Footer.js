@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="footer__wrapper">
           <ul className="social">
             <li className="social__item">
-              <a href="#!">
+              <a href="https://www.facebook.com/profile.php?id=100003309521867&locale=uk_UA">
                 <img src={facebook} alt="Link" />
               </a>
             </li>
@@ -28,12 +28,12 @@ const Footer = () => {
               </a>
             </li>
             <li className="social__item">
-              <a href="#!">
+              <a href="https://github.com/kreker2112">
                 <img src={gitHub} alt="Link" />
               </a>
             </li>
             <li className="social__item">
-              <a href="#!">
+              <a href="https://www.linkedin.com/in/oleksandr-tkachov-72560380/">
                 <img src={linkedIn} alt="Link" />
               </a>
             </li>
