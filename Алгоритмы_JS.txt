@@ -40,7 +40,10 @@ function findMax(arr) {
     return Math.max(...arr);
 }
 
-
+function findMinMax(arr) {
+    return { min: Math.min(...arr), max: Math.max(...arr) };
+}
+console.log(findMinMax([1, 2, 3, 4, 5])); // { min: 1, max: 5 }
 
 5. Удаление дубликатов из массива
 
@@ -228,6 +231,31 @@ function linearSearch(arr, target) {
     }
     return -1; // Если не найдено
 }
+
+18. Факториал
+
+function factorial(n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120
+
+19. Сумма чисел в массиве
+
+function sumArray(arr) {
+    return arr.reduce((sum, num) => sum + num, 0);
+}
+console.log(sumArray([1, 2, 3, 4, 5])); // 15
+
+20. Удаление всех гласных из строки
+
+function removeVowels(str) {
+    return str.replace(/[aeiou]/gi, '');
+}
+console.log(removeVowels("hello world")); // "hll wrld"
+
+
+
 
 
 
