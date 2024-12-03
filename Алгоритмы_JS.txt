@@ -2,22 +2,33 @@
 1. Реверс строки
 
 function reverseString(str) {
-    return str.split('').reverse().join('');
+    // Разбиваем строку на массив символов
+    return str.split('')
+        // Переворачиваем массив
+        .reverse()
+        // Соединяем массив обратно в строку
+        .join('');
 }
+
 
 
 2. Проверка на палиндром
 
 function isPalindrome(str) {
+    // Убираем все не-буквенные и не-цифровые символы, приводим к нижнему регистру
     const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    // Сравниваем очищенную строку с её реверсной версией
     return cleaned === cleaned.split('').reverse().join('');
 }
+
 
 
 3. Фибоначчи
 
 function fibonacci(n) {
+    // Базовый случай: если n <= 1, возвращаем n
     if (n <= 1) return n;
+    // Рекурсивный вызов для получения суммы двух предыдущих чисел
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
@@ -25,56 +36,69 @@ function fibonacci(n) {
 4. Поиск максимального числа в массиве
 
 function findMax(arr) {
+    // Используем spread-оператор для передачи массива в Math.max
     return Math.max(...arr);
 }
+
 
 
 5. Удаление дубликатов из массива
 
 function removeDuplicates(arr) {
+    // Создаём Set, который автоматически удаляет дубликаты, и преобразуем его обратно в массив
     return [...new Set(arr)];
 }
-
 
 6. Анаграммы
 
 function isAnagram(str1, str2) {
+    // Нормализуем строки: приводим к нижнему регистру, сортируем буквы
     const normalize = str => str.toLowerCase().split('').sort().join('');
+    // Сравниваем нормализованные версии строк
     return normalize(str1) === normalize(str2);
 }
+
 
 
 7. FizzBuzz
 
 for (let i = 1; i <= 100; i++) {
     let output = '';
+    // Если число делится на 3, добавляем 'Fizz'
     if (i % 3 === 0) output += 'Fizz';
+    // Если число делится на 5, добавляем 'Buzz'
     if (i % 5 === 0) output += 'Buzz';
+    // Если ни одно условие не выполнено, выводим число
     console.log(output || i);
 }
+
 
 
 8. Двоичный поиск
 
 function binarySearch(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
+    let left = 0; // Левая граница
+    let right = arr.length - 1; // Правая граница
 
     while (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-        if (arr[mid] === target) return mid;
-        if (arr[mid] < target) left = mid + 1; 
-        else right = mid - 1;
+        const mid = Math.floor((left + right) / 2); // Находим середину
+        if (arr[mid] === target) return mid; // Если нашли, возвращаем индекс
+        if (arr[mid] < target) left = mid + 1; // Сдвигаем левую границу
+        else right = mid - 1; // Сдвигаем правую границу
     }
-    return -1;
+    return -1; // Элемент не найден
 }
+
+
 
 
 9. Сортировка массива (пузырьковая)
 
 function bubbleSort(arr) {
+    // Проходим по массиву несколько раз
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length - i - 1; j++) {
+            // Если текущий элемент больше следующего, меняем их местами
             if (arr[j] > arr[j + 1]) {
                 [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
             }
@@ -84,64 +108,71 @@ function bubbleSort(arr) {
 }
 
 
+
 10. Сумма двух чисел
 
 function twoSum(arr, target) {
-    const map = new Map();
+    const map = new Map(); // Создаём Map для хранения индексов элементов
     for (let i = 0; i < arr.length; i++) {
-        const complement = target - arr[i];
+        const complement = target - arr[i]; // Находим число, которое в сумме с текущим даёт target
         if (map.has(complement)) {
-            return [map.get(complement), i];
+            return [map.get(complement), i]; // Если нашли подходящее число, возвращаем индексы
         }
-        map.set(arr[i], i);
+        map.set(arr[i], i); // Сохраняем текущий элемент в Map
     }
-    return [];
+    return []; // Если не найдено
 }
+
 
 
 11. Баланс скобок
 
 function isValidBrackets(str) {
-    const stack = [];
-    const map = {
-        ')': '(',
-        '}': '{',
-        ']': '['
-    };
+    const stack = []; // Используем стек для отслеживания открытых скобок
+    const map = { ')': '(',
+                  '}': '{',
+                  ']': '['
+    }; // Карта пар скобок
 
     for (let char of str) {
         if (['(', '{', '['].includes(char)) {
-            stack.push(char);
+            stack.push(char); // Если это открывающая скобка, добавляем в стек
         } else if (map[char] && stack.pop() !== map[char]) {
-            return false;
+            return false;  // Если это закрывающая скобка и последняя в стеке не соответствует
         }
     }
-    return stack.length === 0;
+    return stack.length === 0; // Если стек пустой, скобки сбалансированы
 }
+
 
 
 12. Частота символов в строке
 
 function charFrequency(str) {
-    const freq = {};
+    const freq = {}; // Объект для хранения частоты символов
     for (let char of str) {
+        // Увеличиваем счётчик для каждого символа
         freq[char] = (freq[char] || 0) + 1;
     }
     return freq;
 }
 
 
+
 13. Поиск первого уникального элемента
 
 function findUnique(arr) {
-  return arr.find(item => arr.indexOf(item) === arr.lastIndexOf(item));
+    // Находим элемент, который встречается только один раз
+    return arr.find(item => arr.indexOf(item) === arr.lastIndexOf(item));
 }
+
 
 
 14. Поиск всех уникальных элементов
 
 function findAllUnique(arr) {
-  return arr.filter(item => arr.indexOf(item) === arr.lastIndexOf(item));
+    // Фильтруем массив, оставляя только уникальные элементы
+    return arr.filter(item => arr.indexOf(item) === arr.lastIndexOf(item));
 }
 
 
@@ -149,44 +180,54 @@ function findAllUnique(arr) {
 
 function secondLargest(arr) {
   let max = -Infinity, secondMax = -Infinity;
+  // Инициализируем две переменные `max` и `secondMax` значением `-Infinity` (минимально возможное значение).
+  // `max` будет хранить наибольшее число в массиве, а `secondMax` — второе по величине число.
   for (const num of arr) {
+
     if (num > max) {
-      secondMax = max;
-      max = num;
+      secondMax = max; // Сохраняем текущее значение `max` во `secondMax`, потому что оно теперь становится вторым по величине.
+      max = num; // Обновляем `max` новым наибольшим значением `num`.
     } else if (num > secondMax && num !== max) {
+      // В противном случае, если `num` больше `secondMax`, но меньше или не равно `max` (то есть число претендует на второе место),
       secondMax = num;
+      // Обновляем `secondMax` значением `num`.
     }
   }
   return secondMax;
 }
 
 
+
+
 16. Быстрая сортировка (QuickSort)
 
 function quickSort(arr) {
-  if (arr.length <= 1) return arr;
+    if (arr.length <= 1) return arr; // Базовый случай
 
-  const pivot = arr[arr.length - 1];
-  const left = [];
-  const right = [];
+    const pivot = arr[arr.length - 1]; // Выбираем опорный элемент
+    const left = []; // Меньше опорного
+    const right = []; // Больше опорного
 
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] < pivot) left.push(arr[i]);
-    else right.push(arr[i]);
-  }
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] < pivot) left.push(arr[i]);
+        else right.push(arr[i]);
+    }
 
-  return [...quickSort(left), pivot, ...quickSort(right)];
+    // Рекурсивно сортируем левую и правую части
+    return [...quickSort(left), pivot, ...quickSort(right)];
 }
+
 
 
 17. Линейный поиск
 
 
 function linearSearch(arr, target) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === target) return i;
-  }
-  return -1;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) return i; // Возвращаем индекс, если найдено
+    }
+    return -1; // Если не найдено
 }
+
 
 
