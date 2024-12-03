@@ -101,6 +101,32 @@
 
 	Так как методы Promise.prototype.then() и Promise.prototype.catch() сами возвращают промис, их можно вызывать цепочкой, создавая соединения.
 
+    Пример параллельного одновременного получения промисов без PromiseAllSettled
+
+    function getPromise(delay, value) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                console.log(`Промис с задержкой ${delay} мс завершен`);
+                resolve(value);
+        },  delay);
+      });
+    }
+
+    async function getAllResults() {
+        // Запускаем промисы по отдельности
+        const promise1 = getPromise(2000, 'Результат 1');
+        const promise2 = getPromise(1000, 'Результат 2');
+        const promise3 = getPromise(3000, 'Результат 3');
+
+        // Ожидаем завершения всех промисов
+        const result1 = await promise1;
+        const result2 = await promise2;
+        const result3 = await promise3;
+
+        // Обрабатываем результаты одновременно
+        console.log('Все результаты получены одновременно:', [result1, result2, result3]);
+    }
+
 21. **Как создать объект в JavaScript?**
     - Объект можно создать с помощью литерала объекта `{}` или с помощью конструктора `new Object()`.
 
@@ -402,4 +428,6 @@
     Модель–представление–контроллер (MVC): Разделяет логику приложения на три слоя: Модель (Model), Представление (View) и Контроллер (Controller).
     Модель–представление–ViewModel (MVVM): Паттерн похож на MVC, но используется для разделения представления и логики в приложениях, активно работающих с данными (например, с использованием Vue.js).
     Модель–представление–Presenter (MVP): Похож на MVC, но с акцентом на взаимодействие между Представлением и Presenter, где Модель и Представление полностью разделены.
+
+
 
