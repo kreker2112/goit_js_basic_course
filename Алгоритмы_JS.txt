@@ -232,7 +232,9 @@ function linearSearch(arr, target) {
     return -1; // Если не найдено
 }
 
+
 18. Факториал
+
 
 function factorial(n) {
     if (n <= 1) return 1;
@@ -240,14 +242,18 @@ function factorial(n) {
 }
 console.log(factorial(5)); // 120
 
+
 19. Сумма чисел в массиве
+
 
 function sumArray(arr) {
     return arr.reduce((sum, num) => sum + num, 0);
 }
 console.log(sumArray([1, 2, 3, 4, 5])); // 15
 
+
 20. Удаление всех гласных из строки
+
 
 function removeVowels(str) {
     return str.replace(/[aeiou]/gi, '');
