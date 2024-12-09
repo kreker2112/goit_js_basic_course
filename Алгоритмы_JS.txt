@@ -35,17 +35,21 @@ function fibonacci(n) {
 
 4. Поиск максимального числа в массиве
 
+
 function findMax(arr) {
     // Используем spread-оператор для передачи массива в Math.max
     return Math.max(...arr);
 }
+
 
 function findMinMax(arr) {
     return { min: Math.min(...arr), max: Math.max(...arr) };
 }
 console.log(findMinMax([1, 2, 3, 4, 5])); // { min: 1, max: 5 }
 
+
 5. Удаление дубликатов из массива
+
 
 function removeDuplicates(arr) {
     // Создаём Set, который автоматически удаляет дубликаты, и преобразуем его обратно в массив
@@ -131,20 +135,24 @@ function twoSum(arr, target) {
 11. Баланс скобок
 
 function isValidBrackets(str) {
-    const stack = []; // Используем стек для отслеживания открытых скобок
-    const map = { ')': '(',
-                  '}': '{',
-                  ']': '['
-    }; // Карта пар скобок
+    const stack = [];
+    const map = {
+        ')': '(',
+        '}': '{',
+        ']': '['
+    };
 
     for (let char of str) {
-        if (['(', '{', '['].includes(char)) {
-            stack.push(char); // Если это открывающая скобка, добавляем в стек
-        } else if (map[char] && stack.pop() !== map[char]) {
-            return false;  // Если это закрывающая скобка и последняя в стеке не соответствует
+        if (char in map) { // Если это закрывающая скобка
+            if (stack.pop() !== map[char]) {
+                return false; // Скобки не сбалансированы
+            }
+        } else if (['(', '{', '['].includes(char)) {
+            stack.push(char); // Если это открывающая скобка
         }
     }
-    return stack.length === 0; // Если стек пустой, скобки сбалансированы
+
+    return stack.length === 0; // Если стек пустой, все скобки сбалансированы
 }
 
 
